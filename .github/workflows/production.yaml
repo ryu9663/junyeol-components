@@ -10,14 +10,50 @@ jobs:
   Deploy-Production:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+      # 깃헙 액션 봇으로 npm version 올린 후 커밋
+      - name: Commit files
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          npm version patch
+
+      # 올라간 버전을 원격 저장소에 커밋
+      - name: Push changes
+        uses: ad-m/github-push-action@main
+        with:
+          tags: true
+          branch: ${{ github.ref }}
+
+      # pnpm 설치 및 사용을 위한 설정
+      - name: Setup Node and Install pnpm
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+        run: |
+          npm install -g pnpm
+
+      # 빌드 후 npm에 배포
+      - name: Npm Publish
+        run: |
+          pnpm ci
+          pnpm run build
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+
+      # Vercel CLI 설치 및 프로젝트 배포
+      - name: Install and Deploy with Vercel
+        run: |
+          npm install --global vercel@latest
+          vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+          vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }}
+
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
+
       - name: Install pnpm
         run: npm install -g pnpm
-      - name: Pull Vercel Environment Information
-        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-      - name: Build Project Artifacts
-        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
-      - name: Deploy Project Artifacts to Vercel
-        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
