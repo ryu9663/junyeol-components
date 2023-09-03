@@ -1,0 +1,15 @@
+.github
+.storybook
+.vercel
+node_modules
+public
+.env
+.eslintrc.cjs
+.gitignore
+build-storybook.log
+index.html
+package.json
+pnpm-lock.yaml
+tsconfig.json
+tsconfig.node.json
+vite.config.ts
