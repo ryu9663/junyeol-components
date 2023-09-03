@@ -15,6 +15,22 @@ jobs:
         run: npm install --global vercel@latest
       - name: Install pnpm
         run: npm install -g pnpm
+
+      # NPM PUBLISH
+      - name: Patch
+        run: npm version patch
+      - name: Deploy and Push
+        run: |
+          git config --global user.name "${GITHUB_ACTOR}"
+          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git add package.json
+          git commit -m "${{ (steps.commit.outputs.content) }}"
+          echo ${{ (steps.commit.outputs.content) }}
+
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      # DEPLOY
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
       - name: Build Project Artifacts
