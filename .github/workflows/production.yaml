@@ -18,14 +18,13 @@ jobs:
 
       # PATHC VERSION
       - name: Update patch version
-      run: |
-        npm version patch
+        run: npm version patch
 
       - name: Push changes
-      uses: ad-m/github-push-action@v0.5.0
-      with:
-        github_token: ${{ secrets.GIT_ACTION_SECRET_KEY }}
-        branch: ${{ github.ref }}
+        uses: ad-m/github-push-action@v0.5.0
+        with:
+          github_token: ${{ secrets.GIT_ACTION_SECRET_KEY }}
+          branch: ${{ github.ref }}
 
       # DEPLOY
       - name: Pull Vercel Environment Information
