@@ -51,9 +51,3 @@ jobs:
           npm install --global vercel@latest
           vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
           vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }}
-
-      - name: Install Vercel CLI
-        run: npm install --global vercel@latest
-
-      - name: Install pnpm
-        run: npm install -g pnpm
