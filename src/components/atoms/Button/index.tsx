@@ -1,29 +1,20 @@
+import { ReactNode } from "react";
 import { cleanClassName } from "../../../utils";
 import styles from "./index.module.scss";
 
 export type ButtonColor = "primary" | "secondary";
 export type ButtonSize = "small" | "medium" | "large";
 
-interface ButtonProps {
-  /**
-   * Is this the principal call to action on the page?
-   */
-  color?: ButtonColor;
-  /**
-   * What background color to use
-   */
+type HtmlButtonProps = React.DetailedHTMLProps<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  HTMLButtonElement
+>;
 
-  /**
-   * How large should the button be?
-   */
+interface ButtonProps extends HtmlButtonProps {
+  color?: ButtonColor;
+
   size?: ButtonSize;
-  /**
-   * Button contents
-   */
-  label: string;
-  /**
-   * Optional click handler
-   */
+  children: ReactNode;
   onClick: () => void;
 }
 
@@ -33,8 +24,7 @@ interface ButtonProps {
 export const Button = ({
   color = "primary",
   size = "medium",
-  label,
-
+  children,
   ...props
 }: ButtonProps) => {
   return (
@@ -47,7 +37,7 @@ export const Button = ({
       )}
       {...props}
     >
-      {label}
+      {children}
     </button>
   );
 };

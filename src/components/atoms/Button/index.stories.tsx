@@ -28,7 +28,7 @@ const meta = {
         description: "primary, secondary",
       },
     },
-    label: {
+    children: {
       control: {
         type: "string",
         default: "button name",
@@ -48,7 +48,7 @@ export const Primary: Story = {
   args: {
     size: "medium",
     color: "primary",
-    label: "Button",
+    children: "Button",
   },
 };
 
@@ -56,20 +56,20 @@ export const Secondary: Story = {
   args: {
     size: "medium",
     color: "secondary",
-    label: "Button",
+    children: "Button",
   },
 };
 
 export const Large: Story = {
   args: {
     size: "large",
-    label: "Button",
+    children: "Button",
   },
 };
 
 export const Small: Story = {
   args: {
     size: "small",
-    label: "Button",
+    children: "Button",
   },
 };
