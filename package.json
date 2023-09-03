@@ -4,12 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
+    "dev": "storybook dev -p 6006",
+    "build": "storybook build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "sb": "storybook dev -p 6006",
-    "build-sb": "storybook build"
+    "start-react": "vite",
+    "build-react": "tsc && vite build"
   },
   "dependencies": {
     "react": "^18.2.0",
