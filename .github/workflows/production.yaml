@@ -45,16 +45,16 @@ jobs:
     permissions:
       contents: read
       packages: write
-      steps:
-        - uses: actions/checkout@v2
-        # Setup .npmrc file to publish to GitHub Packages
-        - uses: actions/setup-node@v2
-          with:
-            node-version: "16.x"
-            registry-url: "https://npm.pkg.github.com"
-        - name: NPM Publish
-          uses: JS-DevTools/npm-publish@v2.2.1
-          id: junyeol-components
-          with:
-            token: ${{ secrets.NPM_TOKEN }}
-            package: "./package.json"
+    steps:
+      - uses: actions/checkout@v2
+      # Setup .npmrc file to publish to GitHub Packages
+      - uses: actions/setup-node@v2
+        with:
+        node-version: "16.x"
+        registry-url: "https://npm.pkg.github.com"
+      - name: NPM Publish
+        uses: JS-DevTools/npm-publish@v2.2.1
+        id: junyeol-components
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: "./package.json"
