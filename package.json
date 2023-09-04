@@ -2,6 +2,11 @@
   "name": "junyeol-components",
   "version": "0.0.13",
   "type": "module",
+  "main": "./dist/index.js",
+  "types": "./src/types.d.ts",
+  "repository": "https://github.com/ryu9663/junyeol-components.git",
+  "author": "junyeol <ryu9663@naver.com>",
+  "homepage": "https://junyeol-components.vercel.app/",
   "scripts": {
     "dev": "storybook dev -p 6006",
     "build": "storybook build",
@@ -13,6 +18,11 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.66.1"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.4.0",
@@ -28,6 +38,8 @@
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react": "^4.0.3",
+    "esbuild": "^0.19.2",
+    "esbuild-css-modules-plugin": "^3.0.1",
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
