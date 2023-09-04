@@ -27,7 +27,6 @@ export const Button = ({
   children,
   ...props
 }: ButtonProps) => {
-  console.log("hi");
   return (
     <button
       type="button"
