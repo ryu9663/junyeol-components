@@ -7,53 +7,54 @@
 #     branches:
 #       - main
 # jobs:
-#   Bump-patch-version:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v2
-#       - run: git config --global user.email "github-actions@example.com"
-#       - run: git config --global user.name "GitHub Actions"
-#       - uses: actions/setup-node@v1
-#         with:
-#           node-version: 12
-#       - run: npm version patch
-#       - run: git push origin main --tags
-#       - uses: actions/upload-artifact@v2
-#         with:
-#           name: src
-#           path: ./
-#   # Deploy-Production:
-#   #   needs: ["Bump-patch-version"]
-#   #   runs-on: ubuntu-latest
-#   #   steps:
-#   #     - uses: actions/checkout@v3
-#   #     - name: Install Vercel CLI
-#   #       run: npm install --global vercel@latest
-#   #     - name: Install pnpm
-#   #       run: npm install -g pnpm
-#   #     - name: Pull Vercel Environment Information
-#   #       run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-#   #     - name: Build Project Artifacts
-#   #       run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
-#   #     - name: Deploy Project Artifacts to Vercel
-#   #       run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+Bump-patch-version:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v2
+    - run: git config --global user.email "github-actions@example.com"
+    - run: git config --global user.name "GitHub Actions"
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 16
+    - run: npm version patch
+    - run: git push
+    - uses: actions/upload-artifact@v2
+      with:
+        name: src
+        path: ./
 
-#   # NPM-Publish:
-#   #   needs: ["Deploy-Production"]
-#   #   runs-on: ubuntu-latest
-#   #   permissions:
-#   #     contents: read
-#   #     packages: write
-#   #   steps:
-#   #     - uses: actions/checkout@v2
-#   #     # Setup .npmrc file to publish to GitHub Packages
-#   #     - uses: actions/setup-node@v2
-#   #       with:
-#   #         node-version: "16.x"
-#   #         registry-url: "https://npm.pkg.github.com"
-#   #     - name: NPM Publish
-#   #       uses: JS-DevTools/npm-publish@v2.2.1
-#   #       id: junyeol-components
-#   #       with:
-#   #         token: ${{ secrets.NPM_TOKEN }}
-#   #         package: "./package.json"
+Deploy-Production:
+  needs: ["Bump-patch-version"]
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v3
+    - name: Install Vercel CLI
+      run: npm install --global vercel@latest
+    - name: Install pnpm
+      run: npm install -g pnpm
+    - name: Pull Vercel Environment Information
+      run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+    - name: Build Project Artifacts
+      run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+    - name: Deploy Project Artifacts to Vercel
+      run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+  NPM-Publish:
+    needs: ["Deploy-Production"]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v2
+      # Setup .npmrc file to publish to GitHub Packages
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16.x"
+          registry-url: "https://npm.pkg.github.com"
+      - name: NPM Publish
+        uses: JS-DevTools/npm-publish@v2.2.1
+        id: junyeol-components
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: "./package.json"
