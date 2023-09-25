@@ -30,15 +30,26 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, "src/index.tsx"),
       name: "junyeol-components",
+      formats: ["es", "umd"],
       fileName: "index",
     },
+
     rollupOptions: {
-      external: ["react"],
-      output: {
-        globals: {
-          react: "React",
-        },
-      },
+      external: ["react", "react-dom"],
+      plugins: [
+        generatePackageJson({
+          outputFolder: "dist/library",
+          baseContents: (pkg) => ({
+            ...pkg,
+            module: "./index.js",
+            main: "./index.js",
+            types: "./index.d.ts",
+            scripts: undefined,
+            optionalDependencies: {},
+            eslintConfig: undefined,
+          }),
+        }),
+      ],
     },
     commonjsOptions: {
       esmExternals: ["react"],
