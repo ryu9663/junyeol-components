@@ -52,6 +52,13 @@ jobs:
         with:
           node-version: "16.x"
           registry-url: "https://npm.pkg.github.com"
+      # Install Dependencies
+      - name: Install Dependencies
+        run: npm ci
+      # Run build:lib
+      - name: Build Library
+        run: npm run build:lib
+      # Then, Publish to NPM
       - name: NPM Publish
         uses: JS-DevTools/npm-publish@v2.2.1
         id: junyeol-components
