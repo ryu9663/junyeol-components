@@ -1,6 +1,6 @@
 {
   "name": "junyeol-components",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "type": "module",
   "main": "./src/index.tsx",
   "module": "./src/index.tsx",
