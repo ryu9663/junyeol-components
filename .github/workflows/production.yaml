@@ -52,12 +52,15 @@ jobs:
         with:
           node-version: "16.x"
           registry-url: "https://npm.pkg.github.com"
+        # Install pnpm globally
+      - name: Install PNPM
+        run: npm install -g pnpm
       # Install Dependencies
       - name: Install Dependencies
-        run: npm ci
+        run: pnpm install
       # Run build:lib
       - name: Build Library
-        run: npm run build:lib
+        run: pnpm run build:lib
       # Then, Publish to NPM
       - name: NPM Publish
         uses: JS-DevTools/npm-publish@v2.2.1
