@@ -49,6 +49,7 @@
     "eslint-plugin-storybook": "^0.6.13",
     "path": "^0.12.7",
     "rollup-plugin-generate-package-json": "^3.2.0",
+    "@types/rollup-plugin-generate-package-json": "^3.2.1",
     "sass": "^1.66.1",
     "storybook": "^7.4.0",
     "typescript": "^5.0.2",

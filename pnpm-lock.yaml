@@ -46,6 +46,9 @@ devDependencies:
   '@types/react-dom':
     specifier: ^18.2.7
     version: 18.2.7
+  '@types/rollup-plugin-generate-package-json':
+    specifier: ^3.2.1
+    version: 3.2.3
   '@typescript-eslint/eslint-plugin':
     specifier: ^6.0.0
     version: 6.7.2(@typescript-eslint/parser@6.7.2)(eslint@8.50.0)(typescript@5.2.2)
@@ -3935,6 +3938,12 @@ packages:
       '@types/prop-types': 15.7.7
       '@types/scheduler': 0.16.3
       csstype: 3.1.2
+    dev: true
+
+  /@types/rollup-plugin-generate-package-json@3.2.3:
+    resolution: {integrity: sha512-BTx8gE5vf5O/D9tBah4ZCxJl+5qirZVsaAsv8F8rKx1lL7LDVK4iHgz5gV1f57EqlZN1LxvslhGq5VO4ngeM3g==}
+    dependencies:
+      rollup: 3.29.3
     dev: true
 
   /@types/scheduler@0.16.3:
