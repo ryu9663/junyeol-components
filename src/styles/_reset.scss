@@ -33,7 +33,9 @@ fieldset,
 img {
   border: 0;
 }
-
+a {
+  text-decoration: none;
+}
 dl,
 li,
 menu,
@@ -51,7 +53,7 @@ blockquote:after,
 blockquote:before,
 q:after,
 q:before {
-  content: '';
+  content: "";
   content: none;
 }
 
@@ -83,21 +85,21 @@ body {
   background: var(--baseBackground);
 }
 
-html input[type='button'],
-input[type='email'],
-input[type='password'],
-input[type='reset'],
-input[type='search'],
-input[type='submit'],
-input[type='tel'],
-input[type='text'] {
+html input[type="button"],
+input[type="email"],
+input[type="password"],
+input[type="reset"],
+input[type="search"],
+input[type="submit"],
+input[type="tel"],
+input[type="text"] {
   -webkit-appearance: none;
   appearance: none;
 
   border-radius: 0;
 }
 
-input[type='search']::-webkit-search-cancel-button {
+input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
 }
 
