@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 import * as path from "path";
+import tsconfigPaths from "vite-tsconfig-paths";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -22,5 +23,10 @@ export default defineConfig({
       esmExternals: ["react"],
     },
   },
-  plugins: [dts()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
+  plugins: [dts(), tsconfigPaths()],
 });
