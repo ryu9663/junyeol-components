@@ -2,7 +2,6 @@ import { ReactNode } from "react";
 import { cleanClassName } from "../../../utils";
 import styles from "./index.module.scss";
 
-export type ButtonColor = "primary" | "secondary";
 export type ButtonSize = "small" | "medium" | "large";
 
 type HtmlButtonProps = React.DetailedHTMLProps<
@@ -11,7 +10,7 @@ type HtmlButtonProps = React.DetailedHTMLProps<
 >;
 
 interface ButtonProps extends HtmlButtonProps {
-  color?: ButtonColor;
+  border?: boolean;
 
   size?: ButtonSize;
   children: ReactNode;
@@ -22,18 +21,16 @@ interface ButtonProps extends HtmlButtonProps {
  * Primary UI component for user interaction
  */
 export const Button = ({
-  color = "primary",
+  border = true,
   size = "medium",
   children,
   ...props
 }: ButtonProps) => {
   return (
     <button
-      type="button"
       className={cleanClassName(
-        `${styles["storybook-button"]} ${
-          styles[`storybook-button--${color}`]
-        } ${styles[`storybook-button--${size}`]}`
+        `${styles["button"]}
+        ${border || styles["button--no_border"]}  ${styles[`button--${size}`]}`
       )}
       {...props}
     >
