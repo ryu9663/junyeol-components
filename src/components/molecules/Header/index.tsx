@@ -3,7 +3,7 @@ import styles from "./index.module.scss";
 interface HeaderProps {
   buttons: ButtonProps[];
 }
-const Header = ({ buttons }: HeaderProps) => {
+export const Header = ({ buttons }: HeaderProps) => {
   return (
     <header className={styles.header}>
       {buttons.map((button, i) => {
@@ -16,5 +16,3 @@ const Header = ({ buttons }: HeaderProps) => {
     </header>
   );
 };
-
-export default Header;

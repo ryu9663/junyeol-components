@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 
 import type { Meta, StoryObj } from "@storybook/react";
-import Header from ".";
+import { Header } from ".";
 
 const meta: Meta<typeof Header> = {
   title: "molecules/Header",
