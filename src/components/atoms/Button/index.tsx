@@ -1,5 +1,6 @@
 import { cleanClassName } from "@/utils";
 import styles from "./index.module.scss";
+import { Link, MemoryRouter } from "react-router-dom";
 
 export type ButtonSize = "small" | "medium" | "large";
 
@@ -25,27 +26,29 @@ export const Button = ({
 }: ButtonProps) => {
   return (
     <>
-      {link ? (
-        <a
-          href={link}
-          className={cleanClassName(
-            `${styles["button"]}
+      <MemoryRouter initialEntries={["/my-entry"]}>
+        {link ? (
+          <Link
+            to={link}
+            className={cleanClassName(
+              `${styles["button"]}
         ${border || styles["button--no_border"]}  ${styles[`button--${size}`]}`
-          )}
-        >
-          {children}
-        </a>
-      ) : (
-        <button
-          className={cleanClassName(
-            `${styles["button"]}
+            )}
+          >
+            {children}
+          </Link>
+        ) : (
+          <button
+            className={cleanClassName(
+              `${styles["button"]}
         ${border || styles["button--no_border"]}  ${styles[`button--${size}`]}`
-          )}
-          {...props}
-        >
-          {children}
-        </button>
-      )}
+            )}
+            {...props}
+          >
+            {children}
+          </button>
+        )}
+      </MemoryRouter>
     </>
   );
 };
