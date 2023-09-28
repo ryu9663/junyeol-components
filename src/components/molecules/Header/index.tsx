@@ -1,22 +1,10 @@
-import { Button, ButtonProps } from "@/index";
 import styles from "./index.module.scss";
-interface HeaderProps {
-  buttons: ButtonProps[];
-}
-export const Header = ({ buttons }: HeaderProps) => {
+import { PropsWithChildren } from "react";
+
+export const Header = ({ children }: PropsWithChildren) => {
   return (
     <header className={styles.header}>
-      <ul className={styles["header_button-list"]}>
-        {buttons.map((button, i) => {
-          return (
-            <li>
-              <Button link={button.link} key={i}>
-                {button.children}
-              </Button>
-            </li>
-          );
-        })}
-      </ul>
+      <ul className={styles["header_button-list"]}>{children}</ul>
     </header>
   );
 };
