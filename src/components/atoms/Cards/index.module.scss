@@ -8,11 +8,11 @@
   cursor: pointer;
   &:hover {
     transition: all 0.2s ease-in-out;
-    transform: scale(1.1);
+    transform: scale(1.01);
   }
 
   align-items: center;
-  box-shadow: 5px 5px 5px 5px gray;
+
   border-radius: 20px 20px 0 0;
   img {
     background-color: #ffffff;
@@ -27,5 +27,8 @@
     padding: 10px;
     background-color: $WHITE;
     text-align: center;
+  }
+  &_box-shadow {
+    box-shadow: 5px 5px 5px 5px gray;
   }
 }
