@@ -2,6 +2,7 @@
 
 import type { Meta, StoryObj } from "@storybook/react";
 import { Header } from ".";
+import { MemoryRouter } from "react-router-dom";
 
 const meta: Meta<typeof Header> = {
   title: "molecules/Header",
@@ -21,16 +22,16 @@ type Story = StoryObj<typeof Header>;
 export const Default: Story = {
   render: (args) => {
     return (
-      <>
+      <MemoryRouter>
         <Header
           {...args}
           buttons={[
-            { link: "https://www.naver.com", children: "자기소개" },
-            { children: "이력" },
-            { children: "했던 일" },
+            { link: "/", children: "자기소개" },
+            { link: "/carrer", children: "이력" },
+            { link: "/whatidid", children: "했던 일" },
           ]}
         />
-      </>
+      </MemoryRouter>
     );
   },
 };

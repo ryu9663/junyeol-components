@@ -6,13 +6,17 @@ interface HeaderProps {
 export const Header = ({ buttons }: HeaderProps) => {
   return (
     <header className={styles.header}>
-      {buttons.map((button, i) => {
-        return (
-          <Button link={button.link} key={i}>
-            {button.children}
-          </Button>
-        );
-      })}
+      <ul className={styles["header_button-list"]}>
+        {buttons.map((button, i) => {
+          return (
+            <li>
+              <Button link={button.link} key={i}>
+                {button.children}
+              </Button>
+            </li>
+          );
+        })}
+      </ul>
     </header>
   );
 };
