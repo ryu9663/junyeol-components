@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Card } from ".";
 
 const meta: Meta<typeof Card> = {
-  title: "atom/Card",
+  title: "atoms/Card",
   component: Card,
   decorators: [
     (Story) => (
