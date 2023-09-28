@@ -3,16 +3,18 @@ import styles from "./index.module.scss";
 interface ImageProps {
   url: string;
   alt: string;
-  width: number;
-  height: number;
 }
 interface CardProps {
   img: ImageProps;
-  descriptionFontSize: "small" | "normal" | "large";
+  description: {
+    fontSize: "small" | "normal" | "large";
+    content: string;
+  };
+  onClick?: () => void;
 }
-export const Card = ({ img, descriptionFontSize }: CardProps) => {
+export const Card = ({ img, description, onClick }: CardProps) => {
   const fontSizeClass = (() => {
-    switch (descriptionFontSize) {
+    switch (description.fontSize) {
       case "small": {
         return "font-size-small";
       }
@@ -29,11 +31,11 @@ export const Card = ({ img, descriptionFontSize }: CardProps) => {
   })();
 
   return (
-    <div className={styles.card}>
-      <img src={img.url} alt={img.alt} width={img.width} height={img.height} />
-      <div
-        className={`${styles["card_description"]} ${styles[fontSizeClass]}`}
-      ></div>
+    <div className={styles.card} onClick={onClick}>
+      <img src={img.url} alt={img.alt} width={340} height={340} />
+      <div className={`${styles["card_description"]} ${styles[fontSizeClass]}`}>
+        {description.content}
+      </div>
     </div>
   );
 };
