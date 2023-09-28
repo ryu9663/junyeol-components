@@ -17,8 +17,8 @@ const meta = {
     size: {
       control: {
         type: "string",
-        default: "medium",
-        description: "small, medium, large",
+        default: "normal",
+        description: "small, normal, large",
       },
     },
     color: {
@@ -46,14 +46,14 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    size: "medium",
+    size: "normal",
     children: "Button",
   },
 };
 
 export const NoBorder: Story = {
   args: {
-    size: "medium",
+    size: "normal",
     border: false,
     children: "Button",
   },

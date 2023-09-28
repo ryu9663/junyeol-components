@@ -2,7 +2,7 @@ import { cleanClassName } from "@/utils";
 import styles from "./index.module.scss";
 import { Link, MemoryRouter } from "react-router-dom";
 
-export type ButtonSize = "small" | "medium" | "large";
+export type ButtonSize = "small" | "normal" | "large";
 
 type HtmlButtonProps = React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -18,7 +18,7 @@ export interface ButtonProps extends HtmlButtonProps {
 
 export const Button = ({
   border = true,
-  size = "medium",
+  size = "normal",
 
   link,
   children,

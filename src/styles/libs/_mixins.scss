@@ -1,4 +1,4 @@
-@use 'vars' as vars;
+@use "vars" as vars;
 
 @mixin border($color, $lineWidth) {
   box-shadow: inset 0 0 0 $lineWidth $color;
@@ -6,24 +6,8 @@
 @mixin font-size {
   font-size: inherit;
 
-  &.font-size-large4x {
-    font-size: vars.$LARGE4X;
-  }
-
-  &.font-size-large3x {
-    font-size: vars.$LARGE3X;
-  }
-
-  &.font-size-large2x {
-    font-size: vars.$LARGE2X;
-  }
-
   &.font-size-large {
     font-size: vars.$LARGE;
-  }
-
-  &.font-size-medium {
-    font-size: vars.$MEDIUM;
   }
 
   &.font-size-normal {
@@ -32,14 +16,6 @@
 
   &.font-size-small {
     font-size: vars.$SMALL;
-  }
-
-  &.font-size-small2x {
-    font-size: vars.$SMALL2X;
-  }
-
-  &.font-size-small3x {
-    font-size: vars.$SMALL3X;
   }
 }
 @mixin font-weight {

@@ -1,0 +1,13 @@
+@use "src/styles/libs" as libs;
+
+.card {
+  width: 340px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &_description {
+    @include libs.font-size;
+  }
+}
