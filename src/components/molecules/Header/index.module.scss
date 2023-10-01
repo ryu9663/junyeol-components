@@ -11,6 +11,14 @@
   &_button-list {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+  }
+  &_logo {
+    width: fit-content;
+  }
+  &_right-section {
+    display: flex;
+    flex-direction: row;
     gap: 10px;
     width: fit-content;
     margin-left: auto;
