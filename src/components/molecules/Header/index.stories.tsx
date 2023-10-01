@@ -31,11 +31,9 @@ export const Default: Story = {
             { link: "https://www.kakao.com", children: "했던 일" },
           ].map((button, i) => {
             return (
-              <li key={i}>
-                <Link to={button.link}>
-                  <Button>{button.children}</Button>
-                </Link>
-              </li>
+              <Link key={i} to={button.link}>
+                <Button>{button.children}</Button>
+              </Link>
             );
           })}
         </Header>
