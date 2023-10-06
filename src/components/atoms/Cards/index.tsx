@@ -12,6 +12,7 @@ interface CardProps {
   boxShadow?: boolean;
   onClick?: () => void;
 }
+
 export const Card = ({
   img,
   title,
