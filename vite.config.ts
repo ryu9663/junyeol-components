@@ -1,4 +1,5 @@
-import { defineConfig } from "vite";
+import { defineConfig } from "vitest/config";
+
 import dts from "vite-plugin-dts";
 import * as path from "path";
 import tsconfigPaths from "vite-tsconfig-paths";
@@ -29,4 +30,9 @@ export default defineConfig({
     },
   },
   plugins: [dts(), tsconfigPaths()],
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: "./vitest.setup.js",
+  },
 });
