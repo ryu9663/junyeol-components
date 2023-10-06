@@ -1,6 +1,8 @@
+import "@testing-library/jest-dom";
 import { Card } from "@/index";
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
+
 describe("Card에 image,h3,description들이 있는지 확인", () => {
   it("renders Card", () => {
     render(
