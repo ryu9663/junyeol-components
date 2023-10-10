@@ -1,7 +1,7 @@
 import styles from "./index.module.scss";
 
 interface ImageProps {
-  src: string;
+  url: string;
   alt: string;
 }
 
@@ -25,7 +25,7 @@ export const Card = ({
       className={`${styles.card} ${boxShadow && styles["card_box-shadow"]}`}
       onClick={onClick}
     >
-      <img src={img.src} alt={img.alt} width={340} height={340} />
+      <img src={img.url} alt={img.alt} width={340} height={340} />
       <h3 className={`${styles["card_title"]}`}>{title}</h3>
       <div className={`${styles["card_description"]}`}>{description}</div>
     </div>
