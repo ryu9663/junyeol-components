@@ -1,3 +1,4 @@
+/* eslint-disable storybook/prefer-pascal-case */
 import type { Meta, StoryObj } from "@storybook/react";
 import { Card } from ".";
 
@@ -66,6 +67,47 @@ export const Default: Story = {
             
             감사합니다.`}
         />
+      </div>
+    );
+  },
+};
+
+export const 썸네일에_div태그_넣음: Story = {
+  render: () => {
+    return (
+      <>
+        <Card
+          Thumbnail={<div>hi</div>}
+          title="Next App router에서 use client가 CSR을 뜻하지는 않는다."
+          description={
+            "분명히 서버컴포넌트로 렌더링되는건 아닌데,, use client를 사용하면 CSR로 된다는 뜻이 아닌가? 하고 공식문서를 보았다. 공식문서에서 클라이언트 컴포넌트 (use client) 가 어떻게 렌더링 되는지 잘 작성되어 있다."
+          }
+        />
+      </>
+    );
+  },
+};
+
+export const 카드_여러개: Story = {
+  render: () => {
+    return (
+      <div style={{ display: "flex", flexDirection: "column", gap: "30px" }}>
+        <Card
+          Thumbnail={
+            <img
+              width={240}
+              height={240}
+              src="https://junesdevlog-s3.s3.ap-northeast-2.amazonaws.com/portfolio_profile.png"
+              alt="아무거나"
+            />
+          }
+          title="프론트엔드 개발자 류준열 이력서ㄹㅁ;ㅐㅑ디ㅏ로ㅟㅏㄹㅇ누ㅠㅣㅏ무지다구2ㅣㅏㅈ둠ㅎㄴㄱㅇㅋ,ㅡ류춮ㅌ,ㅡㄴ디르미ㅏㅈㄷㅎ구이ㅏㅍ쿠 ㅣㅏㄷㅁㄴ"
+          description={`안녕하세요. 프론트엔드 개발자 류준열입니다.
+
+            현실의 문제를 해결할 수 있고, 더 나은 해결책을 제시할 수 있는 개발자가 되고자 합니다.
+            
+            감사합니다.`}
+        />
         <Card
           Thumbnail={
             <img
@@ -96,23 +138,6 @@ export const Default: Story = {
           }
         />
       </div>
-    );
-  },
-};
-
-// eslint-disable-next-line storybook/prefer-pascal-case
-export const 썸네일에_div태그_넣음: Story = {
-  render: () => {
-    return (
-      <>
-        <Card
-          Thumbnail={<div>hi</div>}
-          title="Next App router에서 use client가 CSR을 뜻하지는 않는다."
-          description={
-            "분명히 서버컴포넌트로 렌더링되는건 아닌데,, use client를 사용하면 CSR로 된다는 뜻이 아닌가? 하고 공식문서를 보았다. 공식문서에서 클라이언트 컴포넌트 (use client) 가 어떻게 렌더링 되는지 잘 작성되어 있다."
-          }
-        />
-      </>
     );
   },
 };
