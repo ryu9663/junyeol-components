@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-
 import type { Meta, StoryObj } from "@storybook/react";
 import { Header } from ".";
 import { Link, MemoryRouter } from "react-router-dom";
@@ -37,6 +35,14 @@ export const Default: Story = {
             );
           })}
         </Header>
+        <div
+          style={{
+            zIndex: 100,
+            width: "100px",
+            height: "100px",
+            backgroundColor: "red",
+          }}
+        />
       </MemoryRouter>
     );
   },

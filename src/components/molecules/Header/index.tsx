@@ -6,7 +6,7 @@ export const Header = ({ children }: PropsWithChildren) => {
   const firstChild = childrenArray[0];
   const otherChildren = childrenArray.slice(1);
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${styles["priority-1"]}`}>
       <ul className={styles["header_button-list"]}>
         <li className={styles["header_logo"]}>{firstChild}</li>
         <div className={styles["header_right-section"]}>
