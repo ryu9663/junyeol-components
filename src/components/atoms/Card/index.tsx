@@ -6,6 +6,7 @@ export interface CardProps {
   description: string;
   boxShadow?: boolean;
   onClick?: () => void;
+  className?: string;
 }
 
 export const Card = ({
@@ -14,10 +15,13 @@ export const Card = ({
   description,
   boxShadow = true,
   onClick,
+  className,
 }: CardProps) => {
   return (
     <div
-      className={`${styles.card} ${boxShadow && styles["card_box-shadow"]}`}
+      className={`${styles.card} ${
+        boxShadow && styles["card_box-shadow"]
+      } ${className}`}
       onClick={onClick}
     >
       {Thumbnail}

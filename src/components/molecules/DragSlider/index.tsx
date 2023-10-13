@@ -4,9 +4,11 @@ import styles from "./index.module.scss";
 interface DragSliderProps extends PropsWithChildren {
   hideScrollbar?: boolean;
   hasCloudyArea?: boolean;
+  className?: string;
 }
 export const DragSlider = ({
   children,
+  className,
   hideScrollbar = false,
   hasCloudyArea = true,
 }: DragSliderProps) => {
@@ -36,7 +38,7 @@ export const DragSlider = ({
     }
   };
   return (
-    <div className={styles.dragslider_wrapper}>
+    <div className={`${styles.dragslider_wrapper} ${className}`}>
       <div
         className={`${styles.slider} ${
           hideScrollbar && styles["slider_hide-scrollbar"]
