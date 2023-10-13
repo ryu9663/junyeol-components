@@ -1,10 +1,7 @@
 @use "src/styles/libs" as *;
 
 .card {
-  width: 240px;
-  height: fit-content;
   display: flex;
-  flex-direction: column;
   cursor: pointer;
   &:hover {
     transition: all 0.2s ease-in-out;
@@ -17,30 +14,32 @@
 
   color: $GRAY-600;
   background-color: $WHITE;
+
   img {
     background-color: #ffffff;
-    border-radius: 20px 20px 0 0;
+    border-radius: 20px 0 0 20px;
     object-fit: cover;
   }
-  &_title {
-    @include font-size;
 
-    font-size: $NORMAL;
+  &_content {
+    display: flex;
+    flex-direction: column;
 
-    word-break: keep-all;
-    padding: 10px;
-    @include multi-line-ellipse(2);
+    &-title {
+      @include font-size;
+      font-size: $NORMAL;
+      padding: 10px;
+    }
+
+    &-description {
+      max-height: 80px;
+      padding: 10px 10px 0;
+      margin-bottom: 10px;
+      font-size: $SMALL;
+      @include multi-line-ellipse(3);
+    }
   }
-  &_description {
-    max-height: 80px;
-    padding: 10px 10px 0;
-    margin-bottom: 10px;
 
-    font-size: $SMALL;
-    border-radius: 0 0 20px 20px;
-
-    @include multi-line-ellipse(3);
-  }
   &_box-shadow {
     box-shadow: 5px 5px 5px 5px gray;
   }
