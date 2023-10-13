@@ -1,4 +1,7 @@
+@use "src/styles/libs" as *;
 .header {
+  @include priority-background-layer;
+
   position: fixed;
   top: 0;
   right: 0;
@@ -6,8 +9,8 @@
   height: fit-content;
   padding: 10px 30px;
   backdrop-filter: blur(4px);
-
   background-color: rgba(255, 255, 255, 0.3);
+
   &_button-list {
     display: flex;
     flex-direction: row;
