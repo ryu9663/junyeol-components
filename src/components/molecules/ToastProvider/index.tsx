@@ -20,20 +20,17 @@ export const ToastProvider = () => {
     ]);
   }, [toastOption]);
 
-  console.log(toastOption.floatDirection);
   return (
-    <main style={{ height: "200vh", width: "100vw", background: "yellow" }}>
-      <div
-        className={`${styles.toast_wrapper} ${
-          styles[toastOption.floatDirection || "from-top"]
-        } ${styles["priority-1"]}`}
-      >
-        <div>
-          {toastInfos.map((toastInfo, i) => (
-            <Toast {...toastInfo} key={i} />
-          ))}
-        </div>
+    <div
+      className={`${styles.toast_wrapper} ${
+        styles[toastOption.floatDirection || "from-top"]
+      } ${styles["priority-1"]}`}
+    >
+      <div>
+        {toastInfos.map((toastInfo, i) => (
+          <Toast {...toastInfo} key={i} />
+        ))}
       </div>
-    </main>
+    </div>
   );
 };

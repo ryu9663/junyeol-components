@@ -25,7 +25,7 @@ export const Default: Story = {};
 
 export const 삼초후_사라짐_버튼: Story = {
   render: () => {
-    const { toast } = useToast();
+    const toast = useToast();
     return (
       <div id="toast_container">
         <Button
@@ -35,7 +35,7 @@ export const 삼초후_사라짐_버튼: Story = {
               children: <div>hihi</div>,
 
               floatDirection: "from-top",
-              holdTime: 1000,
+              holdTime: 3000,
             });
           }}
         >
