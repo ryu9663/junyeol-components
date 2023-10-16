@@ -1,12 +1,12 @@
 import { Toast, ToastProps } from "@/components/atoms/Toast";
 import { useToastStore } from "@/components/molecules/ToastProvider/index.store";
-import { useState } from "react";
+import { PropsWithChildren, useState } from "react";
 import styles from "./index.module.scss";
 import { useMountedEffect } from "@/utils/hooks/useMountedEffect";
 
 export interface ToastOptionType extends ToastProps {}
 
-export const ToastProvider = () => {
+export const ToastProvider = ({ children }: PropsWithChildren) => {
   const [toastInfos, setToastInfos] = useState<ToastOptionType[]>([]);
   const [toastOption] = useToastStore((state) => [
     state.toastOption,
@@ -31,6 +31,7 @@ export const ToastProvider = () => {
           <Toast {...toastInfo} key={i} />
         ))}
       </div>
+      {children}
     </div>
   );
 };
