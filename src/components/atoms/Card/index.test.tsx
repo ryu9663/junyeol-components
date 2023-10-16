@@ -7,6 +7,8 @@ describe("Card에 image,h3,description들이 있는지 확인", () => {
   it("renders Card", () => {
     render(
       <Card
+        publsihedAt="2023. 10. 16. "
+        category="react"
         Thumbnail={
           <img
             width={240}
@@ -25,6 +27,8 @@ describe("Card에 image,h3,description들이 있는지 확인", () => {
   it('check if <img src = "https://webudding.com/_next/image/?url=https%3A%2F%2Fd29hudvzbgrxww.cloudfront.net%2Fpublic%2Fproduct%2F20220905144129-ee57741b-6057-4a1a-8531-8e6dcb6315f7.jpg&w=3840&q=100" src = "아무거나"/>', () => {
     render(
       <Card
+        publsihedAt="2023. 10. 16. "
+        category="react"
         Thumbnail={
           <img
             width={240}
@@ -44,6 +48,8 @@ describe("Card에 image,h3,description들이 있는지 확인", () => {
   it("check if <h3>아무거나</h3> is in the document", () => {
     render(
       <Card
+        publsihedAt="2023. 10. 16. "
+        category="react"
         Thumbnail={
           <img
             width={240}
@@ -64,6 +70,8 @@ describe("Card에 image,h3,description들이 있는지 확인", () => {
   it("check if <div>'암거나'</div> is in the document", () => {
     render(
       <Card
+        publsihedAt="2023. 10. 16. "
+        category="react"
         Thumbnail={
           <img
             width={240}
@@ -84,6 +92,8 @@ describe("Card에 image,h3,description들이 있는지 확인", () => {
   it("check image의 width=240, height=240이 유지되는지 ", () => {
     render(
       <Card
+        publsihedAt="2023. 10. 16. "
+        category="react"
         Thumbnail={
           <img
             width={240}

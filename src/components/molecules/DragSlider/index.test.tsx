@@ -28,6 +28,8 @@ describe("Card를 사용하는 DragSlider 렌더링 테스트", () => {
           },
         ].map(({ Thumbnail, title, description, onClick }, i) => (
           <Card
+            publsihedAt="2023. 10. 16. "
+            category="react"
             key={i}
             title={title}
             Thumbnail={Thumbnail}
@@ -84,6 +86,8 @@ describe("Card를 사용하는 DragSlider 렌더링 테스트", () => {
             },
           ].map(({ Thumbnail, title, description, onClick }, i) => (
             <Card
+              publsihedAt="2023. 10. 16. "
+              category="react"
               key={i}
               title={title}
               Thumbnail={Thumbnail}
@@ -124,6 +128,8 @@ describe("Card를 사용하는 DragSlider 렌더링 테스트", () => {
           },
         ].map(({ Thumbnail, title, description, onClick }, i) => (
           <Card
+            publsihedAt="2023. 10. 16. "
+            category="react"
             key={i}
             title={title}
             Thumbnail={Thumbnail}

@@ -26,12 +26,12 @@ export const ToastProvider = ({ children }: PropsWithChildren) => {
         styles[toastOption.floatDirection || "from-top"]
       } ${styles["priority-1"]}`}
     >
+      {children}
       <div>
         {toastInfos.map((toastInfo, i) => (
           <Toast {...toastInfo} key={i} />
         ))}
       </div>
-      {children}
     </div>
   );
 };

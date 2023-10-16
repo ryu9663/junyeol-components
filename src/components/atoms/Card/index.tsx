@@ -7,6 +7,8 @@ export interface CardProps {
   boxShadow?: boolean;
   onClick?: () => void;
   className?: string;
+  publsihedAt: string;
+  category: string;
 }
 
 export const Card = ({
