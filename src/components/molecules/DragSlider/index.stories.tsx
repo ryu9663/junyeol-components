@@ -77,7 +77,7 @@ export const Default: Story = {
             },
           ].map(({ Thumbnail, title, description, onClick }, i) => (
             <Card
-              publsihedAt="2023. 10. 16. "
+              publishedAt="2023. 10. 16. "
               category="react"
               key={i}
               title={title}

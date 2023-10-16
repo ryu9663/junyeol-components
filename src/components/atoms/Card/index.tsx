@@ -7,7 +7,7 @@ export interface CardProps {
   boxShadow?: boolean;
   onClick?: () => void;
   className?: string;
-  publsihedAt: string;
+  publishedAt: string;
   category: string;
 }
 
