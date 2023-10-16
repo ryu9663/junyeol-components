@@ -14,11 +14,9 @@ const meta: Meta<typeof Toast> = {
   argTypes: {
     children: {},
     type: {
-      control: {
-        control: "string",
-        default: "성공",
-        description: "string",
-      },
+      control: "radio",
+      default: "success",
+      options: ["success", "fail"],
     },
     isSpaceHolding: {
       control: {
@@ -39,7 +37,7 @@ const meta: Meta<typeof Toast> = {
     },
   },
   args: {
-    children: "성공",
+    children: "토스트",
     type: "success",
     isSpaceHolding: true,
     floatDirection: "from-top",
