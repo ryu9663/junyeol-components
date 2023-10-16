@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable storybook/prefer-pascal-case */
+ 
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { ToastProvider } from ".";
