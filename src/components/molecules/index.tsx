@@ -2,3 +2,4 @@
 
 export * from "./Header";
 export * from "./DragSlider";
+export * from "./ToastProvider";
