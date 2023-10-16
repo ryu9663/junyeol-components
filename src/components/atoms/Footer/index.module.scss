@@ -1,9 +1,0 @@
-@use "src/styles/libs" as *;
-.footer {
-  background: white;
-  padding: 24px;
-  @include flex-column-centerize;
-  align-items: flex-start;
-
-  font-style: italic;
-}
