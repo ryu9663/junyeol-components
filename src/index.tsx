@@ -10,10 +10,10 @@ export * from "./components/molecules";
 // export * from "./components/organisms";
 
 // //* Util 함수
-// export * from "./utils/public";
+export * from "./utils/public";
 
 // //* Hooks 함수
-// export * from "./hooks/public";
+export * from "./utils/hooks";
 
 // //* Plugin
 // export * from "./plugins";
