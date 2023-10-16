@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { ToastProvider } from ".";
 import { Button } from "@/index";
-import useToast from "@/utils/hooks/useToast";
+import { useToast } from "@/utils/hooks/useToast";
 import { Toast } from "@/components/atoms/Toast";
 
 const meta: Meta<typeof Toast> = {

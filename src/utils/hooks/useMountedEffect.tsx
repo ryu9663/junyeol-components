@@ -1,9 +1,9 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
-export function useMountedEffect(
+export const useMountedEffect = (
   effect: React.EffectCallback,
-  deps?: React.DependencyList | undefined,
-) {
+  deps?: React.DependencyList | undefined
+) => {
   const isMounted = useRef(false);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(
@@ -12,6 +12,6 @@ export function useMountedEffect(
       : () => {
           isMounted.current = true;
         },
-    deps,
+    deps
   );
-}
+};
