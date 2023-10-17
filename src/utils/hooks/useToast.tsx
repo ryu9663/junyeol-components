@@ -1,5 +1,5 @@
-import { ToastOptionType } from "@/components/molecules/ToastProvider";
-import { useToastStore } from "@/components/molecules/ToastProvider/index.store";
+import { ToastOptionType } from "@/components/molecules/ToastContainer";
+import { useToastStore } from "@/components/molecules/ToastContainer/index.store";
 
 export const useToast = () => {
   const [toastOption, setToastOption] = useToastStore((state) => [

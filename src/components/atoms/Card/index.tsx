@@ -1,4 +1,4 @@
-import { CategoryType } from "@/type/category";
+import { CategoryType } from "@/index";
 import styles from "./index.module.scss";
 
 export interface CardProps {

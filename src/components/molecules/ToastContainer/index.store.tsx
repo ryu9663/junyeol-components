@@ -1,4 +1,4 @@
-import { ToastOptionType } from "@/components/molecules/ToastProvider";
+import { ToastOptionType } from "@/components/molecules/ToastContainer";
 import { create } from "zustand";
 
 interface ToastProviderProps {

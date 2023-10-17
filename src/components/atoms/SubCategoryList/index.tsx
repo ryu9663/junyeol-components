@@ -6,6 +6,11 @@ export interface SubCategoryListProps {
     publishedAt: Date;
   }[];
 }
+
+export type SubCategoryType = "dev" | "mystory" | "retrospect" | "book";
+
+export type CategoryType = Partial<Record<SubCategoryType, string>>;
+
 export const SubCategoryList = ({ subCategory }: SubCategoryListProps) => {
   const isThreeDaysAgo = (date: Date): boolean => {
     const today = new Date();

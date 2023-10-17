@@ -1,12 +1,12 @@
 import { Toast, ToastProps } from "@/components/atoms/Toast";
-import { useToastStore } from "@/components/molecules/ToastProvider/index.store";
+import { useToastStore } from "@/components/molecules/ToastContainer/index.store";
 import { PropsWithChildren, useState } from "react";
 import styles from "./index.module.scss";
 import { useMountedEffect } from "@/utils/hooks/useMountedEffect";
 
 export interface ToastOptionType extends ToastProps {}
 
-export const ToastProvider = ({ children }: PropsWithChildren) => {
+export const ToastContainer = ({ children }: PropsWithChildren) => {
   const [toastInfos, setToastInfos] = useState<ToastOptionType[]>([]);
   const [toastOption] = useToastStore((state) => [
     state.toastOption,
