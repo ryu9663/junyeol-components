@@ -8,7 +8,9 @@ export interface CardProps {
   onClick?: () => void;
   className?: string;
   publishedAt: string;
-  category: string;
+  category:
+    | "mystory"
+    | Partial<Record<"dev" | "mystory" | "retrospect" | "book", string>>;
 }
 
 export const Card = ({
