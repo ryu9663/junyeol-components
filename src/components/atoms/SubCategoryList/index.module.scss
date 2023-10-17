@@ -1,0 +1,38 @@
+@use "src/styles/libs" as *;
+
+.sub_category_wrapper {
+  position: relative;
+  li {
+    margin-bottom: 10px;
+    a {
+      color: #000;
+
+      text-decoration: none;
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+    list-style-type: none;
+
+    &::before {
+      content: "";
+      // position: absolute;
+      bottom: 2px;
+      // left: 0;
+
+      position: absolute;
+      left: -20px; /* Position the line on the left side of the element */
+      border-left: 2px solid $GRAY-300; /* Change the color and width as needed */
+
+      height: 100%;
+    }
+  }
+}
+
+.new {
+  color: red;
+  font-weight: bold;
+  font-size: $SMALL2X;
+  margin-left: 5px;
+}
