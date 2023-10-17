@@ -17,13 +17,12 @@
 
     &::before {
       content: "";
-      // position: absolute;
+
       bottom: 2px;
-      // left: 0;
 
       position: absolute;
-      left: -20px; /* Position the line on the left side of the element */
-      border-left: 2px solid $GRAY-300; /* Change the color and width as needed */
+      left: -20px;
+      border-left: 2px solid $GRAY-300;
 
       height: 100%;
     }
