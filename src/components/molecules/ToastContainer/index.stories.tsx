@@ -2,14 +2,14 @@
 
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { ToastProvider } from ".";
+import { ToastContainer } from ".";
 import { Button } from "@/index";
 import { useToast } from "@/utils/hooks/useToast";
 import { Toast } from "@/components/atoms/Toast";
 
 const meta: Meta<typeof Toast> = {
-  title: "atoms/ToastProvider",
-  component: ToastProvider,
+  title: "atoms/ToastContainer",
+  component: ToastContainer,
   tags: ["autodocs"],
   argTypes: {
     children: {},
@@ -66,7 +66,7 @@ export const Default: Story = {
         >
           토스트 띄우기
         </Button>
-        <ToastProvider />
+        <ToastContainer />
       </main>
     );
   },
