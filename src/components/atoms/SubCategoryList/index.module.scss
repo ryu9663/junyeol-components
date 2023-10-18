@@ -1,6 +1,8 @@
 @use "src/styles/libs" as *;
 
 .sub_category_wrapper {
+  border-left: 1px gray solid;
+  padding-left: 10px;
   position: relative;
   li {
     margin-bottom: 10px;
@@ -14,18 +16,6 @@
       }
     }
     list-style-type: none;
-
-    &::before {
-      content: "";
-
-      bottom: 2px;
-
-      position: absolute;
-      left: -20px;
-      border-left: 2px solid $GRAY-300;
-
-      height: 100%;
-    }
   }
 }
 

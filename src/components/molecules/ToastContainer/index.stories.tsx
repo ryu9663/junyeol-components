@@ -8,7 +8,7 @@ import { useToast } from "@/utils/hooks/useToast";
 import { Toast } from "@/components/atoms/Toast";
 
 const meta: Meta<typeof Toast> = {
-  title: "atoms/ToastContainer",
+  title: "molecules/ToastContainer",
   component: ToastContainer,
   tags: ["autodocs"],
   argTypes: {

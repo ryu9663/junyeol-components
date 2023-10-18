@@ -1,0 +1,16 @@
+@use "src/styles/libs" as *;
+.category {
+  &_name {
+    a {
+      text-decoration: none;
+      font-size: $MEDIUM;
+      color: $BLACK;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .sub_category {
+    margin-top: 6px;
+  }
+}
