@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { Children, ReactElement, isValidElement } from "react";
+import { ReactElement } from "react";
 import styles from "./index.module.scss";
 
 type LinkType = JSX.Element;
@@ -16,18 +16,10 @@ export interface CategoryProps {
   CategoryLink: CategoryLinkType;
 }
 export const Category = ({ CategoryLink, children }: CategoryProps) => {
-  if (
-    isValidElement(children) &&
-    /* @ts-ignore */
-    Children.only(children)!.type.displayName === "SubCategoryList"
-  ) {
-    return (
-      <div className={styles.category}>
-        <div className={styles.category_name}>{CategoryLink}</div>
-        <div className={styles.sub_category}>{children}</div>
-      </div>
-    );
-  } else {
-    throw new Error("children must be <>SubCategoryList</>");
-  }
+  return (
+    <div className={styles.category}>
+      <div className={styles.category_name}>{CategoryLink}</div>
+      <div className={styles.sub_category}>{children}</div>
+    </div>
+  );
 };
