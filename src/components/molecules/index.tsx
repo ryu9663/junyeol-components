@@ -4,3 +4,4 @@ export * from "./Header";
 export * from "./DragSlider";
 export * from "./ToastContainer";
 export * from "./Footer";
+export * from "./Category";

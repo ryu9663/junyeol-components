@@ -1,16 +1,15 @@
+import { CategoryType } from "@/components/molecules/Category";
 import styles from "./index.module.scss";
 
 export type LinkType = JSX.Element;
 
 export interface SubCategoryType {
-  categoryLink: LinkType; // link
+  categoryLink: LinkType;
   publishedAt: Date;
 }
 export interface SubCategoryListProps {
   subCategories: SubCategoryType[];
 }
-
-export type CategoryType = "dev" | "mystory" | "retrospect" | "book";
 
 export type SidebarType = Partial<Record<CategoryType, string>>;
 
