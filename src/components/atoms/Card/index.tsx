@@ -9,7 +9,7 @@ export interface CardProps {
   onClick?: () => void;
   className?: string;
   publishedAt: string;
-  categoryLink: SubCategoryType["categoryLink"];
+  subCategoryLink: SubCategoryType["subCategoryLink"];
 }
 
 export const Card = ({

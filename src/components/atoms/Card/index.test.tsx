@@ -9,7 +9,7 @@ describe("Card에 image,h3,description들이 있는지 확인", () => {
     render(
       <Card
         publishedAt="2023. 10. 16. "
-        categoryLink={<Link to="react">react</Link>}
+        subCategoryLink={<Link to="react">react</Link>}
         Thumbnail={
           <img
             width={240}
@@ -29,7 +29,7 @@ describe("Card에 image,h3,description들이 있는지 확인", () => {
     render(
       <Card
         publishedAt="2023. 10. 16. "
-        categoryLink={<Link to="react">react</Link>}
+        subCategoryLink={<Link to="react">react</Link>}
         Thumbnail={
           <img
             width={240}
@@ -50,7 +50,7 @@ describe("Card에 image,h3,description들이 있는지 확인", () => {
     render(
       <Card
         publishedAt="2023. 10. 16. "
-        categoryLink={<Link to="react">react</Link>}
+        subCategoryLink={<Link to="react">react</Link>}
         Thumbnail={
           <img
             width={240}
@@ -72,7 +72,7 @@ describe("Card에 image,h3,description들이 있는지 확인", () => {
     render(
       <Card
         publishedAt="2023. 10. 16. "
-        categoryLink={<Link to="react">react</Link>}
+        subCategoryLink={<Link to="react">react</Link>}
         Thumbnail={
           <img
             width={240}
@@ -94,7 +94,7 @@ describe("Card에 image,h3,description들이 있는지 확인", () => {
     render(
       <Card
         publishedAt="2023. 10. 16. "
-        categoryLink={<Link to="react">react</Link>}
+        subCategoryLink={<Link to="react">react</Link>}
         Thumbnail={
           <img
             width={240}

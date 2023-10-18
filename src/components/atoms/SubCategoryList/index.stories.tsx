@@ -38,39 +38,41 @@ export const Default: Story = {
     fourDaysAgo.setDate(currentDate.getDate() - 4);
     const subCategory = [
       {
-        categoryLink: <Link to="/posts?filter=react">react</Link>,
+        subCategoryLink: <Link to="/posts?filter=react">react</Link>,
         publishedAt: yesterday,
       },
       {
-        categoryLink: <Link to="/posts?filter=next">next</Link>,
+        subCategoryLink: <Link to="/posts?filter=next">next</Link>,
         publishedAt: threeDaysAgo,
       },
       {
-        categoryLink: <Link to="/posts?filter=typescript">typescript</Link>,
+        subCategoryLink: <Link to="/posts?filter=typescript">typescript</Link>,
         publishedAt: fourDaysAgo,
       },
       {
-        categoryLink: <Link to="/posts?filter=graphQL">graphQL</Link>,
+        subCategoryLink: <Link to="/posts?filter=graphQL">graphQL</Link>,
         publishedAt: fourDaysAgo,
       },
       {
-        categoryLink: <Link to="/posts?filter=react-query">react-query</Link>,
+        subCategoryLink: (
+          <Link to="/posts?filter=react-query">react-query</Link>
+        ),
         publishedAt: fourDaysAgo,
       },
       {
-        categoryLink: <Link to="/posts?filter=zustand">zustand</Link>,
+        subCategoryLink: <Link to="/posts?filter=zustand">zustand</Link>,
         publishedAt: fourDaysAgo,
       },
       {
-        categoryLink: <Link to="/posts?filter=javascript">javascript</Link>,
+        subCategoryLink: <Link to="/posts?filter=javascript">javascript</Link>,
         publishedAt: fourDaysAgo,
       },
       {
-        categoryLink: <Link to="/posts?filter=html">html</Link>,
+        subCategoryLink: <Link to="/posts?filter=html">html</Link>,
         publishedAt: fourDaysAgo,
       },
       {
-        categoryLink: <Link to="/posts?filter=css">css</Link>,
+        subCategoryLink: <Link to="/posts?filter=css">css</Link>,
         publishedAt: fourDaysAgo,
       },
     ];

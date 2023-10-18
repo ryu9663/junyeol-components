@@ -4,7 +4,7 @@ import styles from "./index.module.scss";
 export type LinkType = JSX.Element;
 
 export interface SubCategoryType {
-  categoryLink: LinkType;
+  subCategoryLink: LinkType;
   publishedAt: Date;
 }
 export interface SubCategoryListProps {
@@ -25,7 +25,7 @@ export const SubCategoryList = ({ subCategories }: SubCategoryListProps) => {
       <ul>
         {subCategories.map((subCategory, i) => (
           <li key={i}>
-            {subCategory.categoryLink}
+            {subCategory.subCategoryLink}
             {isThreeDaysAgo(subCategory.publishedAt) && (
               <span className={styles.new}>new</span>
             )}
