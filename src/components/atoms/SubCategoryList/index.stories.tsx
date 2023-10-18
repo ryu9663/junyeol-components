@@ -38,39 +38,39 @@ export const Default: Story = {
     fourDaysAgo.setDate(currentDate.getDate() - 4);
     const subCategory = [
       {
-        category: <Link to="/posts?filter=react">react</Link>,
+        categoryLink: <Link to="/posts?filter=react">react</Link>,
         publishedAt: yesterday,
       },
       {
-        category: <Link to="/posts?filter=next">next</Link>,
+        categoryLink: <Link to="/posts?filter=next">next</Link>,
         publishedAt: threeDaysAgo,
       },
       {
-        category: <Link to="/posts?filter=typescript">typescript</Link>,
+        categoryLink: <Link to="/posts?filter=typescript">typescript</Link>,
         publishedAt: fourDaysAgo,
       },
       {
-        category: <Link to="/posts?filter=graphQL">graphQL</Link>,
+        categoryLink: <Link to="/posts?filter=graphQL">graphQL</Link>,
         publishedAt: fourDaysAgo,
       },
       {
-        category: <Link to="/posts?filter=react-query">react-query</Link>,
+        categoryLink: <Link to="/posts?filter=react-query">react-query</Link>,
         publishedAt: fourDaysAgo,
       },
       {
-        category: <Link to="/posts?filter=zustand">zustand</Link>,
+        categoryLink: <Link to="/posts?filter=zustand">zustand</Link>,
         publishedAt: fourDaysAgo,
       },
       {
-        category: <Link to="/posts?filter=javascript">javascript</Link>,
+        categoryLink: <Link to="/posts?filter=javascript">javascript</Link>,
         publishedAt: fourDaysAgo,
       },
       {
-        category: <Link to="/posts?filter=html">html</Link>,
+        categoryLink: <Link to="/posts?filter=html">html</Link>,
         publishedAt: fourDaysAgo,
       },
       {
-        category: <Link to="/posts?filter=css">css</Link>,
+        categoryLink: <Link to="/posts?filter=css">css</Link>,
         publishedAt: fourDaysAgo,
       },
     ];
@@ -91,7 +91,7 @@ export const Default: Story = {
           는 작성일로부터 3일이 안지났을때 붙는다.
         </div>
         <br />
-        <SubCategoryList subCategory={subCategory} />
+        <SubCategoryList subCategories={subCategory} />
       </MemoryRouter>
     );
   },

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { DragSlider } from ".";
 import { Card } from "@/index";
+import { Link } from "react-router-dom";
 
 const meta: Meta<typeof DragSlider> = {
   title: "molecules/DragSlider",
@@ -78,7 +79,7 @@ export const Default: Story = {
           ].map(({ Thumbnail, title, description, onClick }, i) => (
             <Card
               publishedAt="2023. 10. 16. "
-              category={{ dev: "react" }}
+              categoryLink={<Link to="react">react</Link>}
               key={i}
               title={title}
               Thumbnail={Thumbnail}
