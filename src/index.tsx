@@ -7,7 +7,7 @@ export * from "./components/atoms";
 export * from "./components/molecules";
 
 // //* Organism 컴포넌트
-// export * from "./components/organisms";
+export * from "./components/organisms";
 
 // //* Util 함수
 export * from "./utils/public";
