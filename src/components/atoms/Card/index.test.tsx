@@ -2,13 +2,14 @@ import "@testing-library/jest-dom";
 import { Card } from "@/index";
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
+import { Link } from "react-router-dom";
 
 describe("Card에 image,h3,description들이 있는지 확인", () => {
   it("renders Card", () => {
     render(
       <Card
         publishedAt="2023. 10. 16. "
-        category={{ dev: "react" }}
+        categoryLink={<Link to="react">react</Link>}
         Thumbnail={
           <img
             width={240}
@@ -28,7 +29,7 @@ describe("Card에 image,h3,description들이 있는지 확인", () => {
     render(
       <Card
         publishedAt="2023. 10. 16. "
-        category={{ dev: "react" }}
+        categoryLink={<Link to="react">react</Link>}
         Thumbnail={
           <img
             width={240}
@@ -49,7 +50,7 @@ describe("Card에 image,h3,description들이 있는지 확인", () => {
     render(
       <Card
         publishedAt="2023. 10. 16. "
-        category={{ dev: "react" }}
+        categoryLink={<Link to="react">react</Link>}
         Thumbnail={
           <img
             width={240}
@@ -71,7 +72,7 @@ describe("Card에 image,h3,description들이 있는지 확인", () => {
     render(
       <Card
         publishedAt="2023. 10. 16. "
-        category={{ dev: "react" }}
+        categoryLink={<Link to="react">react</Link>}
         Thumbnail={
           <img
             width={240}
@@ -93,7 +94,7 @@ describe("Card에 image,h3,description들이 있는지 확인", () => {
     render(
       <Card
         publishedAt="2023. 10. 16. "
-        category={{ dev: "react" }}
+        categoryLink={<Link to="react">react</Link>}
         Thumbnail={
           <img
             width={240}

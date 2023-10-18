@@ -1,17 +1,20 @@
 import styles from "./index.module.scss";
 
+export type LinkType = JSX.Element;
+
+export interface SubCategoryType {
+  categoryLink: LinkType; // link
+  publishedAt: Date;
+}
 export interface SubCategoryListProps {
-  subCategory: {
-    category: JSX.Element;
-    publishedAt: Date;
-  }[];
+  subCategories: SubCategoryType[];
 }
 
-export type SubCategoryType = "dev" | "mystory" | "retrospect" | "book";
+export type CategoryType = "dev" | "mystory" | "retrospect" | "book";
 
-export type CategoryType = Partial<Record<SubCategoryType, string>>;
+export type SidebarType = Partial<Record<CategoryType, string>>;
 
-export const SubCategoryList = ({ subCategory }: SubCategoryListProps) => {
+export const SubCategoryList = ({ subCategories }: SubCategoryListProps) => {
   const isThreeDaysAgo = (date: Date): boolean => {
     const today = new Date();
     const threeDaysAgo = new Date(today.setDate(today.getDate() - 4));
@@ -21,10 +24,10 @@ export const SubCategoryList = ({ subCategory }: SubCategoryListProps) => {
   return (
     <div className={styles.sub_category_wrapper}>
       <ul>
-        {subCategory.map((el, i) => (
+        {subCategories.map((subCategory, i) => (
           <li key={i}>
-            {el.category}
-            {isThreeDaysAgo(el.publishedAt) && (
+            {subCategory.categoryLink}
+            {isThreeDaysAgo(subCategory.publishedAt) && (
               <span className={styles.new}>new</span>
             )}
           </li>

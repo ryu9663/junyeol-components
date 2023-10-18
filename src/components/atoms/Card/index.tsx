@@ -1,4 +1,4 @@
-import { CategoryType } from "@/index";
+import { SubCategoryType } from "@/index";
 import styles from "./index.module.scss";
 
 export interface CardProps {
@@ -9,7 +9,7 @@ export interface CardProps {
   onClick?: () => void;
   className?: string;
   publishedAt: string;
-  category: CategoryType;
+  categoryLink: SubCategoryType["categoryLink"];
 }
 
 export const Card = ({
