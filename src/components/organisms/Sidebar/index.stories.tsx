@@ -4,7 +4,7 @@ import { Category, SubCategoryList } from "@/index";
 import { Link, MemoryRouter } from "react-router-dom";
 
 const meta: Meta<typeof Sidebar> = {
-  title: "organism/Sidebar",
+  title: "organisms/Sidebar",
   component: Sidebar,
   decorators: [
     (Story) => (
