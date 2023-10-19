@@ -53,7 +53,7 @@ export const Default: Story = {
     return (
       <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
         <Card
-          publishedAt="2023. 10. 16. "
+          createdAt="2023. 10. 16. "
           subCategoryLink={<Link to="react">react</Link>}
           Thumbnail={
             <img
@@ -80,7 +80,7 @@ export const 썸네일에_div태그_넣음: Story = {
     return (
       <>
         <Card
-          publishedAt="2023. 10. 16. "
+          createdAt="2023. 10. 16. "
           subCategoryLink={<Link to="react">react</Link>}
           Thumbnail={<div>hi</div>}
           title="Next App router에서 use client가 CSR을 뜻하지는 않는다."
@@ -98,7 +98,7 @@ export const 카드_여러개: Story = {
     return (
       <div style={{ display: "flex", flexDirection: "column", gap: "30px" }}>
         <Card
-          publishedAt="2023. 10. 16. "
+          createdAt="2023. 10. 16. "
           subCategoryLink={<Link to="react">react</Link>}
           Thumbnail={
             <img
@@ -116,7 +116,7 @@ export const 카드_여러개: Story = {
             감사합니다.`}
         />
         <Card
-          publishedAt="2023. 10. 16. "
+          createdAt="2023. 10. 16. "
           subCategoryLink={<Link to="react">react</Link>}
           Thumbnail={
             <img
@@ -133,7 +133,7 @@ export const 카드_여러개: Story = {
         />
 
         <Card
-          publishedAt="2023. 10. 16. "
+          createdAt="2023. 10. 16. "
           subCategoryLink={<Link to="react">react</Link>}
           Thumbnail={
             <img

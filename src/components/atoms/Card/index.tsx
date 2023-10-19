@@ -8,7 +8,7 @@ export interface CardProps {
   boxShadow?: boolean;
   onClick?: () => void;
   className?: string;
-  publishedAt: string;
+  createdAt: string;
   subCategoryLink: SubCategoryType["subCategoryLink"];
 }
 

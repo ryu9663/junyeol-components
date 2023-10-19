@@ -27,41 +27,41 @@ export const Default: Story = {
     const subCategory = [
       {
         subCategoryLink: <Link to="/posts?filter=react">react</Link>,
-        publishedAt: yesterday,
+        createdAt: yesterday,
       },
       {
         subCategoryLink: <Link to="/posts?filter=next">next</Link>,
-        publishedAt: twoDaysAgo,
+        createdAt: twoDaysAgo,
       },
       {
         subCategoryLink: <Link to="/posts?filter=typescript">typescript</Link>,
-        publishedAt: threeDaysAgo,
+        createdAt: threeDaysAgo,
       },
       {
         subCategoryLink: <Link to="/posts?filter=graphQL">graphQL</Link>,
-        publishedAt: fourDaysAgo,
+        createdAt: fourDaysAgo,
       },
       {
         subCategoryLink: (
           <Link to="/posts?filter=react-query">react-query</Link>
         ),
-        publishedAt: fourDaysAgo,
+        createdAt: fourDaysAgo,
       },
       {
         subCategoryLink: <Link to="/posts?filter=zustand">zustand</Link>,
-        publishedAt: fourDaysAgo,
+        createdAt: fourDaysAgo,
       },
       {
         subCategoryLink: <Link to="/posts?filter=javascript">javascript</Link>,
-        publishedAt: fourDaysAgo,
+        createdAt: fourDaysAgo,
       },
       {
         subCategoryLink: <Link to="/posts?filter=html">html</Link>,
-        publishedAt: fourDaysAgo,
+        createdAt: fourDaysAgo,
       },
       {
         subCategoryLink: <Link to="/posts?filter=css">css</Link>,
-        publishedAt: fourDaysAgo,
+        createdAt: fourDaysAgo,
       },
     ];
     return (
