@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Sidebar } from ".";
 import { Category, SubCategoryList } from "@/index";
 import { Link, MemoryRouter } from "react-router-dom";
+import { getCustomDateString } from "@/utils";
 
 const meta: Meta<typeof Sidebar> = {
   title: "organisms/Sidebar",
@@ -20,19 +21,14 @@ type Story = StoryObj<typeof Sidebar>;
 
 export const Default: Story = {
   render: () => {
-    const currentDate = new Date();
+    const yesterday = getCustomDateString(1);
 
-    // 어제의 날짜를 계산합니다.
-    const yesterday = new Date(currentDate);
-    yesterday.setDate(currentDate.getDate() - 1);
+    const twoDaysAgo = getCustomDateString(2);
 
-    // 3일 전의 날짜를 계산합니다.
-    const threeDaysAgo = new Date(currentDate);
-    threeDaysAgo.setDate(currentDate.getDate() - 3);
+    const threeDaysAgo = getCustomDateString(3);
 
-    // 4일 전의 날짜를 계산합니다.
-    const fourDaysAgo = new Date(currentDate);
-    fourDaysAgo.setDate(currentDate.getDate() - 4);
+    const fourDaysAgo = getCustomDateString(4);
+
     const category = [
       {
         category: "dev",
@@ -43,13 +39,13 @@ export const Default: Story = {
           },
           {
             subCategoryLink: <Link to="/posts?filter=next">next</Link>,
-            publishedAt: threeDaysAgo,
+            publishedAt: twoDaysAgo,
           },
           {
             subCategoryLink: (
               <Link to="/posts?filter=typescript">typescript</Link>
             ),
-            publishedAt: fourDaysAgo,
+            publishedAt: threeDaysAgo,
           },
           {
             subCategoryLink: <Link to="/posts?filter=graphQL">graphQL</Link>,
@@ -96,7 +92,6 @@ export const Default: Story = {
       },
     ];
 
-    console.log(category);
     return (
       <MemoryRouter>
         <main style={{ height: "100vh", width: "100vw", background: "white" }}>

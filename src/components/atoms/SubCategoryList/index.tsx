@@ -5,7 +5,7 @@ export type LinkType = JSX.Element;
 
 export interface SubCategoryType {
   subCategoryLink: LinkType;
-  publishedAt: Date;
+  publishedAt: string;
 }
 export interface SubCategoryListProps {
   subCategories: SubCategoryType[];
@@ -14,10 +14,15 @@ export interface SubCategoryListProps {
 export type SidebarType = Partial<Record<CategoryType, string>>;
 
 export const SubCategoryList = ({ subCategories }: SubCategoryListProps) => {
-  const isThreeDaysAgo = (date: Date): boolean => {
+  const isRecentPublication = (publishedAt: string): boolean => {
     const today = new Date();
-    const threeDaysAgo = new Date(today.setDate(today.getDate() - 4));
-    return date > threeDaysAgo;
+    const publishedDate = new Date(publishedAt);
+
+    // 3일을 밀리초로 변환합니다.
+    const threeDaysInMilliseconds = 3 * 24 * 60 * 60 * 1000;
+
+    // 현재 날짜와 publishedDate 사이의 차이를 계산하고, 3일(밀리초 단위)보다 큰지 확인합니다.
+    return today.getTime() - publishedDate.getTime() <= threeDaysInMilliseconds;
   };
 
   return (
@@ -26,7 +31,7 @@ export const SubCategoryList = ({ subCategories }: SubCategoryListProps) => {
         {subCategories.map((subCategory, i) => (
           <li key={i}>
             {subCategory.subCategoryLink}
-            {isThreeDaysAgo(subCategory.publishedAt) && (
+            {isRecentPublication(subCategory.publishedAt) && (
               <span className={styles.new}>new</span>
             )}
           </li>

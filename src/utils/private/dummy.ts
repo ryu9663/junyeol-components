@@ -65,3 +65,23 @@ export const DUMMY = {
         molestie, in condimentum eros aliquet.`,
   },
 };
+
+export const getCustomDateString = (daysAgo: number) => {
+  const currentDate = new Date();
+  currentDate.setDate(currentDate.getDate() - daysAgo); // 'daysAgo' 만큼 일 수를 감소시킴
+
+  const year = currentDate.getFullYear();
+  const month = (currentDate.getMonth() + 1).toString().padStart(2, "0");
+  const day = currentDate.getDate().toString().padStart(2, "0");
+  const hours = currentDate.getHours().toString().padStart(2, "0");
+  const minutes = currentDate.getMinutes().toString().padStart(2, "0");
+  const seconds = currentDate.getSeconds().toString().padStart(2, "0");
+  const timezoneOffset = currentDate.getTimezoneOffset() / 60;
+  const timezoneOffsetString = `${timezoneOffset >= 0 ? "+" : "-"}${Math.abs(
+    timezoneOffset
+  )
+    .toString()
+    .padStart(2, "0")}:00`;
+
+  return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}${timezoneOffsetString}`;
+};
