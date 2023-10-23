@@ -52,7 +52,14 @@ export const Default: Story = {
   render: () => {
     return (
       <MemoryRouter>
-        <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "10px",
+            width: "760px",
+          }}
+        >
           <Card
             createdAt="2023. 10. 16. "
             subCategoryLink={<Link to="react">react</Link>}
