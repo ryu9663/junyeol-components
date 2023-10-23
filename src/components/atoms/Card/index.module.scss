@@ -2,6 +2,9 @@
 
 .card {
   display: flex;
+  gap: 10px;
+  width: fit-content;
+
   cursor: pointer;
   &:hover {
     transition: all 0.2s ease-in-out;
@@ -10,6 +13,7 @@
 
   align-items: center;
   background-color: $WHITE;
+
   border-radius: 20px;
 
   color: $GRAY-600;
@@ -24,19 +28,45 @@
   &_content {
     display: flex;
     flex-direction: column;
-
+    max-width: 508px;
+    padding: 10px;
+    gap: 10px;
     &-title {
       @include font-size;
+      @include multi-line-ellipse(1);
       font-size: $NORMAL;
-      padding: 10px;
+      margin: 0;
     }
 
     &-description {
       max-height: 80px;
-      padding: 10px 10px 0;
-      margin-bottom: 10px;
+
       font-size: $SMALL;
-      @include multi-line-ellipse(3);
+      @include multi-line-ellipse(1);
+    }
+
+    &-tagbox {
+      display: flex;
+      gap: 10px;
+      font-size: $SMALL;
+
+      & > &-createdAt {
+        vertical-align: middle;
+        padding: 3px;
+      }
+      & > &-tag {
+        background-color: $GRAY-200;
+        padding: 3px 6px;
+        border-radius: 6px;
+        &:hover {
+          color: $GRAY-500;
+        }
+
+        & > a {
+          text-decoration: none;
+          color: $BLACK;
+        }
+      }
     }
   }
 
