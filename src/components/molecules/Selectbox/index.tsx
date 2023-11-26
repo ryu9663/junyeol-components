@@ -62,31 +62,25 @@ export const Selectbox = ({
           <ChevronDown className={styles["arrow"]} width={20} height={20} />
         )}
       </Button>
-      {isOpen ? (
+      {isOpen && (
         <ul
           className={`${styles.dropdown} ${
             upward && styles.upward
           } ${className}`}
           onMouseDown={(e) => e.preventDefault()}
         >
-          {list.map(({ name, value }) => {
-            return (
-              <li key={value}>
-                <Button
-                  value={value}
-                  className={styles.dropdown_list}
-                  // onClick={() => handleChange(value)}
-                  // onClick={(e) => console.log(e.currentTarget.value)}
-                  onClick={handleChange}
-                >
-                  {name}
-                </Button>
-              </li>
-            );
-          })}
+          {list.map(({ name, value }) => (
+            <li key={value}>
+              <Button
+                value={value}
+                className={styles.dropdown_list}
+                onClick={handleChange}
+              >
+                {name}
+              </Button>
+            </li>
+          ))}
         </ul>
-      ) : (
-        <></>
       )}
     </div>
   );

@@ -104,9 +104,9 @@ test("when select lost focus, it should be closed", () => {
   const dropdown = screen.getByRole("button", { name: "사과" });
   expect(dropdown).toBeInTheDocument();
 
-  // Select box lost focus
-
-  fireEvent.blur(selectBox);
+  // click dropdown item
+  const dropdownItem = screen.getByRole("button", { name: "사과" });
+  fireEvent.click(dropdownItem);
 
   // dropdown is closed
   expect(selectBox).not.toHaveClass(OPEN_CLASS_ON_SCSS);
