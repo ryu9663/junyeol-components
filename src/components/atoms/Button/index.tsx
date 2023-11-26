@@ -1,5 +1,6 @@
 import { cleanClassName } from "@/utils";
 import styles from "./index.module.scss";
+import { MouseEventHandler } from "react";
 
 export type ButtonSize = "small" | "normal" | "large";
 
@@ -11,7 +12,7 @@ type HtmlButtonProps = React.DetailedHTMLProps<
 export interface ButtonProps extends HtmlButtonProps {
   border?: boolean;
   size?: ButtonSize;
-  onClick?: () => void;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
 export const Button = ({
@@ -19,6 +20,7 @@ export const Button = ({
   size = "normal",
 
   children,
+
   ...props
 }: ButtonProps) => {
   return (

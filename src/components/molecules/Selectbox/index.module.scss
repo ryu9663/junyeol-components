@@ -1,0 +1,61 @@
+.selectbox_wrapper {
+  position: relative;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.selectbox_button {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  align-items: center;
+  background-color: white;
+  border: 1px solid black;
+  &_name {
+    text-align: center;
+    width: 100%;
+  }
+  &.small {
+    width: 150px;
+    height: 40px;
+  }
+  &.medium {
+    width: 200px;
+    height: 40px;
+  }
+  &.large {
+    width: 300px;
+    height: 40px;
+  }
+  height: 30px;
+  border-radius: 5px;
+
+  &:focus {
+    border: 1px solid black;
+  }
+}
+
+.dropdown {
+  position: absolute;
+  width: 100%;
+  top: 50px;
+  background-color: white;
+  &.upward {
+    top: unset;
+    bottom: 50px;
+  }
+
+  list-style: none;
+  border: 1px gray solid;
+  padding: 0;
+  border-radius: 5px;
+
+  &_list {
+    width: 100%;
+    height: 40px;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+}

@@ -1,6 +1,5 @@
 import { Card, DragSlider } from "@/index";
 import { render, screen } from "@testing-library/react";
-import { Link } from "react-router-dom";
 import { describe, expect, it } from "vitest";
 
 describe("Card를 사용하는 DragSlider 렌더링 테스트", () => {
@@ -30,7 +29,7 @@ describe("Card를 사용하는 DragSlider 렌더링 테스트", () => {
         ].map(({ Thumbnail, title, description, onClick }, i) => (
           <Card
             createdAt="2023. 10. 16. "
-            subCategoryLink={<Link to="react">react</Link>}
+            subCategoryLink={<a href="react">react</a>}
             key={i}
             title={title}
             Thumbnail={Thumbnail}
@@ -88,7 +87,7 @@ describe("Card를 사용하는 DragSlider 렌더링 테스트", () => {
           ].map(({ Thumbnail, title, description, onClick }, i) => (
             <Card
               createdAt="2023. 10. 16. "
-              subCategoryLink={<Link to="react">react</Link>}
+              subCategoryLink={<a href="react">react</a>}
               key={i}
               title={title}
               Thumbnail={Thumbnail}
@@ -130,7 +129,7 @@ describe("Card를 사용하는 DragSlider 렌더링 테스트", () => {
         ].map(({ Thumbnail, title, description, onClick }, i) => (
           <Card
             createdAt="2023. 10. 16. "
-            subCategoryLink={<Link to="react">react</Link>}
+            subCategoryLink={<a href="react">react</a>}
             key={i}
             title={title}
             Thumbnail={Thumbnail}
