@@ -8,10 +8,7 @@ export interface ToastOptionType extends ToastProps {}
 
 export const ToastContainer = ({ children }: PropsWithChildren) => {
   const [toastInfos, setToastInfos] = useState<ToastOptionType[]>([]);
-  const [toastOption] = useToastStore((state) => [
-    state.toastOption,
-    state.setToastOption,
-  ]);
+  const toastOption = useToastStore((state) => state.toastOption);
 
   useMountedEffect(() => {
     setToastInfos((prevToastPropss) => [
