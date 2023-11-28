@@ -6,6 +6,19 @@ import { useState } from "react";
 const meta: Meta<typeof Input> = {
   title: "atoms/Input",
   component: Input,
+  argTypes: {
+    type: {
+      control: {
+        options: ["text", "password", "search", "tel", "email"],
+        type: "select",
+      },
+    },
+    placeholder: {
+      control: {
+        type: "text",
+      },
+    },
+  },
   decorators: [
     (Story) => (
       <div style={{ padding: "150px" }}>
@@ -20,7 +33,7 @@ export default meta;
 type Story = StoryObj<typeof Input>;
 
 export const Default: Story = {
-  render: () => {
+  render: (args) => {
     const [text, setText] = useState("");
     return (
       <>
@@ -29,15 +42,17 @@ export const Default: Story = {
             htmlFor: "text",
             name: "label text",
           }}
-          type="text"
+          type={args.type || "text"}
           value={text}
-          onChange={(e) => setText(e.target.value)}
-          placeholder="hdddi"
-          validation={(value) => {
-            const regex = /[ㄱ-ㅎㅏ-ㅣ가-힣]/;
-            return regex.test(String(value)) ? "한글은 입력하지 마세요" : "";
+          onChange={(e) => {
+            setText(e.target.value);
           }}
+          placeholder={args.placeholder || "placeholder"}
+          validation={(value) =>
+            String(value).length > 5 ? "5글자 이하로 입력해주세요" : ""
+          }
         />
+        <div>validation: 5글자 이상 입력 못함</div>
       </>
     );
   },
