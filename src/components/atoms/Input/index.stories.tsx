@@ -45,7 +45,6 @@ export const Default: Story = {
           type={args.type || "text"}
           value={text}
           onChange={(e) => {
-            console.log(e.target.value);
             setText(e.target.value);
           }}
           placeholder={args.placeholder || "placeholder"}
