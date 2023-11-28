@@ -124,7 +124,7 @@ test("type이 search에서도 validation이 작동한다.", () => {
   expect(span).toBeInTheDocument();
 });
 
-test("type이 password 이고 label이 있으면 validation이 작동한다.", () => {
+test("type이 password일때 validation이 작동한다.", () => {
   render(
     <>
       <TestComponent
