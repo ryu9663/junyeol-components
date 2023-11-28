@@ -62,7 +62,6 @@ export const Input = forwardRef(
               setValidationMessage(validation(e.target.value));
             }
             if (!isError) {
-              console.log(e.target.value);
               onChange?.(e);
             }
           }}
