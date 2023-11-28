@@ -2,7 +2,7 @@ import { Selectbox } from "@/components/molecules/Selectbox";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { expect, test, vi } from "vitest";
 
-const OPEN_CLASS_ON_SCSS = "_open_3a1db3";
+const CLASSNAME_OPEN = "_open_3a1db3";
 test("selectbox is closed at first", () => {
   render(
     <Selectbox
@@ -18,7 +18,7 @@ test("selectbox is closed at first", () => {
 
   // select box is closed at first
   const selectbox = screen.getByRole("button", { name: "Select" });
-  expect(selectbox).not.toHaveClass(OPEN_CLASS_ON_SCSS);
+  expect(selectbox).not.toHaveClass(CLASSNAME_OPEN);
 });
 
 test("when select box is clicked, it should be opened", () => {
@@ -40,7 +40,7 @@ test("when select box is clicked, it should be opened", () => {
   fireEvent.click(selectbox);
 
   // div tag which has class named dropdown is opened
-  expect(selectbox).toHaveClass(OPEN_CLASS_ON_SCSS);
+  expect(selectbox).toHaveClass(CLASSNAME_OPEN);
   screen.debug();
   const dropdown = screen.getByRole("list");
 
@@ -80,7 +80,7 @@ test("when dropdown is clicked, it should be closed and onChange is fired and se
   expect(selectbox).toHaveTextContent("사과");
 
   // dropdown is closed
-  expect(selectbox).not.toHaveClass(OPEN_CLASS_ON_SCSS);
+  expect(selectbox).not.toHaveClass(CLASSNAME_OPEN);
   expect(dropdown).not.toBeInTheDocument();
   expect(dropdownItem).not.toBeInTheDocument();
 });
@@ -109,6 +109,6 @@ test("when select lost focus, it should be closed", () => {
   fireEvent.click(dropdownItem);
 
   // dropdown is closed
-  expect(selectBox).not.toHaveClass(OPEN_CLASS_ON_SCSS);
+  expect(selectBox).not.toHaveClass(CLASSNAME_OPEN);
   expect(dropdown).not.toBeInTheDocument();
 });

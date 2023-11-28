@@ -96,8 +96,11 @@ input[type="tel"],
 input[type="text"] {
   -webkit-appearance: none;
   appearance: none;
-
-  border-radius: 0;
+  @layer default {
+    & {
+      border-radius: 0;
+    }
+  }
 }
 
 input[type="search"]::-webkit-search-cancel-button {
