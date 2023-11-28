@@ -5,6 +5,7 @@ import {
   useState,
 } from "react";
 import styles from "./index.module.scss";
+import { InputLabel } from "@/components/atoms/Input/InputLabel";
 
 export type InputType = "email" | "password" | "search" | "tel" | "text";
 
@@ -18,7 +19,7 @@ export interface InputProps extends HTMLInputProps {
   validation?: (value: HTMLInputProps["value"]) => string;
 }
 
-export const Input = forwardRef(({ type, validation, ...args }: InputProps) => {
+const InputMain = forwardRef(({ type, validation, ...args }: InputProps) => {
   const [text, setText] = useState("");
   const [validationMessage, setValidationMessage] = useState("");
   return (
@@ -35,4 +36,8 @@ export const Input = forwardRef(({ type, validation, ...args }: InputProps) => {
       <span className={styles["validation-error"]}>{validationMessage}</span>
     </>
   );
+});
+
+export const Input = Object.assign(InputMain, {
+  Label: InputLabel,
 });

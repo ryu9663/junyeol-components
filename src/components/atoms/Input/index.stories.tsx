@@ -24,8 +24,10 @@ export const Default: Story = {
     const [text, setText] = useState("");
     return (
       <>
+        <Input.Label htmlFor={"password"}>password</Input.Label>
+
         <Input
-          type="search"
+          type="password"
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="hdddi"

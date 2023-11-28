@@ -89,21 +89,25 @@ test("type이 search에서도 validation이 작동한다.", () => {
   expect(span).toBeInTheDocument();
 });
 
-// test("type이 password 일 때도 validation이 작동한다.", () => {
-//   render(
-//     <Input
-//       type="password"
-//       validation={(value) =>
-//         String(value).length > 5 ? "5글자 이하로 입력해주세요" : ""
-//       }
-//     />
-//   );
-//   screen.debug();
-//   const input = screen.getByLabelText
-//   fireEvent.change(input, { target: { value: "hello~" } });
-//   const span = screen.queryByText("5글자 이하로 입력해주세요");
-//   expect(span).toBeInTheDocument();
-// });
+test("type이 password 이고 label이 있으면 validation이 작동한다.", () => {
+  render(
+    <>
+      <Input
+        type="password"
+        validation={(value) =>
+          String(value).length > 5 ? "5글자 이하로 입력해주세요" : ""
+        }
+        placeholder="password"
+      />
+
+      <Input.Label htmlFor="password">비밀번호</Input.Label>
+    </>
+  );
+  const input = screen.getByPlaceholderText("password");
+  fireEvent.change(input, { target: { value: "hello~" } });
+  const span = screen.queryByText("5글자 이하로 입력해주세요");
+  expect(span).toBeInTheDocument();
+});
 
 test("type이 email 일때도 validation이 작동한다.", () => {
   render(
