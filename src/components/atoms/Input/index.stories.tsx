@@ -24,19 +24,20 @@ export const Default: Story = {
     const [text, setText] = useState("");
     return (
       <>
-        <Input.Label htmlFor={"password"}>password</Input.Label>
-
         <Input
-          type="password"
+          label={{
+            htmlFor: "text",
+            name: "label text",
+          }}
+          type="text"
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="hdddi"
           validation={(value) => {
-            console.log("gg", value);
-            return String(value).length > 5 ? "5글자 이하로 입력해주세요" : "";
+            const regex = /[ㄱ-ㅎㅏ-ㅣ가-힣]/;
+            return regex.test(String(value)) ? "한글은 입력하지 마세요" : "";
           }}
         />
-        <div>{text}</div>
       </>
     );
   },

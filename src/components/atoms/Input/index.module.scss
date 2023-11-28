@@ -1,5 +1,24 @@
 @use "src/styles/libs" as *;
 
+.input {
+  display: block;
+  border: 1px $GRAY-600 solid;
+  border-radius: 10px;
+  width: 200px;
+  height: 40px;
+  padding: 10px;
+  margin-bottom: 10px;
+  &:focus {
+    outline-color: $BLUE-400;
+  }
+
+  &.error-border {
+    border-color: $PEACH-600;
+    outline-color: $PEACH-600;
+  }
+}
 .validation-error {
-  color: $PEACH_600;
+  margin-left: 2px;
+
+  color: $PEACH-600;
 }

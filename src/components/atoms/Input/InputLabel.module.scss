@@ -1,0 +1,19 @@
+@use "src/styles/libs" as *;
+
+.label {
+  display: block;
+  margin-bottom: 5px;
+  margin-left: 2px;
+  font-size: $SMALL;
+  font-weight: 500;
+  color: #000;
+  text-align: left;
+  text-transform: capitalize;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+
+  &.error {
+    color: $PEACH-600;
+  }
+}
