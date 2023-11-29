@@ -15,7 +15,9 @@ export const Default: Story = {
   render: () => {
     return (
       <>
-        <Backdrop />
+        <Backdrop onClose={() => console.log("close")} type="shadow">
+          modalbody
+        </Backdrop>
       </>
     );
   },
