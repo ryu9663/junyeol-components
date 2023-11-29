@@ -14,7 +14,16 @@ export const Default: Story = {
   render: () => {
     return (
       <>
-        <Modal />
+        <Modal
+          onOk={() => {
+            console.log("ok");
+          }}
+          onClose={() => console.log("close")}
+          isOpen={true}
+        >
+          <Modal.Header>헤더</Modal.Header>
+          <Modal.Body>바디</Modal.Body>
+        </Modal>
       </>
     );
   },
