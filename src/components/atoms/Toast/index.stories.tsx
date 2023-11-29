@@ -3,9 +3,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Toast } from ".";
-import { Button } from "@/index";
-
-import { useToast } from "@/utils/hooks/useToast";
 
 const meta: Meta<typeof Toast> = {
   title: "atoms/Toast",
@@ -25,28 +22,23 @@ export const Default: Story = {};
 
 export const 삼초후_사라짐_버튼: Story = {
   render: () => {
-    const toast = useToast();
     return (
-      <div id="toast_container">
-        <Button
-          onClick={() => {
-            toast({
-              type: "success",
-              children: <div>hihi</div>,
-
-              floatDirection: "from-top",
-              holdTime: 3000,
-            });
-          }}
-        >
-          3초후 사라지는 성공 토스트
-        </Button>
+      <div
+        id="toast_container"
+        style={{ background: "yellow", height: "100vh", width: "100vw" }}
+      >
+        <Toast type="success" floatDirection="from-top" holdTime={3000}>
+          <div>success</div>
+        </Toast>
+        <Toast type="fail" floatDirection="from-top" holdTime={3000}>
+          <div>faiil</div>
+        </Toast>
       </div>
     );
   },
 };
 
-export const Type: Story = {
+export const 성공과_실패: Story = {
   render: (args) => (
     <>
       <Toast {...args} type="success" />
