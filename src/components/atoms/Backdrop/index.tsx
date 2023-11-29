@@ -11,7 +11,7 @@ export const Backdrop = ({ type, onClose, children }: BackdropProps) => {
     <div
       className={`${styles.backdrop} ${styles[type]}`}
       onClick={onClose}
-      role="dialog"
+      data-testid="backdrop-testid"
     >
       {children}
     </div>

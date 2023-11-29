@@ -4,11 +4,14 @@ import userEvent from "@testing-library/user-event";
 import { vi } from "vitest";
 
 const CLASSNAME_BACKDROP = "_backdrop_0b4842 _shadow_0b4842";
+const CLASSNAME_BLUR = "_blur_0b4842";
+const CLASSNAME_TRANSPERANT = "_transparent_0b4842";
+const CLASSNAME_SHADOW = "_shadow_0b4842";
 
 test("backdrop init test", () => {
   render(<Backdrop onClose={() => console.log("close")} type="shadow" />);
 
-  const backdrop = screen.getByRole("dialog");
+  const backdrop = screen.getByTestId("backdrop-testid");
   expect(backdrop).toBeInTheDocument();
   expect(backdrop).toHaveClass(CLASSNAME_BACKDROP);
 });
@@ -20,7 +23,7 @@ test("backdrop을 클릭하면 onClose가 실행된다.", async () => {
   const user = userEvent.setup();
 
   render(<Backdrop onClose={() => console.log("close")} type="shadow" />);
-  const backdrop = screen.getByRole("dialog");
+  const backdrop = screen.getByTestId("backdrop-testid");
 
   // backdrop을 클릭하면 onClose가 실행된다.
   await user.click(backdrop);
@@ -55,18 +58,18 @@ test("backdrop을 클릭하지 않고 다른 컴포넌트를 클릭하면 onClos
 
 test("type props에 따라 class가 바뀐다 : transparent", () => {
   render(<Backdrop onClose={() => console.log("close")} type="transparent" />);
-  const backdrop = screen.getByRole("dialog");
-  expect(backdrop).toHaveClass("_transparent_0b4842");
+  const backdrop = screen.getByTestId("backdrop-testid");
+  expect(backdrop).toHaveClass(CLASSNAME_TRANSPERANT);
 });
 
 test("type props에 따라 class가 바뀐다 : blur", () => {
   render(<Backdrop onClose={() => console.log("close")} type="blur" />);
-  const backdrop = screen.getByRole("dialog");
-  expect(backdrop).toHaveClass("_blur_0b4842");
+  const backdrop = screen.getByTestId("backdrop-testid");
+  expect(backdrop).toHaveClass(CLASSNAME_BLUR);
 });
 
 test("type props에 따라 class가 바뀐다 : shadow", () => {
   render(<Backdrop onClose={() => console.log("close")} type="shadow" />);
-  const backdrop = screen.getByRole("dialog");
-  expect(backdrop).toHaveClass("_shadow_0b4842");
+  const backdrop = screen.getByTestId("backdrop-testid");
+  expect(backdrop).toHaveClass(CLASSNAME_SHADOW);
 });
