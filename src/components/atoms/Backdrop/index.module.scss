@@ -1,0 +1,11 @@
+.backdrop {
+  &.transperant {
+    background-color: transparent;
+  }
+  &.blur {
+    backdrop-filter: blur(5px);
+  }
+  &.shadow {
+    background: rgba(0, 0, 0, 0.1);
+  }
+}
