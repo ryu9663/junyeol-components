@@ -2,8 +2,8 @@ import { Input, InputProps } from "@/index";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { useState } from "react";
 
-const CLASSNAME_VALIDATION_ERROR = "_validation-error_633424";
-const CLASSNAME_LABEL_ERROR = "_error_5f35dc";
+const CLASSNAME_VALIDATION_ERROR = "_validation-error_bae745";
+const CLASSNAME_LABEL_ERROR = "_error_e43dcf";
 
 const TestComponent = ({
   type = "text",
