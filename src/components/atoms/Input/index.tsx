@@ -5,7 +5,7 @@ import {
   useState,
 } from "react";
 import styles from "./index.module.scss";
-import { InputLabel } from "@/components/molecules/Input/InputLabel";
+import { InputLabel } from "@/components/atoms/Input/InputLabel";
 
 export type InputType = "email" | "password" | "search" | "tel" | "text";
 

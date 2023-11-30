@@ -3,6 +3,6 @@ export * from "./Button";
 export * from "./Card";
 export * from "./Toast";
 export * from "./SubCategoryList";
-export * from "../molecules/Input";
-export * from "../molecules/Input/InputLabel";
+export * from "./Input";
+export * from "./Input/InputLabel";
 export * from "./Backdrop";

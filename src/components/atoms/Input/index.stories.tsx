@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 
 const meta: Meta<typeof Input> = {
-  title: "molecules/Input",
+  title: "atoms/Input",
   component: Input,
   argTypes: {
     type: {
