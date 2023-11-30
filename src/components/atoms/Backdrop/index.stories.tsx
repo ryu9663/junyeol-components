@@ -64,13 +64,13 @@ export const 모달이아닌경우: Story = {
     return (
       <>
         <div>
-          <Backdrop
-            className={`${styles.backdrop} ${styles[args.type]} ${
-              isOpen ? styles.open : ""
-            }`}
-            onClose={() => setIsOpen(false)}
-            type={args.type || "blur"}
-          />
+          {isOpen && (
+            <Backdrop
+              className={`${styles.backdrop2} ${isOpen ? styles.open : ""}`}
+              onClose={() => setIsOpen(false)}
+              type={args.type || "blur"}
+            />
+          )}
 
           <div
             className={`${styles.sidebar} ${isOpen ? styles.open : ""} ${
