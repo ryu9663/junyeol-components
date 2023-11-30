@@ -1,11 +1,30 @@
+@use "src/styles/libs" as *;
+
 .backdrop {
-  &.transperant {
-    background-color: transparent;
+  @layer default {
+    & {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+    }
   }
-  &.blur {
-    backdrop-filter: blur(5px);
-  }
-  &.shadow {
-    background: rgba(0, 0, 0, 0.1);
-  }
+  @include priority-background-layer;
+  @include flex-column-centerize;
+}
+
+.stop-bubbling {
+  width: fit-content;
+  height: fit-content;
+}
+
+.transperant {
+  background-color: transparent;
+}
+.blur {
+  backdrop-filter: blur(5px);
+}
+.shadow {
+  background: rgba(0, 0, 0, 0.1);
 }
