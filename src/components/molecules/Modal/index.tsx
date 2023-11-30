@@ -15,7 +15,10 @@ export interface ModalProps extends PropsWithChildren {
   size?: ModalSize;
 }
 
-const ModalContext = createContext<(() => void) | undefined>(undefined);
+const ModalContext = createContext<{ onClose: () => void; size: ModalSize }>({
+  onClose: () => {},
+  size: "medium",
+});
 
 const ModalMain = ({
   children,
@@ -35,7 +38,7 @@ const ModalMain = ({
             role="dialog"
             className={`${styles.modal} ${styles["priority-1"]} ${styles[size]}`}
           >
-            <ModalContext.Provider value={onClose}>
+            <ModalContext.Provider value={{ onClose, size }}>
               {children}
             </ModalContext.Provider>
             <Modal.Footer
@@ -52,17 +55,13 @@ const ModalMain = ({
 };
 
 const ModalHeader = ({ children }: PropsWithChildren) => {
-  const handleClose = useContext(ModalContext);
+  const { size, onClose } = useContext(ModalContext);
 
   return (
     <>
-      <div className={styles.modal_header}>
+      <div className={`${styles.modal_header} ${styles[size]}`}>
         {children}
-        <Button
-          data-testid="modal-close-btn"
-          className=""
-          onClick={handleClose}
-        >
+        <Button data-testid="modal-close-btn" className="" onClick={onClose}>
           <X width={24} height={24} />
         </Button>
       </div>
@@ -71,7 +70,11 @@ const ModalHeader = ({ children }: PropsWithChildren) => {
 };
 
 const ModalBody = ({ children }: PropsWithChildren) => {
-  return <div className={styles.modal_body}>{children}</div>;
+  const { size } = useContext(ModalContext);
+
+  return (
+    <div className={`${styles.modal_body} ${styles[size]}`}>{children}</div>
+  );
 };
 
 export interface ModalFooterProps extends Pick<ModalProps, "onClose" | "onOk"> {

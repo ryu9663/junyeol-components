@@ -18,6 +18,21 @@ test("모달의 isOpen 이 false일때는 모달이 꺼져 있다.", () => {
   expect(modal).not.toBeInTheDocument();
 });
 
+test("모달의 isOpen이 true일때는 모달이 켜져있다.", () => {
+  render(
+    <Modal
+      onOk={() => console.log("ok")}
+      onClose={() => console.log("close")}
+      isOpen
+    >
+      <Modal.Header>헤더</Modal.Header>
+      <Modal.Body>바디</Modal.Body>
+    </Modal>
+  );
+  const modal = screen.getByRole("dialog");
+  expect(modal).toBeInTheDocument();
+});
+
 test("모달을 클릭했을때 모달이 꺼지지 않는다.", async () => {
   const user = userEvent.setup();
 
