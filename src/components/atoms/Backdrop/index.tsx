@@ -13,7 +13,7 @@ export const Backdrop = ({ type, onClose, children }: BackdropProps) => {
       onClick={onClose}
       data-testid="backdrop-testid"
     >
-      {children}
+      <div onClick={(e) => e.stopPropagation()}>{children}</div>
     </div>
   );
 };
