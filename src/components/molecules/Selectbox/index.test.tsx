@@ -41,7 +41,7 @@ test("when select box is clicked, it should be opened", () => {
 
   // div tag which has class named dropdown is opened
   expect(selectbox).toHaveClass(CLASSNAME_OPEN);
-  screen.debug();
+
   const dropdown = screen.getByRole("list");
 
   expect(dropdown).toBeInTheDocument();

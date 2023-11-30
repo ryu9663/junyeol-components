@@ -1,8 +1,8 @@
 import { PropsWithChildren } from "react";
 import styles from "./index.module.scss";
 
-type BackdropType = "transparent" | "blur" | "shadow";
-interface BackdropProps extends PropsWithChildren {
+export type BackdropType = "transparent" | "blur" | "shadow";
+export interface BackdropProps extends PropsWithChildren {
   onClose: () => void; // ! ModalProps랑 통일
   type: BackdropType;
   className?: string;
