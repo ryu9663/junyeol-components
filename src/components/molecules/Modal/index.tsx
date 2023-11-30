@@ -5,12 +5,25 @@ export interface ModalProps extends PropsWithChildren {
   onClose: () => void;
   onOk: () => void;
   isOpen: boolean;
+  okBtn?: string;
+  closeBtn?: string;
 }
-const ModalMain = ({ children, onOk, onClose }: ModalProps) => {
+const ModalMain = ({
+  children,
+  onOk,
+  onClose,
+  okBtn = "확인",
+  closeBtn = "취소",
+}: ModalProps) => {
   return (
     <div>
       {children}
-      <Modal.Footer onOk={onOk} onClose={onClose} />
+      <Modal.Footer
+        onOk={onOk}
+        onClose={onClose}
+        okBtn={okBtn}
+        closeBtn={closeBtn}
+      />
     </div>
   );
 };
@@ -23,20 +36,19 @@ const ModalBody = ({ children }: PropsWithChildren) => {
   return <section>{children}</section>;
 };
 
-const ModalFooter = ({
-  onOk,
-  onClose,
-}: Pick<ModalProps, "onClose" | "onOk">) => {
+export interface ModalFooterProps extends Pick<ModalProps, "onClose" | "onOk"> {
+  okBtn?: string;
+  closeBtn?: string;
+}
+const ModalFooter = ({ onOk, onClose, okBtn, closeBtn }: ModalFooterProps) => {
   return (
     <footer>
-      <Button
-        className={styles["modal_footer_confirm-btn"]}
-        onClick={onOk}
-      ></Button>
-      <Button
-        className={styles["modal_footer_close-btn"]}
-        onClick={onClose}
-      ></Button>
+      <Button className={styles["modal_footer_confirm-btn"]} onClick={onOk}>
+        {okBtn}
+      </Button>
+      <Button className={styles["modal_footer_close-btn"]} onClick={onClose}>
+        {closeBtn}
+      </Button>
     </footer>
   );
 };
