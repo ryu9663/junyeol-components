@@ -2,16 +2,13 @@ import { Button } from "@/index";
 import styles from "./index.module.scss";
 import { MouseEventHandler, useState } from "react";
 import { ChevronUp, ChevronDown } from "react-feather";
+import { OptionType, Options } from "@/components/atoms/Options";
 
 export type SelectboxSizeType = "small" | "medium" | "large";
 
-export interface SelectboxListType {
-  name: string;
-  value: string;
-}
 export interface SelectboxProps {
   name: string;
-  list: SelectboxListType[];
+  list: OptionType[];
   onChange: (value: string) => void;
   size: SelectboxSizeType;
   upward?: boolean;
@@ -26,7 +23,7 @@ export const Selectbox = ({
   className,
 }: SelectboxProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<SelectboxListType>({
+  const [selectedOption, setSelectedOption] = useState<OptionType>({
     name: "",
     value: "",
   });
@@ -63,24 +60,13 @@ export const Selectbox = ({
         )}
       </Button>
       {isOpen && (
-        <ul
-          className={`${styles.dropdown} ${
-            upward && styles.upward
-          } ${className}`}
+        <Options
+          className={className}
           onMouseDown={(e) => e.preventDefault()}
-        >
-          {list.map(({ name, value }) => (
-            <li key={value}>
-              <Button
-                value={value}
-                className={styles.dropdown_list}
-                onClick={handleChange}
-              >
-                {name}
-              </Button>
-            </li>
-          ))}
-        </ul>
+          options={list}
+          handleClickOption={handleChange}
+          upward={upward}
+        />
       )}
     </div>
   );
