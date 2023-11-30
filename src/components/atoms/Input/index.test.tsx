@@ -55,7 +55,7 @@ test("input wrap에 validation을 props로 할당했을때, input의 입력값�
   fireEvent.change(input, { target: { value: "hello" } });
   expect(input).toHaveValue("hello");
   fireEvent.change(input, { target: { value: "hello~world" } });
-  screen.debug();
+
   expect(input).toHaveValue("hello");
 
   // 5글자 이상 입력하면, span tag에 '5글자 이하로 입력해주세요'가 나타난다.
