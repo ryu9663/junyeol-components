@@ -15,7 +15,7 @@ test("모달의 isOpen 이 false일때는 모달이 꺼져 있다.", () => {
     </Modal>
   );
   const modal = screen.queryByRole("dialog");
-  expect(modal).not.toBeInTheDocument();
+  expect(modal).not.toBeVisible();
 });
 
 test("모달의 isOpen이 true일때는 모달이 켜져있다.", () => {
