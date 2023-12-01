@@ -3,7 +3,9 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { vi } from "vitest";
 
-test("모달의 isOpen 이 false일때는 모달이 꺼져 있다.", () => {
+const CLASSNAME_CLOSED = "_closed_0b4842";
+
+test("모달의 isOpen 이 false일때는 dialog가 closed class를 갖고 있다.", () => {
   render(
     <Modal
       onOk={() => console.log("ok")}
@@ -15,7 +17,8 @@ test("모달의 isOpen 이 false일때는 모달이 꺼져 있다.", () => {
     </Modal>
   );
   const modal = screen.queryByRole("dialog");
-  expect(modal).not.toBeInTheDocument();
+
+  expect(modal).toHaveClass(CLASSNAME_CLOSED);
 });
 
 test("모달의 isOpen이 true일때는 모달이 켜져있다.", () => {

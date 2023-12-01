@@ -1,7 +1,10 @@
 @use "src/styles/libs" as *;
 
 .modal {
-  position: relative;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   @include priority-focus-layer;
   border-radius: 10px;
   border: 1px $GRAY-500 solid;
