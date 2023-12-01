@@ -13,7 +13,6 @@ export const Backdrop = ({
   children,
   className,
 }: BackdropProps) => {
-  console.log("k");
   return (
     <div
       className={`${styles.backdrop} ${styles[type]} ${styles["priority-1"]} ${className} `}
