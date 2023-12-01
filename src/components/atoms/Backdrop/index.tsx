@@ -1,5 +1,6 @@
 import { PropsWithChildren } from "react";
 import styles from "./index.module.scss";
+import { createPortal } from "react-dom";
 
 export type BackdropType = "transparent" | "blur" | "shadow";
 export interface BackdropProps extends PropsWithChildren {
@@ -15,7 +16,7 @@ export const Backdrop = ({
   className,
   isOpen,
 }: BackdropProps) => {
-  return (
+  return createPortal(
     <div
       className={`${styles.backdrop} ${
         isOpen ? styles.opened : styles.closed
@@ -27,8 +28,14 @@ export const Backdrop = ({
         onClick={(e) => e.stopPropagation()}
         className={`${styles["stop-bubbling"]}`}
       >
-        {children}
+        <section
+          role="dialog"
+          className={` ${isOpen ? styles.opened : styles.closed} `}
+        >
+          {children}
+        </section>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };

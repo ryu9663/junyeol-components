@@ -33,8 +33,7 @@ const ModalMain = ({
   return (
     <>
       <Backdrop isOpen={isOpen} onClose={onClose} type={backdropType}>
-        <section
-          role="dialog"
+        <div
           className={`${styles.modal} ${styles["priority-1"]} ${styles[size]}`}
         >
           <ModalContext.Provider value={{ onClose, size }}>
@@ -46,7 +45,7 @@ const ModalMain = ({
             okBtn={okBtn}
             closeBtn={closeBtn}
           />
-        </section>
+        </div>
       </Backdrop>
     </>
   );

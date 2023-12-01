@@ -35,21 +35,16 @@ export const Default: Story = {
 
     return (
       <>
-        {isOpen && (
-          <div>
-            <Backdrop
-              isOpen={isOpen}
-              type={args.type || "blur"}
-              onClose={() => setIsOpen(false)}
-            >
-              <div
-                style={{ width: "400px", height: "400px", background: "green" }}
-              >
-                modalbody
-              </div>
-            </Backdrop>
+        <Backdrop
+          isOpen={isOpen}
+          type={args.type || "blur"}
+          onClose={() => setIsOpen(false)}
+        >
+          <div style={{ width: "400px", height: "400px", background: "green" }}>
+            modalbody
           </div>
-        )}
+        </Backdrop>
+
         <Button onClick={() => setIsOpen(!isOpen)}>모달버튼</Button>
         <div style={{ width: "400px", height: "400px", background: "yellow" }}>
           이건그냥 배경
@@ -65,14 +60,12 @@ export const 모달이아닌경우: Story = {
     return (
       <>
         <div>
-          {isOpen && (
-            <Backdrop
-              isOpen={isOpen}
-              className={`${styles.backdrop2} ${isOpen ? styles.open : ""}`}
-              onClose={() => setIsOpen(false)}
-              type={args.type || "blur"}
-            />
-          )}
+          <Backdrop
+            isOpen={isOpen}
+            className={`${styles.backdrop2} ${isOpen ? styles.open : ""}`}
+            onClose={() => setIsOpen(false)}
+            type={args.type || "blur"}
+          />
 
           <div
             className={`${styles.sidebar} ${isOpen ? styles.open : ""} ${
