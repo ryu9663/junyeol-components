@@ -28,3 +28,14 @@
 .shadow {
   background: rgba(0, 0, 0, 0.1);
 }
+
+.opened {
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.5s;
+}
+.closed {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s;
+}

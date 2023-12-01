@@ -32,24 +32,22 @@ const ModalMain = ({
 }: ModalProps) => {
   return (
     <>
-      {isOpen && (
-        <Backdrop onClose={onClose} type={backdropType}>
-          <section
-            role="dialog"
-            className={`${styles.modal} ${styles["priority-1"]} ${styles[size]}`}
-          >
-            <ModalContext.Provider value={{ onClose, size }}>
-              {children}
-            </ModalContext.Provider>
-            <Modal.Footer
-              onOk={onOk}
-              onClose={onClose}
-              okBtn={okBtn}
-              closeBtn={closeBtn}
-            />
-          </section>
-        </Backdrop>
-      )}
+      <Backdrop isOpen={isOpen} onClose={onClose} type={backdropType}>
+        <section
+          role="dialog"
+          className={`${styles.modal} ${styles["priority-1"]} ${styles[size]}`}
+        >
+          <ModalContext.Provider value={{ onClose, size }}>
+            {children}
+          </ModalContext.Provider>
+          <Modal.Footer
+            onOk={onOk}
+            onClose={onClose}
+            okBtn={okBtn}
+            closeBtn={closeBtn}
+          />
+        </section>
+      </Backdrop>
     </>
   );
 };

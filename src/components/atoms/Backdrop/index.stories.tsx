@@ -38,6 +38,7 @@ export const Default: Story = {
         {isOpen && (
           <div>
             <Backdrop
+              isOpen={isOpen}
               type={args.type || "blur"}
               onClose={() => setIsOpen(false)}
             >
@@ -66,6 +67,7 @@ export const 모달이아닌경우: Story = {
         <div>
           {isOpen && (
             <Backdrop
+              isOpen={isOpen}
               className={`${styles.backdrop2} ${isOpen ? styles.open : ""}`}
               onClose={() => setIsOpen(false)}
               type={args.type || "blur"}
