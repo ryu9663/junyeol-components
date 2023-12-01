@@ -7,7 +7,7 @@ on:
     branches:
       - main
 jobs:
-  Bump-patch-version:
+  Version-Up:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -16,15 +16,28 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 16
-      - run: npm version patch
-      - run: git push
+
+      - name: Set new patch version
+        if: "!contains(github.event.head_commit.message, '+m')"
+        run: "npm version patch -m 'ver: %s'"
+
+      - name: Set new minor version
+        if: "contains(github.event.head_commit.message, '+minor')"
+        run: "npm version minor -m 'ver: %s'"
+
+      - name: Set new major version
+        if: "contains(github.event.head_commit.message, '+major')"
+        run: "npm version major -m 'ver: %s'"
+
+      - name: push branch
+        run: git push
       - uses: actions/upload-artifact@v2
         with:
           name: src
           path: ./
 
   Deploy-Production:
-    needs: ["Bump-patch-version"]
+    needs: ["Version-Up"]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
