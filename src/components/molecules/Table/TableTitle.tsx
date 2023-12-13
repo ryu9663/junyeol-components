@@ -1,15 +1,15 @@
 import { CSSProperties, PropsWithChildren } from "react";
 import styles from "./index.module.scss";
 
-type MaxWidth = CSSProperties["maxWidth"];
-
 export interface TableTitleProps extends PropsWithChildren {
-  maxWidth?: MaxWidth;
+  maxWidth?: CSSProperties["maxWidth"];
 }
-export const TableTitle = ({ children }: TableTitleProps) => {
+export const TableTitle = ({ children, maxWidth }: TableTitleProps) => {
   return (
     <th>
-      <div className={styles["title-content"]}>{children}</div>
+      <div style={{ width: maxWidth }} className={styles["title-content"]}>
+        {children}
+      </div>
     </th>
   );
 };
