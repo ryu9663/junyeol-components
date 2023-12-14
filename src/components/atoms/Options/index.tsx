@@ -4,7 +4,7 @@ import styles from "./index.module.scss";
 
 export interface OptionType {
   name: string;
-  value: string;
+  value: string | number | readonly string[] | undefined;
 }
 
 export interface OptionsProps {
@@ -27,8 +27,8 @@ export const Options = ({
       className={`${className} ${upward && styles.upward} ${styles.options}`}
       onMouseDown={onMouseDown}
     >
-      {options.map(({ name, value }) => (
-        <li key={value}>
+      {options.map(({ name, value }, i) => (
+        <li key={i}>
           <Button
             value={value}
             className={styles.options_list}
