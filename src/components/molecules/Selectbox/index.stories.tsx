@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
+import { OptionType } from "@/components/atoms/Options";
 import { Selectbox } from "@/components/molecules/Selectbox";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
@@ -34,7 +35,8 @@ type Story = StoryObj<typeof Selectbox>;
 
 export const Default: Story = {
   render: (args) => {
-    const [selectedText, setSelectedText] = useState("selectbox에서 선택한 값");
+    const [selectedText, setSelectedText] =
+      useState<OptionType["value"]>("selectbox에서 선택한 값");
     console.log(args);
     return (
       <>
@@ -42,7 +44,7 @@ export const Default: Story = {
           <Selectbox
             {...args}
             name={args.name || "셀렉트박스 이름"}
-            list={[
+            options={[
               { name: "사과", value: "apple" },
               { name: "포도", value: "graph" },
               {
@@ -52,6 +54,7 @@ export const Default: Story = {
             ]}
             onChange={(value) => setSelectedText(value)}
           />
+
           <div style={{ marginTop: "10px", textAlign: "center" }}>
             {selectedText}
           </div>

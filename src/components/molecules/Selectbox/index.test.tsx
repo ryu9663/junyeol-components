@@ -8,7 +8,7 @@ test("selectbox is closed at first", () => {
     <Selectbox
       size="medium"
       name={"Select"}
-      list={[
+      options={[
         { name: "사과", value: "apple" },
         { name: "포도", value: "graph" },
       ]}
@@ -26,7 +26,7 @@ test("when select box is clicked, it should be opened", () => {
     <Selectbox
       size="medium"
       name={"Select"}
-      list={[
+      options={[
         { name: "사과", value: "apple" },
         { name: "포도", value: "graph" },
       ]}
@@ -52,7 +52,7 @@ test("when dropdown is clicked, it should be closed and onChange is fired and se
     <Selectbox
       size="medium"
       name={"Select"}
-      list={[
+      options={[
         { name: "사과", value: "apple" },
         { name: "포도", value: "graph" },
       ]}
@@ -90,7 +90,7 @@ test("when select lost focus, it should be closed", () => {
     <Selectbox
       size="medium"
       name={"Select"}
-      list={[
+      options={[
         { name: "사과", value: "apple" },
         { name: "포도", value: "graph" },
       ]}
