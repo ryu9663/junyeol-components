@@ -7,7 +7,7 @@ export interface TableTitleProps extends PropsWithChildren {
 export const TableTitle = ({ children, maxWidth }: TableTitleProps) => {
   return (
     <th>
-      <div style={{ width: maxWidth }} className={styles["title-content"]}>
+      <div style={{ width: maxWidth }} className={styles["table-title"]}>
         {children}
       </div>
     </th>

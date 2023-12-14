@@ -8,10 +8,10 @@ import { PropsWithChildren } from "react";
 export interface TableProps extends PropsWithChildren {
   className?: string;
 }
-export const TableMain = ({ children }: TableProps) => {
+export const TableMain = ({ children, className }: TableProps) => {
   return (
     <article>
-      <table>{children}</table>
+      <table className={`${className}`}>{children}</table>
     </article>
   );
 };
