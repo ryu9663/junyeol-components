@@ -10,7 +10,7 @@ export interface SelectboxProps {
   name: string;
   list: OptionType[];
   onChange: (value: string) => void;
-  size: SelectboxSizeType;
+  size?: SelectboxSizeType;
   upward?: boolean;
   className?: string;
 }
