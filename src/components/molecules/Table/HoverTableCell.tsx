@@ -6,25 +6,24 @@ export interface HoverTableCellProps extends PropsWithChildren {
 }
 export const HoverTableCell = ({ children, maxWidth }: HoverTableCellProps) => {
   const [isHover, setIsHover] = useState(false);
-  const [isTextTooShort, setIsTextTooShort] = useState(false);
+  const [isLongText, setIsLongText] = useState(false);
   const beforeHoverDivRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (beforeHoverDivRef.current) {
       const contentCell = beforeHoverDivRef.current;
-      const isNotElipsissed = contentCell.scrollWidth > contentCell.clientWidth;
-
-      if (isNotElipsissed) {
-        setIsTextTooShort(true);
+      const isElipsissed = contentCell.scrollWidth > contentCell.clientWidth;
+      if (isElipsissed) {
+        setIsLongText(true);
       }
     }
   }, []);
 
   return (
     <>
-      {isTextTooShort && isHover ? (
+      {isLongText && isHover ? (
         <div
-          onMouseLeave={() => isTextTooShort && setIsHover(false)}
+          onMouseLeave={() => isLongText && setIsHover(false)}
           className={styles["table-cell-hover"]}
         >
           {children}
@@ -33,7 +32,7 @@ export const HoverTableCell = ({ children, maxWidth }: HoverTableCellProps) => {
         <div
           ref={beforeHoverDivRef}
           style={{ width: maxWidth }}
-          onMouseEnter={() => isTextTooShort && setIsHover(true)}
+          onMouseEnter={() => isLongText && setIsHover(true)}
           className={`${styles["table-cell-ellipsis"]}`}
         >
           {children}
