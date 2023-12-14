@@ -37,24 +37,23 @@ export const Default: Story = {
   render: (args) => {
     const [selectedText, setSelectedText] =
       useState<OptionType["value"]>("selectbox에서 선택한 값");
-    console.log(args);
+
     return (
       <>
         <div>
           <Selectbox
             {...args}
-            name={args.name || "셀렉트박스 이름"}
-            options={[
-              { name: "사과", value: "apple" },
-              { name: "포도", value: "graph" },
-              {
-                name: "리스트네임이다",
-                value: "list name",
-              },
-            ]}
+            name={args.name || "관광지 검색 수"}
+            size={args.size || "medium"}
             onChange={(value) => setSelectedText(value)}
+            options={[
+              { name: "10개", value: 10 },
+              { name: "20개", value: 20 },
+              { name: "30개", value: 30 },
+              { name: "40개", value: 40 },
+              { name: "50개", value: 50 },
+            ]}
           />
-
           <div style={{ marginTop: "10px", textAlign: "center" }}>
             {selectedText}
           </div>
