@@ -8,15 +8,15 @@ export type SelectboxSizeType = "small" | "medium" | "large";
 
 export interface SelectboxProps {
   name: string;
-  list: OptionType[];
-  onChange: (value: string) => void;
+  options: OptionType[];
+  onChange: (value: string | number | readonly string[] | undefined) => void;
   size?: SelectboxSizeType;
   upward?: boolean;
   className?: string;
 }
 export const Selectbox = ({
   name,
-  list,
+  options,
   onChange,
   size = "medium",
   upward = false,
@@ -32,7 +32,9 @@ export const Selectbox = ({
     const _value = e.currentTarget.value;
     onChange(_value);
     setIsOpen(false);
-    const _selectedOption = list.find((option) => option.value === _value);
+    const _selectedOption = options.find(
+      (option) => String(option.value) === _value
+    );
     if (!_selectedOption) {
       throw Error(
         "컴포넌트 에러입니다. _selectedOption이 falsy 일 수 없습니다."
@@ -63,7 +65,7 @@ export const Selectbox = ({
         <Options
           className={className}
           onMouseDown={(e) => e.preventDefault()}
-          options={list}
+          options={options}
           handleClickOption={handleChange}
           upward={upward}
         />
