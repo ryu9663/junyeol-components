@@ -1,4 +1,3 @@
- 
 const AsyncFunction = async function () {}.constructor;
 
 // eslint-disable-next-line @typescript-eslint/ban-types
