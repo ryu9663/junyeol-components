@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { OptionType } from "@/components/atoms/Options";
 import { Selectbox } from "@/components/molecules/Selectbox";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
@@ -35,8 +34,7 @@ type Story = StoryObj<typeof Selectbox>;
 
 export const Default: Story = {
   render: (args) => {
-    const [selectedText, setSelectedText] =
-      useState<OptionType["value"]>("selectbox에서 선택한 값");
+    const [selectedText, setSelectedText] = useState(20);
 
     return (
       <>

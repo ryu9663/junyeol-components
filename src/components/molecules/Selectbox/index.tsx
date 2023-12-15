@@ -1,40 +1,41 @@
 import { Button } from "@/index";
 import styles from "./index.module.scss";
-import { MouseEventHandler, useState } from "react";
+import { useState } from "react";
 import { ChevronUp, ChevronDown } from "react-feather";
-import { OptionType, Options } from "@/components/atoms/Options";
+import {
+  OptionType,
+  Options,
+  ValidOptionValue,
+} from "@/components/atoms/Options";
 
 export type SelectboxSizeType = "small" | "medium" | "large";
 
-export interface SelectboxProps {
+export interface SelectboxProps<_ValidOptionValue = ValidOptionValue> {
   name: string;
-  options: OptionType[];
-  onChange: (value: string | number | readonly string[] | undefined) => void;
+  options: OptionType<_ValidOptionValue>[];
+  onChange: (value: _ValidOptionValue) => void;
   size?: SelectboxSizeType;
   upward?: boolean;
   className?: string;
 }
-export const Selectbox = ({
+export const Selectbox = <_ValidOption extends ValidOptionValue>({
   name,
   options,
   onChange,
   size = "medium",
   upward = false,
   className,
-}: SelectboxProps) => {
+}: SelectboxProps<_ValidOption>) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState<OptionType>({
     name: "",
     value: "",
   });
 
-  const handleChange: MouseEventHandler<HTMLButtonElement> = (e) => {
-    const _value = e.currentTarget.value;
-    onChange(_value);
+  const handleChange = (_value: ValidOptionValue) => {
+    onChange(_value as _ValidOption);
     setIsOpen(false);
-    const _selectedOption = options.find(
-      (option) => String(option.value) === _value
-    );
+    const _selectedOption = options.find((option) => option.value === _value);
     if (!_selectedOption) {
       throw Error(
         "컴포넌트 에러입니다. _selectedOption이 falsy 일 수 없습니다."

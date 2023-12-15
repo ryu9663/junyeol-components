@@ -18,7 +18,6 @@ export interface ButtonProps extends HtmlButtonProps {
 export const Button = ({
   border = true,
   size = "normal",
-
   children,
   className,
   ...props

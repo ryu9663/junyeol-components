@@ -39,6 +39,7 @@ export const Input = forwardRef(
     onChange,
     className,
     label,
+    ref,
     ...args
   }: InputProps) => {
     const [validationMessage, setValidationMessage] = useState("");
@@ -56,6 +57,7 @@ export const Input = forwardRef(
         )}
         <input
           {...args}
+          ref={ref}
           id={label && label.htmlFor}
           className={`${className} ${styles.input} ${
             validationMessage && styles["error-border"]

@@ -30,10 +30,10 @@ export const DropdownTag = ({
   }, [dropdownState]);
 
   return (
-    <div className={styles["option_tag_wrapper"]}>
+    <>
       <Button
         size="small"
-        className={`${styles.option_tag} ${className} `}
+        className={`${styles.drodown_tag} ${className} `}
         onClick={() =>
           setDropdownState(dropdownState === "closed" ? "opening" : "closing")
         }
@@ -55,6 +55,6 @@ export const DropdownTag = ({
           {children}
         </div>
       }
-    </div>
+    </>
   );
 };

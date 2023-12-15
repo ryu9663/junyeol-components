@@ -6,19 +6,7 @@ import { useState } from "react";
 const meta: Meta<typeof DropdownTag> = {
   title: "molecules/DropdownTag",
   component: DropdownTag,
-  decorators: [
-    (Story) => (
-      <div
-        style={{
-          width: "fit-content",
-          height: "fit-content",
-          background: "yellow",
-        }}
-      >
-        <Story />
-      </div>
-    ),
-  ],
+  decorators: [(Story) => <Story />],
 };
 
 export default meta;
