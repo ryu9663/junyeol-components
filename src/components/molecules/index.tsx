@@ -8,3 +8,4 @@ export * from "./Category";
 export * from "./Selectbox";
 export * from "./Modal";
 export * from "./Table";
+export * from "./OptionTag";

@@ -99,3 +99,14 @@
   -webkit-line-clamp: $line;
   -webkit-box-orient: vertical;
 }
+
+@mixin fades-out($time: 0.5s) {
+  visibility: hidden;
+  opacity: 0;
+  transition: all $time;
+}
+@mixin fades-in($time: 0.5s) {
+  visibility: visible;
+  opacity: 1;
+  transition: all $time;
+}

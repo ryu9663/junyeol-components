@@ -1,0 +1,28 @@
+@use "src/styles/libs" as *;
+
+.option_tag_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.option_tag {
+  width: fit-content;
+  @include font-size;
+  @include font-weight;
+  font-size: $SMALL;
+  font-weight: 400;
+}
+
+.dropdown {
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+  padding: 10px 20px;
+  width: fit-content;
+
+  &.opened {
+    @include fades-in(0.5s);
+  }
+  &.closed {
+    @include fades-out(0.5s);
+  }
+}
