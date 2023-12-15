@@ -11,18 +11,18 @@ export interface OptionType<OptionValue = ValidOptionValue> {
 export interface OptionsProps<OptionValue = ValidOptionValue> {
   className?: string;
   onMouseDown?: MouseEventHandler<HTMLUListElement>;
-  options: OptionType<ValidOptionValue>[];
+  options: OptionType<OptionValue>[];
   handleClickOption: (value: OptionValue) => void;
   upward?: boolean;
 }
 
-export const Options = ({
+export const Options = <_ValidOption extends ValidOptionValue>({
   className,
   onMouseDown = (e) => e.preventDefault(),
   options,
   handleClickOption,
   upward = false,
-}: OptionsProps) => {
+}: OptionsProps<_ValidOption>) => {
   return (
     <ul
       className={`${className} ${upward && styles.upward} ${styles.options}`}
@@ -34,7 +34,7 @@ export const Options = ({
             value={value}
             className={styles.options_list}
             onClick={() => {
-              handleClickOption(value);
+              handleClickOption(value as _ValidOption);
             }}
           >
             {name}
