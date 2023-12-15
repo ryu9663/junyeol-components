@@ -16,6 +16,9 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 16
+      # Run build:lib
+      - name: Build Library
+        run: pnpm run build:lib
 
       - name: Set new patch version
         if: "!contains(github.event.head_commit.message, '+m')"
