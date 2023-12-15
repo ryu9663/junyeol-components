@@ -2,13 +2,17 @@ import { Button } from "@/index";
 import { PropsWithChildren, useEffect, useState } from "react";
 import styles from "./index.module.scss";
 import { X } from "react-feather";
-export interface OptionTagProps extends PropsWithChildren {
+export interface DropdownTagProps extends PropsWithChildren {
   name: string;
   className?: string;
 }
 
 export type DropdownState = "closed" | "opened" | "opening" | "closing";
-export const OptionTag = ({ name, children, className }: OptionTagProps) => {
+export const DropdownTag = ({
+  name,
+  children,
+  className,
+}: DropdownTagProps) => {
   const [dropdownState, setDropdownState] = useState("closed");
 
   useEffect(() => {
@@ -38,7 +42,7 @@ export const OptionTag = ({ name, children, className }: OptionTagProps) => {
       </Button>
       {
         <div
-          data-testid="optiontag-dropdown-testid"
+          data-testid="dropdowntag-dropdown-testid"
           className={`${styles.dropdown} ${styles[dropdownState]}`}
         >
           <Button

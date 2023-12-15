@@ -1,11 +1,11 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { Input, OptionTag, Selectbox } from "@/index";
+import { Input, DropdownTag, Selectbox } from "@/index";
 import { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 
-const meta: Meta<typeof OptionTag> = {
-  title: "molecules/OptionTag",
-  component: OptionTag,
+const meta: Meta<typeof DropdownTag> = {
+  title: "molecules/DropdownTag",
+  component: DropdownTag,
   decorators: [
     (Story) => (
       <div
@@ -22,14 +22,14 @@ const meta: Meta<typeof OptionTag> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof OptionTag>;
+type Story = StoryObj<typeof DropdownTag>;
 
 export const Default: Story = {
   render: () => {
     const [radius, setRadius] = useState("");
 
     return (
-      <OptionTag name="검색지 옵션 변경하기">
+      <DropdownTag name="검색지 옵션 변경하기">
         <div>
           <Selectbox
             name="관광지 검색 수"
@@ -56,7 +56,7 @@ export const Default: Story = {
             placeholder="반경(m)"
           />
         </div>
-      </OptionTag>
+      </DropdownTag>
     );
   },
 };
