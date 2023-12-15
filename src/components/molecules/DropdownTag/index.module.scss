@@ -1,11 +1,6 @@
 @use "src/styles/libs" as *;
 
-.option_tag_wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.option_tag {
+.dropdown_tag {
   width: fit-content;
   @include font-size;
   @include font-weight;
@@ -14,6 +9,7 @@
 }
 
 .dropdown {
+  margin-top: 10px;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
   padding: 10px 20px;

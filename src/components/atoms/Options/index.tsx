@@ -2,16 +2,17 @@ import { Button } from "@/index";
 import { MouseEventHandler } from "react";
 import styles from "./index.module.scss";
 
-export interface OptionType {
+export type ValidOptionValue = string | number;
+export interface OptionType<OptionValue = ValidOptionValue> {
   name: string;
-  value: string | number | readonly string[] | undefined;
+  value: OptionValue;
 }
 
-export interface OptionsProps {
+export interface OptionsProps<OptionValue = ValidOptionValue> {
   className?: string;
   onMouseDown?: MouseEventHandler<HTMLUListElement>;
-  options: OptionType[];
-  handleClickOption: MouseEventHandler<HTMLButtonElement>;
+  options: OptionType<ValidOptionValue>[];
+  handleClickOption: (value: OptionValue) => void;
   upward?: boolean;
 }
 
@@ -32,7 +33,9 @@ export const Options = ({
           <Button
             value={value}
             className={styles.options_list}
-            onClick={handleClickOption}
+            onClick={() => {
+              handleClickOption(value);
+            }}
           >
             {name}
           </Button>
