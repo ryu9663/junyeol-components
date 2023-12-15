@@ -10,10 +10,10 @@ import {
 
 export type SelectboxSizeType = "small" | "medium" | "large";
 
-export interface SelectboxProps<O = ValidOptionValue> {
+export interface SelectboxProps<_ValidOptionValue = ValidOptionValue> {
   name: string;
-  options: OptionType<O>[];
-  onChange: (value: O) => void;
+  options: OptionType<_ValidOptionValue>[];
+  onChange: (value: _ValidOptionValue) => void;
   size?: SelectboxSizeType;
   upward?: boolean;
   className?: string;
