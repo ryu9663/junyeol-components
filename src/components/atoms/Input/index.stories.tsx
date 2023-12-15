@@ -9,7 +9,7 @@ const meta: Meta<typeof Input> = {
   argTypes: {
     type: {
       control: {
-        options: ["text", "password", "search", "tel", "email"],
+        options: ["text", "password", "search", "tel", "email", "number"],
         type: "select",
       },
     },
@@ -21,7 +21,7 @@ const meta: Meta<typeof Input> = {
   },
   decorators: [
     (Story) => (
-      <div style={{ padding: "150px" }}>
+      <div style={{ background: "blue", padding: "150px" }}>
         <Story />
       </div>
     ),
@@ -36,7 +36,7 @@ export const Default: Story = {
   render: (args) => {
     const [text, setText] = useState("");
     return (
-      <>
+      <div style={{ display: "flex", gap: "100px" }}>
         <Input
           label={{
             htmlFor: "text",
@@ -53,7 +53,7 @@ export const Default: Story = {
           }
         />
         <div>validation: 5글자 이상 입력 못함</div>
-      </>
+      </div>
     );
   },
 };

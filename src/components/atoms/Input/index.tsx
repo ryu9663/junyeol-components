@@ -7,7 +7,13 @@ import {
 import styles from "./index.module.scss";
 import { InputLabel } from "@/components/atoms/Input/InputLabel";
 
-export type InputType = "email" | "password" | "search" | "tel" | "text";
+export type InputType =
+  | "email"
+  | "password"
+  | "search"
+  | "tel"
+  | "text"
+  | "number";
 
 export type HTMLInputProps = DetailedHTMLProps<
   InputHTMLAttributes<HTMLInputElement>,
@@ -38,7 +44,7 @@ export const Input = forwardRef(
     const [validationMessage, setValidationMessage] = useState("");
 
     return (
-      <>
+      <div>
         {label && (
           <InputLabel
             htmlFor={label.htmlFor}
@@ -60,6 +66,7 @@ export const Input = forwardRef(
             if (validation) {
               isError = !!validation(e.target.value);
               setValidationMessage(validation(e.target.value));
+              // return;
             }
             if (!isError) {
               onChange?.(e);
@@ -72,7 +79,7 @@ export const Input = forwardRef(
             {validationMessage}
           </span>
         }
-      </>
+      </div>
     );
   }
 );
