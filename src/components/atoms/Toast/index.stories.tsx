@@ -20,7 +20,7 @@ type Story = StoryObj<typeof Toast>;
 
 export const Default: Story = {};
 
-export const 삼초후_사라짐_버튼: Story = {
+export const 지속시간_3초: Story = {
   render: () => {
     return (
       <div

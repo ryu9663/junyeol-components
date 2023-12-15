@@ -20,7 +20,7 @@ export const Button = ({
   size = "normal",
 
   children,
-
+  className,
   ...props
 }: ButtonProps) => {
   return (
@@ -28,7 +28,9 @@ export const Button = ({
       <button
         className={cleanClassName(
           `${styles["button"]}
-        ${border || styles["button--no_border"]}  ${styles[`button--${size}`]}`
+        ${border || styles["button--no_border"]}  ${
+            styles[`button--${size}`]
+          } ${className}`
         )}
         {...props}
       >
