@@ -35,7 +35,7 @@ export const Default: Story = {
                 value: "list name",
               },
             ]}
-            handleClickOption={(e) => setSelectedText(e.currentTarget.value)}
+            handleClickOption={(value) => setSelectedText(value)}
           />
         </div>
 

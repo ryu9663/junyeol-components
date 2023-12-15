@@ -29,7 +29,6 @@
   },
   "dependencies": {
     "jest-dom": "^4.0.0",
-    "lodash-es": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-feather": "^2.0.10",
@@ -55,7 +54,6 @@
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.5.1",
     "@types/jest": "^29.5.10",
-    "@types/lodash-es": "^4.17.12",
     "@types/node": "^20.6.5",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
