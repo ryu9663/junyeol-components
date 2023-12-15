@@ -3,8 +3,9 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 const CLASSNAME_CLOSED = "_closed_a06ba1";
-const CLASSNAME_OPENED = "_opened_a06ba1";
-test("처음에는 children이 보이지 않는다. ", () => {
+const CLASSNAME_CLOSING = "_closing_a06ba1";
+const CLASSNAME_OPENING = "_opening_a06ba1";
+test("처음에는 children이 closed 상태이다. ", () => {
   render(
     <OptionTag name="option tag">
       <div>children</div>
@@ -13,6 +14,19 @@ test("처음에는 children이 보이지 않는다. ", () => {
 
   expect(screen.getByTestId("optiontag-dropdown-testid")).toHaveClass(
     CLASSNAME_CLOSED
+  );
+});
+test('Option tag 버튼을 클릭하면 children이 "opening" 상태가 된다.', async () => {
+  const user = userEvent.setup();
+  render(
+    <OptionTag name="option tag">
+      <div>children</div>
+    </OptionTag>
+  );
+  const optionTag = screen.getByRole("button", { name: "option tag" });
+  await user.click(optionTag);
+  expect(screen.getByTestId("optiontag-dropdown-testid")).toHaveClass(
+    CLASSNAME_OPENING
   );
 });
 
@@ -27,24 +41,9 @@ test("Option tag 버튼을 클릭해서 껐다 킬 수 있다.", async () => {
 
   await user.click(optionTag);
   const childrenBox = screen.getByTestId("optiontag-dropdown-testid");
-  expect(childrenBox).toHaveClass(CLASSNAME_OPENED);
+  expect(childrenBox).toHaveClass(CLASSNAME_OPENING);
   await user.click(optionTag);
-  expect(childrenBox).toHaveClass(CLASSNAME_CLOSED);
-});
-
-test("Option tag가 켜졌을때 blur되면 즉, 외부를 클릭하면 꺼진다.", async () => {
-  const user = userEvent.setup();
-  render(
-    <OptionTag name="option tag">
-      <div>children</div>
-    </OptionTag>
-  );
-  const optionTag = screen.getByRole("button", { name: "option tag" });
-  await user.click(optionTag);
-  const childrenBox = screen.getByTestId("optiontag-dropdown-testid");
-  expect(childrenBox).toHaveClass(CLASSNAME_OPENED);
-  await user.click(document.body);
-  expect(childrenBox).toHaveClass(CLASSNAME_CLOSED);
+  expect(childrenBox).toHaveClass(CLASSNAME_CLOSING);
 });
 
 test("Option tag가 켜졌을때 children을 클릭하면 꺼지지 않는다.", async () => {
@@ -57,7 +56,64 @@ test("Option tag가 켜졌을때 children을 클릭하면 꺼지지 않는다.",
   const optionTag = screen.getByRole("button", { name: "option tag" });
   await user.click(optionTag);
   const childrenBox = screen.getByTestId("optiontag-dropdown-testid");
-  expect(childrenBox).toHaveClass(CLASSNAME_OPENED);
+  expect(childrenBox).toHaveClass(CLASSNAME_OPENING);
   await user.click(childrenBox);
-  expect(childrenBox).toHaveClass(CLASSNAME_OPENED);
+  expect(childrenBox).toHaveClass(CLASSNAME_OPENING);
+});
+
+test("dropdown의 닫기버튼을 클릭해서 끌 수 있다.", async () => {
+  const user = userEvent.setup();
+  render(
+    <OptionTag name="option tag">
+      <div>children</div>
+    </OptionTag>
+  );
+  const optionTag = screen.getByRole("button", { name: "option tag" });
+  await user.click(optionTag);
+  const childrenBox = screen.getByTestId("optiontag-dropdown-testid");
+  expect(childrenBox).toHaveClass(CLASSNAME_OPENING);
+  const closeBtn = screen.getByTestId("dropdown-close-btn-testid");
+  await user.click(closeBtn);
+  expect(childrenBox).toHaveClass(CLASSNAME_CLOSING);
+});
+
+test("Option tag 버튼을 클릭하면 children이 0.5초 후에 opened 상태가 된다.", async () => {
+  const user = userEvent.setup();
+  render(
+    <OptionTag name="option tag">
+      <div>children</div>
+    </OptionTag>
+  );
+  const optionTag = screen.getByRole("button", { name: "option tag" });
+  await user.click(optionTag);
+  expect(screen.getByTestId("optiontag-dropdown-testid")).toHaveClass(
+    CLASSNAME_OPENING
+  );
+  await new Promise((r) => setTimeout(r, 500));
+  expect(screen.getByTestId("optiontag-dropdown-testid")).toHaveClass(
+    "_opened_a06ba1"
+  );
+});
+
+test("Option tag 이 켜져있을때 closedbtn을 클릭하면 closing 상태로 되고 0.3초후 closed상태가 된다", async () => {
+  const user = userEvent.setup();
+  render(
+    <OptionTag name="option tag">
+      <div>children</div>
+    </OptionTag>
+  );
+  const optionTag = screen.getByRole("button", { name: "option tag" });
+  await user.click(optionTag);
+  expect(screen.getByTestId("optiontag-dropdown-testid")).toHaveClass(
+    CLASSNAME_OPENING
+  );
+  const closeBtn = screen.getByTestId("dropdown-close-btn-testid");
+  await user.click(closeBtn);
+  expect(screen.getByTestId("optiontag-dropdown-testid")).toHaveClass(
+    CLASSNAME_CLOSING
+  );
+  await new Promise((r) => setTimeout(r, 300));
+  expect(screen.getByTestId("optiontag-dropdown-testid")).toHaveClass(
+    CLASSNAME_CLOSED
+  );
 });

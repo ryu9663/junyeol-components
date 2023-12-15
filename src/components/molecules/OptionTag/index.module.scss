@@ -18,11 +18,24 @@
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
   padding: 10px 20px;
   width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  &_close_btn {
+    width: fit-content;
+    height: fit-content;
+    padding: 0;
+    box-shadow: none;
+    align-self: flex-end;
+  }
+}
 
-  &.opened {
-    @include fades-in(0.5s);
-  }
-  &.closed {
-    @include fades-out(0.5s);
-  }
+.closing {
+  @include fade-out(0.5s);
+}
+.closed {
+  display: none;
+}
+.opening {
+  @include fade-in(0.5s);
 }
