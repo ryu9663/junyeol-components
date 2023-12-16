@@ -21,7 +21,7 @@ export const Default: Story = {
         <div>
           <Selectbox
             name="관광지 검색 수"
-            size="medium"
+            size="normal"
             onChange={(v) => console.log(v)}
             options={[
               { name: "10개", value: 10 },

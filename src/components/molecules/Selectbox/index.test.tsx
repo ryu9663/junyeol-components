@@ -9,7 +9,7 @@ const CLASSNAME_CLOSING = "_closing_344714";
 test("처음에는 닫혀있다.", () => {
   render(
     <Selectbox
-      size="medium"
+      size="normal"
       name={"Select"}
       options={[
         { name: "사과", value: "apple" },
@@ -28,7 +28,7 @@ test("when select box is clicked, it should be opened", async () => {
   const user = userEvent.setup();
   render(
     <Selectbox
-      size="medium"
+      size="normal"
       name={"Select"}
       options={[
         { name: "사과", value: "apple" },
@@ -55,7 +55,7 @@ test("드롭다운을 클릭하면, 드롭다운은 closing상태가 되고 천�
   const user = userEvent.setup();
   render(
     <Selectbox
-      size="medium"
+      size="normal"
       name={"Select"}
       options={[
         { name: "사과", value: "apple" },
@@ -95,7 +95,7 @@ test("셀렉트박스가 포커스를 잃으면 천천히 닫힌다.", async () 
   const user = userEvent.setup();
   render(
     <Selectbox
-      size="medium"
+      size="normal"
       name={"Select"}
       options={[
         { name: "사과", value: "apple" },

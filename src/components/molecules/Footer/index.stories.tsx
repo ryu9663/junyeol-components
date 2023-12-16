@@ -4,16 +4,7 @@ import { Footer } from ".";
 const meta: Meta<typeof Footer> = {
   title: "molecules/Footer",
   component: Footer,
-  decorators: [
-    (Story) => (
-      <main>
-        <section
-          style={{ background: "skyblue", padding: "30px", height: "120vh" }}
-        ></section>
-        <Story />
-      </main>
-    ),
-  ],
+  decorators: [(Story) => <Story />],
 };
 
 export default meta;

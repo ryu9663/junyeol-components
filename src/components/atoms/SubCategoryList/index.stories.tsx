@@ -1,7 +1,6 @@
 /* eslint-disable storybook/prefer-pascal-case */
 import type { Meta, StoryObj } from "@storybook/react";
 import { SubCategoryList } from ".";
-import { Link, MemoryRouter } from "react-router-dom";
 import { getCustomDateString } from "@/utils";
 
 const meta: Meta<typeof SubCategoryList> = {
@@ -34,47 +33,81 @@ export const Default: Story = {
 
     const subCategory = [
       {
-        subCategoryLink: <Link to="/posts?filter=react">react</Link>,
+        subCategoryLink: (
+          <a target="_blank" href="/posts?filter=react">
+            react
+          </a>
+        ),
         createdAt: yesterday,
       },
       {
-        subCategoryLink: <Link to="/posts?filter=next">next</Link>,
+        subCategoryLink: (
+          <a target="_blank" href="/posts?filter=next">
+            next
+          </a>
+        ),
         createdAt: twoDaysAgo,
       },
       {
-        subCategoryLink: <Link to="/posts?filter=typescript">typescript</Link>,
+        subCategoryLink: (
+          <a target="_blank" href="/posts?filter=typescript">
+            typescript
+          </a>
+        ),
         createdAt: threeDaysAgo,
       },
       {
-        subCategoryLink: <Link to="/posts?filter=graphQL">graphQL</Link>,
-        createdAt: fourDaysAgo,
-      },
-      {
         subCategoryLink: (
-          <Link to="/posts?filter=react-query">react-query</Link>
+          <a target="_blank" href="/posts?filter=graphQL">
+            graphQL
+          </a>
         ),
         createdAt: fourDaysAgo,
       },
       {
-        subCategoryLink: <Link to="/posts?filter=zustand">zustand</Link>,
+        subCategoryLink: (
+          <a target="_blank" href="/posts?filter=react-query">
+            react-query
+          </a>
+        ),
         createdAt: fourDaysAgo,
       },
       {
-        subCategoryLink: <Link to="/posts?filter=javascript">javascript</Link>,
+        subCategoryLink: (
+          <a target="_blank" href="/posts?filter=zustand">
+            zustand
+          </a>
+        ),
         createdAt: fourDaysAgo,
       },
       {
-        subCategoryLink: <Link to="/posts?filter=html">html</Link>,
+        subCategoryLink: (
+          <a target="_blank" href="/posts?filter=javascript">
+            javascript
+          </a>
+        ),
         createdAt: fourDaysAgo,
       },
       {
-        subCategoryLink: <Link to="/posts?filter=css">css</Link>,
+        subCategoryLink: (
+          <a target="_blank" href="/posts?filter=html">
+            html
+          </a>
+        ),
+        createdAt: fourDaysAgo,
+      },
+      {
+        subCategoryLink: (
+          <a target="_blank" href="/posts?filter=css">
+            css
+          </a>
+        ),
         createdAt: fourDaysAgo,
       },
     ];
 
     return (
-      <MemoryRouter>
+      <>
         <div>
           <span
             style={{
@@ -90,7 +123,7 @@ export const Default: Story = {
         </div>
         <br />
         <SubCategoryList subCategories={subCategory} />
-      </MemoryRouter>
+      </>
     );
   },
 };
