@@ -2,9 +2,10 @@ import { DropdownTag } from "@/index";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-const CLASSNAME_CLOSED = "_closed_a06ba1";
-const CLASSNAME_CLOSING = "_closing_a06ba1";
-const CLASSNAME_OPENING = "_opening_a06ba1";
+const CLASSNAME_CLOSED = "_closed_9d2dd2";
+const CLASSNAME_CLOSING = "_closing_9d2dd2";
+const CLASSNAME_OPENING = "_opening_9d2dd2";
+const CLASSNAME_OPENED = "_opened_9d2dd2";
 test("처음에는 children이 closed 상태이다. ", () => {
   render(
     <DropdownTag name="dropdown tag">
@@ -91,7 +92,7 @@ test("Option tag 버튼을 클릭하면 children이 0.5초 후에 opened 상태�
   );
   await new Promise((r) => setTimeout(r, 500));
   expect(screen.getByTestId("dropdowntag-dropdown-testid")).toHaveClass(
-    "_opened_a06ba1"
+    CLASSNAME_OPENED
   );
 });
 
