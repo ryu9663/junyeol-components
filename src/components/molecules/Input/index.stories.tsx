@@ -41,7 +41,7 @@ export const Default: Story = {
           onChange={(e) => {
             setText(e.target.value);
           }}
-          // placeholder={args.placeholder || "placeholder"}
+          placeholder={args.placeholder || "placeholder"}
           validation={(value) =>
             String(value).length > 5 ? "5글자 이하로 입력해주세요" : ""
           }
