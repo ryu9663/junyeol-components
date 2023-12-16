@@ -40,7 +40,7 @@ jobs:
 
       - name: push branch
         run: git push
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v3
         with:
           name: src
           path: ./
