@@ -1,9 +1,12 @@
 import { Selectbox } from "@/components/molecules/Selectbox";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { expect, test, vi } from "vitest";
 
-const CLASSNAME_OPEN = "_open_3a1db3";
-test("selectbox is closed at first", () => {
+const CLASSNAME_OPENING = "_opening_344714";
+const CLASSNAME_CLOSING = "_closing_344714";
+
+test("처음에는 닫혀있다.", () => {
   render(
     <Selectbox
       size="medium"
@@ -17,11 +20,12 @@ test("selectbox is closed at first", () => {
   );
 
   // select box is closed at first
-  const selectbox = screen.getByRole("button", { name: "Select" });
-  expect(selectbox).not.toHaveClass(CLASSNAME_OPEN);
+  const options = screen.queryByRole("list");
+  expect(options).not.toBeInTheDocument();
 });
 
-test("when select box is clicked, it should be opened", () => {
+test("when select box is clicked, it should be opened", async () => {
+  const user = userEvent.setup();
   render(
     <Selectbox
       size="medium"
@@ -37,17 +41,18 @@ test("when select box is clicked, it should be opened", () => {
   const selectbox = screen.getByRole("button", { name: "Select" });
 
   // click select button
-  fireEvent.click(selectbox);
+  await user.click(selectbox);
+
+  const options = screen.queryByRole("list");
 
   // div tag which has class named dropdown is opened
-  expect(selectbox).toHaveClass(CLASSNAME_OPEN);
+  expect(options).toHaveClass(CLASSNAME_OPENING);
 
-  const dropdown = screen.getByRole("list");
-
-  expect(dropdown).toBeInTheDocument();
+  expect(options).toBeInTheDocument();
 });
 
-test("when dropdown is clicked, it should be closed and onChange is fired and selectbox's name is changed to selected dropdown item's name", () => {
+test("드롭다운을 클릭하면, 드롭다운은 closing상태가 되고 천천히 꺼진다.", async () => {
+  const user = userEvent.setup();
   render(
     <Selectbox
       size="medium"
@@ -62,14 +67,14 @@ test("when dropdown is clicked, it should be closed and onChange is fired and se
   const selectbox = screen.getByRole("button", { name: "Select" });
 
   // click select button
-  fireEvent.click(selectbox);
-  const dropdown = screen.getByRole("list");
+  await user.click(selectbox);
+  const dropdown = screen.queryByRole("list");
   const dropdownItem = screen.getByRole("button", { name: "사과" });
   expect(dropdown).toBeInTheDocument();
   expect(dropdownItem).toBeInTheDocument();
 
   // click dropdown item which has value "apple"
-  fireEvent.click(dropdownItem);
+  await user.click(dropdownItem);
 
   // onChange is fired
   const logSpy = vi.spyOn(console, "log").mockImplementation(() => undefined);
@@ -80,12 +85,14 @@ test("when dropdown is clicked, it should be closed and onChange is fired and se
   expect(selectbox).toHaveTextContent("사과");
 
   // dropdown is closed
-  expect(selectbox).not.toHaveClass(CLASSNAME_OPEN);
+  expect(dropdown).toHaveClass(CLASSNAME_CLOSING);
+  await new Promise((r) => setTimeout(r, 500));
   expect(dropdown).not.toBeInTheDocument();
   expect(dropdownItem).not.toBeInTheDocument();
 });
 
-test("when select lost focus, it should be closed", () => {
+test("셀렉트박스가 포커스를 잃으면 천천히 닫힌다.", async () => {
+  const user = userEvent.setup();
   render(
     <Selectbox
       size="medium"
@@ -100,15 +107,16 @@ test("when select lost focus, it should be closed", () => {
   const selectBox = screen.getByRole("button", { name: "Select" });
 
   // click Select box
-  fireEvent.click(selectBox);
+  await user.click(selectBox);
   const dropdown = screen.getByRole("button", { name: "사과" });
   expect(dropdown).toBeInTheDocument();
 
   // click dropdown item
   const dropdownItem = screen.getByRole("button", { name: "사과" });
-  fireEvent.click(dropdownItem);
+  await user.click(dropdownItem);
+  await new Promise((r) => setTimeout(r, 500));
 
   // dropdown is closed
-  expect(selectBox).not.toHaveClass(CLASSNAME_OPEN);
   expect(dropdown).not.toBeInTheDocument();
+  expect(dropdownItem).not.toBeInTheDocument();
 });

@@ -1,6 +1,7 @@
-import { Button } from "@/index";
-import { MouseEventHandler } from "react";
+import { Button, cleanClassName, useMountedEffect } from "@/index";
+import { MouseEventHandler, useState } from "react";
 import styles from "./index.module.scss";
+import { FontSizeType, FontWeightType } from "@/utils/constants";
 
 export type ValidOptionValue = string | number;
 export interface OptionType<OptionValue = ValidOptionValue> {
@@ -14,33 +15,63 @@ export interface OptionsProps<OptionValue = ValidOptionValue> {
   options: OptionType<OptionValue>[];
   handleClickOption: (value: OptionValue) => void;
   upward?: boolean;
+  fontSize?: FontSizeType;
+  fontWeight?: FontWeightType;
+  isOpen: boolean;
 }
 
 export const Options = <ValidOption extends ValidOptionValue>({
   className,
+  isOpen = false,
   onMouseDown = (e) => e.preventDefault(),
   options,
   handleClickOption,
   upward = false,
+  fontSize = "normal",
+  fontWeight = 700,
 }: OptionsProps<ValidOption>) => {
+  const [optionState, setOptionState] = useState(isOpen ? "opening" : "closed");
+
+  useMountedEffect(() => {
+    if (isOpen) {
+      setOptionState("opening");
+    } else {
+      setOptionState("closing");
+      const delayClose = setTimeout(() => setOptionState("closed"), 500);
+      return () => clearTimeout(delayClose);
+    }
+  }, [isOpen]);
+
   return (
-    <ul
-      className={`${className} ${upward && styles.upward} ${styles.options}`}
-      onMouseDown={onMouseDown}
-    >
-      {options.map(({ name, value }, i) => (
-        <li key={i}>
-          <Button
-            value={value}
-            className={styles.options_list}
-            onClick={() => {
-              handleClickOption(value as ValidOption);
-            }}
-          >
-            {name}
-          </Button>
-        </li>
-      ))}
-    </ul>
+    <>
+      {optionState !== "closed" && (
+        <ul
+          className={cleanClassName(
+            `${className} ${upward && styles.upward} ${styles.options} ${
+              styles[optionState]
+            }`
+          )}
+          onMouseDown={onMouseDown}
+        >
+          {options.map(({ name, value }, i) => (
+            <li key={i}>
+              <Button
+                value={value}
+                className={cleanClassName(
+                  `${styles.options_list} ${styles[`font-size-${fontSize}`]} ${
+                    styles[`font-weight-${fontWeight}`]
+                  }`
+                )}
+                onClick={() => {
+                  handleClickOption(value as ValidOption);
+                }}
+              >
+                {name}
+              </Button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </>
   );
 };

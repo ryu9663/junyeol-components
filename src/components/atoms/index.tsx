@@ -3,6 +3,5 @@ export * from "./Button";
 export * from "./Card";
 export * from "./Toast";
 export * from "./SubCategoryList";
-export * from "./Input";
-export * from "./Input/InputLabel";
+export * from "./Label";
 export * from "./Backdrop";

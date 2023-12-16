@@ -2,14 +2,22 @@
 
 .input {
   display: block;
-  border: 1px $GRAY-600 solid;
+  border: 1px $BLUISH-GRAY-400 solid;
   border-radius: 10px;
   width: 200px;
   height: 40px;
   padding: 10px;
   margin-bottom: 10px;
+
+  &::placeholder {
+    color: $BLUISH-GRAY-400;
+  }
+  &:hover {
+    cursor: pointer;
+    border: 2px solid $BLUE-400;
+  }
   &:focus {
-    outline-color: $BLUE-400;
+    outline-color: $BLUE-500;
   }
 
   &.error-border {
@@ -19,6 +27,5 @@
 }
 .validation-error {
   margin-left: 2px;
-
   color: $PEACH-600;
 }

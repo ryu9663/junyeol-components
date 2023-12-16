@@ -58,8 +58,12 @@ const ModalHeader = ({ children }: PropsWithChildren) => {
     <>
       <div className={`${styles.modal_header} ${styles[size]}`}>
         {children}
-        <Button data-testid="modal-close-btn" className="" onClick={onClose}>
-          <X width={24} height={24} />
+        <Button
+          data-testid="modal-close-btn"
+          className={styles.modal_header_btn}
+          onClick={onClose}
+        >
+          <X width={20} height={20} color="#262f40" />
         </Button>
       </div>
     </>
@@ -83,8 +87,12 @@ const ModalFooter = ({ onOk, onClose, okBtn, closeBtn }: ModalFooterProps) => {
   return (
     <>
       <div className={styles.modal_footer}>
-        <Button onClick={onOk}>{okBtn}</Button>
-        <Button onClick={onClose}>{closeBtn}</Button>
+        <Button className={styles.modal_footer_btn} onClick={onOk}>
+          {okBtn}
+        </Button>
+        <Button className={styles.modal_footer_btn} onClick={onClose}>
+          {closeBtn}
+        </Button>
       </div>
     </>
   );
