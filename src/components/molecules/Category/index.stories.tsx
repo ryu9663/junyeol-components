@@ -98,7 +98,7 @@ export const Default: Story = {
       },
     ];
     return (
-      <MemoryRouter>
+      <>
         <main style={{ height: "100vh", width: "100vw", background: "white" }}>
           <Category
             CategoryLink={
@@ -110,7 +110,7 @@ export const Default: Story = {
             <SubCategoryList subCategories={subCategory} />
           </Category>
         </main>
-      </MemoryRouter>
+      </>
     );
   },
 };
