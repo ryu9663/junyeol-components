@@ -16,6 +16,12 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 16
+      # Install pnpm globally
+      - name: Install PNPM
+        run: npm install -g pnpm
+      # Install pnpm
+      - name: Install Dependencies
+        run: pnpm install
       # Run build:lib
       - name: Build Library
         run: pnpm run build:lib
@@ -91,7 +97,7 @@ jobs:
         with:
           node-version: "16.x"
           registry-url: "https://npm.pkg.github.com"
-        # Install pnpm globally
+      # Install pnpm globally
       - name: Install PNPM
         run: npm install -g pnpm
       # Install Dependencies
