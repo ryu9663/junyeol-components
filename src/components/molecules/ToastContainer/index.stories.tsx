@@ -55,7 +55,7 @@ export const Default: Story = {
     const toast = useToast();
 
     return (
-      <main style={{ height: "400px", width: "100vw", background: "yellow" }}>
+      <main style={{ height: "400px", width: "100vw" }}>
         <Button
           onClick={() => {
             toast({

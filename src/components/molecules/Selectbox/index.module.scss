@@ -1,3 +1,5 @@
+@use "src/styles/libs" as *;
+
 .selectbox_wrapper {
   position: relative;
   width: fit-content;
@@ -11,7 +13,12 @@
   padding: 5px;
   align-items: center;
   background-color: white;
-  border: 1px solid black;
+  color: $BLUISH-GRAY-800;
+  box-shadow: 0 4px 10px $BLUISH-GRAY-300, 0 4px 16px $BLUISH-GRAY-100;
+
+  @include font-size;
+  @include font-weight;
+
   &_name {
     text-align: center;
     width: 100%;
@@ -30,8 +37,11 @@
   }
   height: 30px;
   border-radius: 5px;
-
+  &:hover {
+    background-color: $BLUISH-GRAY-10;
+  }
   &:focus {
-    border: 1px solid black;
+    background-color: $BLUISH-GRAY-100;
+    outline: none;
   }
 }

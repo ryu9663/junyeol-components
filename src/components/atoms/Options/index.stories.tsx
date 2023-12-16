@@ -6,13 +6,7 @@ import { useState } from "react";
 const meta: Meta<typeof Options> = {
   title: "atoms/Options",
   component: Options,
-  decorators: [
-    (Story) => (
-      <div style={{ padding: "150px" }}>
-        <Story />
-      </div>
-    ),
-  ],
+  decorators: [(Story) => <Story />],
   tags: ["autodocs"],
 };
 
@@ -26,6 +20,7 @@ export const Default: Story = {
       <>
         <div style={{ width: "300px", height: "300px", position: "relative" }}>
           <Options
+            isOpen
             onMouseDown={(e) => e.preventDefault()}
             options={[
               { name: "사과", value: "apple" },

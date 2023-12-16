@@ -1,5 +1,5 @@
 import { DetailedHTMLProps, LabelHTMLAttributes, memo } from "react";
-import styles from "./InputLabel.module.scss";
+import styles from "./index.module.scss";
 
 export type HTMLLabelProps = DetailedHTMLProps<
   LabelHTMLAttributes<HTMLLabelElement>,
@@ -9,7 +9,7 @@ export interface LabelProps extends HTMLLabelProps {
   isError?: boolean;
 }
 
-export const InputLabel = memo(
+export const Label = memo(
   ({ htmlFor, children, className, isError = false }: LabelProps) => {
     return (
       <label

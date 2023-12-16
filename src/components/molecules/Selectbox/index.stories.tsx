@@ -2,7 +2,6 @@
 import { Selectbox } from "@/components/molecules/Selectbox";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
-
 const meta: Meta<typeof Selectbox> = {
   title: "molecules/Selectbox",
   component: Selectbox,
@@ -21,7 +20,7 @@ const meta: Meta<typeof Selectbox> = {
   },
   decorators: [
     (Story) => (
-      <div style={{ padding: "150px" }}>
+      <div style={{ minHeight: "300px", marginTop: "200px" }}>
         <Story />
       </div>
     ),

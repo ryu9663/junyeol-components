@@ -8,7 +8,7 @@ const meta: Meta<typeof Card> = {
   component: Card,
   decorators: [
     (Story) => (
-      <div style={{ padding: "40px", background: "skyblue" }}>
+      <div style={{ padding: "40px" }}>
         <Story />
       </div>
     ),

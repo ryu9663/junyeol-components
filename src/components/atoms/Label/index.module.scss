@@ -8,9 +8,9 @@
   font-weight: 500;
   color: #000;
   text-align: left;
-  text-transform: capitalize;
   line-height: 1.5;
   letter-spacing: 0.5px;
+  color: $BLUISH-GRAY-800;
   cursor: pointer;
 
   &.error {

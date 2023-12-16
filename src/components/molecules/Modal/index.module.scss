@@ -33,6 +33,16 @@
       height: 50px;
       font-size: $LARGE2X;
     }
+    &_btn {
+      padding: 0px;
+      box-shadow: none;
+      &:hover {
+        background-color: $BLUISH-GRAY-10;
+      }
+      &:active {
+        background-color: $BLUISH-GRAY-100;
+      }
+    }
   }
 
   &_body {
@@ -63,9 +73,16 @@
     gap: 30px;
     padding: 10px;
     margin-top: 10px;
-    &_button {
-      @include font-size;
-      @include font-weight;
+
+    &_btn {
+      box-shadow: 0 4px 10px $BLUISH-GRAY-100, 0 4px 16px $BLUISH-GRAY-10;
+
+      &:hover {
+        background-color: $BLUISH-GRAY-10;
+      }
+      &:active {
+        background-color: $BLUISH-GRAY-100;
+      }
     }
   }
 }

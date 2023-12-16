@@ -5,7 +5,7 @@ import {
   useState,
 } from "react";
 import styles from "./index.module.scss";
-import { InputLabel } from "@/components/atoms/Input/InputLabel";
+import { Label } from "@/components/atoms/Label";
 
 export type InputType =
   | "email"
@@ -47,13 +47,13 @@ export const Input = forwardRef(
     return (
       <div>
         {label && (
-          <InputLabel
+          <Label
             htmlFor={label.htmlFor}
             className={label.className}
             isError={!!validationMessage}
           >
             {label.name}
-          </InputLabel>
+          </Label>
         )}
         <input
           {...args}
@@ -68,7 +68,6 @@ export const Input = forwardRef(
             if (validation) {
               isError = !!validation(e.target.value);
               setValidationMessage(validation(e.target.value));
-              // return;
             }
             if (!isError) {
               onChange?.(e);

@@ -1,16 +1,17 @@
-import { Button } from "@/index";
+import { Button, cleanClassName } from "@/index";
 import styles from "./index.module.scss";
 import { useState } from "react";
 import { ChevronUp, ChevronDown } from "react-feather";
 import {
   OptionType,
   Options,
+  OptionsProps,
   ValidOptionValue,
 } from "@/components/atoms/Options";
 
 export type SelectboxSizeType = "small" | "medium" | "large";
-
-export interface SelectboxProps<_ValidOptionValue = ValidOptionValue> {
+export interface SelectboxProps<_ValidOptionValue = ValidOptionValue>
+  extends Pick<OptionsProps, "fontSize" | "fontWeight"> {
   name: string;
   options: OptionType<_ValidOptionValue>[];
   onChange: (value: _ValidOptionValue) => void;
@@ -24,6 +25,8 @@ export const Selectbox = <_ValidOption extends ValidOptionValue>({
   onChange,
   size = "medium",
   upward = false,
+  fontSize = "normal",
+  fontWeight = 700,
   className,
 }: SelectboxProps<_ValidOption>) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,9 +50,11 @@ export const Selectbox = <_ValidOption extends ValidOptionValue>({
   return (
     <div className={styles.selectbox_wrapper}>
       <Button
-        className={`${isOpen ? styles.open : ""} ${styles.selectbox_button} ${
-          styles[size]
-        }`}
+        className={cleanClassName(
+          ` ${styles.selectbox_button} ${styles[size]} ${
+            styles[`font-size-${fontSize}`]
+          } ${styles[`font-weight-${fontWeight}`]}`
+        )}
         onClick={() => setIsOpen(!isOpen)}
         onBlur={() => setIsOpen(false)}
       >
@@ -62,15 +67,17 @@ export const Selectbox = <_ValidOption extends ValidOptionValue>({
           <ChevronDown className={styles["arrow"]} width={20} height={20} />
         )}
       </Button>
-      {isOpen && (
-        <Options
-          className={className}
-          onMouseDown={(e) => e.preventDefault()}
-          options={options}
-          handleClickOption={handleChange}
-          upward={upward}
-        />
-      )}
+
+      <Options
+        isOpen={isOpen}
+        className={cleanClassName(className)}
+        fontSize={fontSize}
+        fontWeight={fontWeight}
+        onMouseDown={(e) => e.preventDefault()}
+        options={options}
+        handleClickOption={handleChange}
+        upward={upward}
+      />
     </div>
   );
 };

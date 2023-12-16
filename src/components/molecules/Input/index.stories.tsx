@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { Input } from "@/index";
+import { Input } from "@/components/molecules/Input";
 import type { Meta, StoryObj } from "@storybook/react";
-import { useState } from "react";
+import { useState as createState } from "react";
 
 const meta: Meta<typeof Input> = {
-  title: "atoms/Input",
+  title: "molecules/Input",
   component: Input,
   argTypes: {
     type: {
@@ -19,13 +19,7 @@ const meta: Meta<typeof Input> = {
       },
     },
   },
-  decorators: [
-    (Story) => (
-      <div style={{ background: "blue", padding: "150px" }}>
-        <Story />
-      </div>
-    ),
-  ],
+  decorators: [(Story) => <Story />],
   tags: ["autodocs"],
 };
 
@@ -34,7 +28,7 @@ type Story = StoryObj<typeof Input>;
 
 export const Default: Story = {
   render: (args) => {
-    const [text, setText] = useState("");
+    const [text, setText] = createState("");
     return (
       <div style={{ display: "flex", gap: "100px" }}>
         <Input

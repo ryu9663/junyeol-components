@@ -9,3 +9,4 @@ export * from "./Selectbox";
 export * from "./Modal";
 export * from "./Table";
 export * from "./DropdownTag";
+export * from "./Input";
