@@ -17,13 +17,14 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  &_close_btn {
-    width: fit-content;
-    height: fit-content;
-    padding: 0;
-    box-shadow: none;
-    align-self: flex-end;
-  }
+}
+
+.dropdown_close_btn {
+  width: fit-content;
+  height: fit-content;
+  padding: 0;
+  box-shadow: none;
+  align-self: flex-end;
 }
 
 .closing {

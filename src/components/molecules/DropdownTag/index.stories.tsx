@@ -17,11 +17,17 @@ export const Default: Story = {
     const [radius, setRadius] = useState("");
 
     return (
-      <DropdownTag name="검색지 옵션 변경하기">
+      <DropdownTag
+        name="검색지 옵션 변경하기"
+        fontSize="small"
+        fontWeight={400}
+      >
         <div>
           <Selectbox
             name="관광지 검색 수"
             size="normal"
+            fontSize="normal"
+            fontWeight={400}
             onChange={(v) => console.log(v)}
             options={[
               { name: "10개", value: 10 },
