@@ -40,6 +40,11 @@ jobs:
 
       - name: push branch
         run: git push
+      #!이거 뭔데 오래걸려 갑자기
+      #!- uses: actions/upload-artifact@v2
+      #!   with:
+      #!     name: src
+      #!     path: ./
 
   tag:
     needs: Version-Up

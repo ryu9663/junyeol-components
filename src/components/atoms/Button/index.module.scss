@@ -2,7 +2,6 @@
 
 .button {
   font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 700;
   border: 0;
   border-radius: 10px;
   display: inline-block;
@@ -13,6 +12,8 @@
 
   box-shadow: 0 4px 10px $BLUISH-GRAY-300, 0 4px 16px $BLUISH-GRAY-100;
 
+  @include font-size;
+  @include font-weight;
   &:hover {
     background-color: rgba(255, 255, 255, 0.4);
   }
