@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Sidebar } from ".";
 import { Category, SubCategoryList } from "@/index";
-import { Link, MemoryRouter } from "react-router-dom";
 import { getCustomDateString } from "@/utils";
 
 const meta: Meta<typeof Sidebar> = {
@@ -34,45 +33,75 @@ export const Default: Story = {
         category: "dev",
         subcategories: [
           {
-            subCategoryLink: <Link to="/posts?filter=react">react</Link>,
+            subCategoryLink: (
+              <a target="_blank" href="/posts?filter=react">
+                react
+              </a>
+            ),
             createdAt: yesterday,
           },
           {
-            subCategoryLink: <Link to="/posts?filter=next">next</Link>,
+            subCategoryLink: (
+              <a target="_blank" href="/posts?filter=next">
+                next
+              </a>
+            ),
             createdAt: twoDaysAgo,
           },
           {
             subCategoryLink: (
-              <Link to="/posts?filter=typescript">typescript</Link>
+              <a target="_blank" href="/posts?filter=typescript">
+                typescript
+              </a>
             ),
             createdAt: threeDaysAgo,
           },
           {
-            subCategoryLink: <Link to="/posts?filter=graphQL">graphQL</Link>,
-            createdAt: fourDaysAgo,
-          },
-          {
             subCategoryLink: (
-              <Link to="/posts?filter=react-query">react-query</Link>
+              <a target="_blank" href="/posts?filter=graphQL">
+                graphQL
+              </a>
             ),
             createdAt: fourDaysAgo,
           },
           {
-            subCategoryLink: <Link to="/posts?filter=zustand">zustand</Link>,
-            createdAt: fourDaysAgo,
-          },
-          {
             subCategoryLink: (
-              <Link to="/posts?filter=javascript">javascript</Link>
+              <a target="_blank" href="/posts?filter=react-query">
+                react-query
+              </a>
             ),
             createdAt: fourDaysAgo,
           },
           {
-            subCategoryLink: <Link to="/posts?filter=html">html</Link>,
+            subCategoryLink: (
+              <a target="_blank" href="/posts?filter=zustand">
+                zustand
+              </a>
+            ),
             createdAt: fourDaysAgo,
           },
           {
-            subCategoryLink: <Link to="/posts?filter=css">css</Link>,
+            subCategoryLink: (
+              <a target="_blank" href="/posts?filter=javascript">
+                javascript
+              </a>
+            ),
+            createdAt: fourDaysAgo,
+          },
+          {
+            subCategoryLink: (
+              <a target="_blank" href="/posts?filter=html">
+                html
+              </a>
+            ),
+            createdAt: fourDaysAgo,
+          },
+          {
+            subCategoryLink: (
+              <a target="_blank" href="/posts?filter=css">
+                css
+              </a>
+            ),
             createdAt: fourDaysAgo,
           },
         ],
@@ -81,11 +110,19 @@ export const Default: Story = {
         category: "mystory",
         subcategories: [
           {
-            subCategoryLink: <Link to="/posts/mystory/about">about</Link>,
+            subCategoryLink: (
+              <a target="_blank" href="/posts/mystory/about">
+                about
+              </a>
+            ),
             createdAt: yesterday,
           },
           {
-            subCategoryLink: <Link to="/posts/mystory/travel">travel</Link>,
+            subCategoryLink: (
+              <a target="_blank" href="/posts/mystory/travel">
+                travel
+              </a>
+            ),
             createdAt: threeDaysAgo,
           },
         ],
@@ -93,25 +130,31 @@ export const Default: Story = {
     ];
 
     return (
-      <MemoryRouter>
-        <main style={{ height: "100vh", width: "100vw", background: "white" }}>
-          <Sidebar linkToPosts={<Link to="/posts">전체보기</Link>}>
-            <ul>
-              {category.map((el, i) => (
-                <li key={i}>
-                  <Category
-                    CategoryLink={
-                      <Link to={`/${el.category}`}>{el.category}</Link>
-                    }
-                  >
-                    <SubCategoryList subCategories={el.subcategories} />
-                  </Category>
-                </li>
-              ))}
-            </ul>
-          </Sidebar>
-        </main>
-      </MemoryRouter>
+      <main style={{ height: "100vh", width: "100vw", background: "white" }}>
+        <Sidebar
+          linkToPosts={
+            <a target="_blank" href="/posts">
+              전체보기
+            </a>
+          }
+        >
+          <ul>
+            {category.map((el, i) => (
+              <li key={i}>
+                <Category
+                  CategoryLink={
+                    <a target="_blank" href={`/${el.category}`}>
+                      {el.category}
+                    </a>
+                  }
+                >
+                  <SubCategoryList subCategories={el.subcategories} />
+                </Category>
+              </li>
+            ))}
+          </ul>
+        </Sidebar>
+      </main>
     );
   },
 };

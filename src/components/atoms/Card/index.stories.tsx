@@ -1,7 +1,6 @@
 /* eslint-disable storybook/prefer-pascal-case */
 import type { Meta, StoryObj } from "@storybook/react";
 import { Card } from ".";
-import { Link, MemoryRouter } from "react-router-dom";
 
 const meta: Meta<typeof Card> = {
   title: "atoms/Card",
@@ -51,7 +50,7 @@ type Story = StoryObj<typeof Card>;
 export const Default: Story = {
   render: () => {
     return (
-      <MemoryRouter>
+      <>
         <div
           style={{
             display: "flex",
@@ -62,7 +61,11 @@ export const Default: Story = {
         >
           <Card
             createdAt="2023. 10. 16. "
-            subCategoryLink={<Link to="react">react</Link>}
+            subCategoryLink={
+              <a target="_blank" href="react">
+                react
+              </a>
+            }
             Thumbnail={
               <img
                 width={180}
@@ -79,7 +82,7 @@ export const Default: Story = {
             감사합니다.`}
           />
         </div>
-      </MemoryRouter>
+      </>
     );
   },
 };
@@ -87,17 +90,21 @@ export const Default: Story = {
 export const 썸네일에_div태그_넣음: Story = {
   render: () => {
     return (
-      <MemoryRouter>
+      <>
         <Card
           createdAt="2023. 10. 16. "
-          subCategoryLink={<Link to="react">react</Link>}
+          subCategoryLink={
+            <a target="_blank" href="react">
+              react
+            </a>
+          }
           Thumbnail={<div>hi</div>}
           title="Next App router에서 use client가 CSR을 뜻하지는 않는다."
           description={
             "분명히 서버컴포넌트로 렌더링되는건 아닌데,, use client를 사용하면 CSR로 된다는 뜻이 아닌가? 하고 공식문서를 보았다. 공식문서에서 클라이언트 컴포넌트 (use client) 가 어떻게 렌더링 되는지 잘 작성되어 있다."
           }
         />
-      </MemoryRouter>
+      </>
     );
   },
 };
@@ -105,11 +112,15 @@ export const 썸네일에_div태그_넣음: Story = {
 export const 카드_여러개: Story = {
   render: () => {
     return (
-      <MemoryRouter>
+      <>
         <div style={{ display: "flex", flexDirection: "column", gap: "30px" }}>
           <Card
             createdAt="2023. 10. 16. "
-            subCategoryLink={<Link to="react">react</Link>}
+            subCategoryLink={
+              <a target="_blank" href="react">
+                react
+              </a>
+            }
             Thumbnail={
               <img
                 width={180}
@@ -127,7 +138,11 @@ export const 카드_여러개: Story = {
           />
           <Card
             createdAt="2023. 10. 16. "
-            subCategoryLink={<Link to="react">react</Link>}
+            subCategoryLink={
+              <a target="_blank" href="react">
+                react
+              </a>
+            }
             Thumbnail={
               <img
                 width={180}
@@ -144,7 +159,11 @@ export const 카드_여러개: Story = {
 
           <Card
             createdAt="2023. 10. 16. "
-            subCategoryLink={<Link to="react">react</Link>}
+            subCategoryLink={
+              <a target="_blank" href="react">
+                react
+              </a>
+            }
             Thumbnail={
               <img
                 width={180}
@@ -159,7 +178,7 @@ export const 카드_여러개: Story = {
             }
           />
         </div>
-      </MemoryRouter>
+      </>
     );
   },
 };

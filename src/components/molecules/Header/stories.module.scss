@@ -1,0 +1,10 @@
+@use "src/styles/libs" as *;
+.button {
+  box-shadow: none;
+  border: 1px $BLUISH-GRAY-50 solid;
+  font-weight: 400;
+  font-size: $NORMAL;
+  &:hover {
+    background-color: $BLUISH-GRAY-50;
+  }
+}

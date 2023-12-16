@@ -8,7 +8,19 @@ const meta: Meta<typeof Selectbox> = {
   argTypes: {
     size: {
       control: {
-        options: ["small", "medium", "large"],
+        options: ["small", "normal", "large"],
+        type: "select",
+      },
+    },
+    fontSize: {
+      control: {
+        options: ["small", "normal", "large"],
+        type: "select",
+      },
+    },
+    fontWeight: {
+      control: {
+        options: [400, 500, 700],
         type: "select",
       },
     },
@@ -41,7 +53,7 @@ export const Default: Story = {
           <Selectbox
             {...args}
             name={args.name || "관광지 검색 수"}
-            size={args.size || "medium"}
+            size={args.size || "normal"}
             onChange={(value) => setSelectedText(value)}
             options={[
               { name: "10개", value: 10 },

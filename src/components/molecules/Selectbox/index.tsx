@@ -9,7 +9,7 @@ import {
   ValidOptionValue,
 } from "@/components/atoms/Options";
 
-export type SelectboxSizeType = "small" | "medium" | "large";
+export type SelectboxSizeType = "small" | "normal" | "large";
 export interface SelectboxProps<_ValidOptionValue = ValidOptionValue>
   extends Pick<OptionsProps, "fontSize" | "fontWeight"> {
   name: string;
@@ -23,7 +23,7 @@ export const Selectbox = <_ValidOption extends ValidOptionValue>({
   name,
   options,
   onChange,
-  size = "medium",
+  size = "normal",
   upward = false,
   fontSize = "normal",
   fontWeight = 700,

@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Toast } from "@/components/atoms/Toast";
 import { Category } from "@/components/molecules/Category";
-import { Link, MemoryRouter } from "react-router-dom";
 import { SubCategoryList } from "@/index";
 import { getCustomDateString } from "@/utils";
 
@@ -26,48 +25,88 @@ export const Default: Story = {
     const fourDaysAgo = getCustomDateString(4);
     const subCategory = [
       {
-        subCategoryLink: <Link to="/posts?filter=react">react</Link>,
+        subCategoryLink: (
+          <a target="_blank" href="/posts?filter=react">
+            react
+          </a>
+        ),
         createdAt: yesterday,
       },
       {
-        subCategoryLink: <Link to="/posts?filter=next">next</Link>,
+        subCategoryLink: (
+          <a target="_blank" href="/posts?filter=next">
+            next
+          </a>
+        ),
         createdAt: twoDaysAgo,
       },
       {
-        subCategoryLink: <Link to="/posts?filter=typescript">typescript</Link>,
+        subCategoryLink: (
+          <a target="_blank" href="/posts?filter=typescript">
+            typescript
+          </a>
+        ),
         createdAt: threeDaysAgo,
       },
       {
-        subCategoryLink: <Link to="/posts?filter=graphQL">graphQL</Link>,
-        createdAt: fourDaysAgo,
-      },
-      {
         subCategoryLink: (
-          <Link to="/posts?filter=react-query">react-query</Link>
+          <a target="_blank" href="/posts?filter=graphQL">
+            graphQL
+          </a>
         ),
         createdAt: fourDaysAgo,
       },
       {
-        subCategoryLink: <Link to="/posts?filter=zustand">zustand</Link>,
+        subCategoryLink: (
+          <a target="_blank" href="/posts?filter=react-query">
+            react-query
+          </a>
+        ),
         createdAt: fourDaysAgo,
       },
       {
-        subCategoryLink: <Link to="/posts?filter=javascript">javascript</Link>,
+        subCategoryLink: (
+          <a target="_blank" href="/posts?filter=zustand">
+            zustand
+          </a>
+        ),
         createdAt: fourDaysAgo,
       },
       {
-        subCategoryLink: <Link to="/posts?filter=html">html</Link>,
+        subCategoryLink: (
+          <a target="_blank" href="/posts?filter=javascript">
+            javascript
+          </a>
+        ),
         createdAt: fourDaysAgo,
       },
       {
-        subCategoryLink: <Link to="/posts?filter=css">css</Link>,
+        subCategoryLink: (
+          <a target="_blank" href="/posts?filter=html">
+            html
+          </a>
+        ),
+        createdAt: fourDaysAgo,
+      },
+      {
+        subCategoryLink: (
+          <a target="_blank" href="/posts?filter=css">
+            css
+          </a>
+        ),
         createdAt: fourDaysAgo,
       },
     ];
     return (
       <MemoryRouter>
         <main style={{ height: "100vh", width: "100vw", background: "white" }}>
-          <Category CategoryLink={<Link to="https://www.naver.com">dev</Link>}>
+          <Category
+            CategoryLink={
+              <a target="_blank" href="https://www.naver.com">
+                dev
+              </a>
+            }
+          >
             <SubCategoryList subCategories={subCategory} />
           </Category>
         </main>
