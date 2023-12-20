@@ -1,4 +1,3 @@
-import nodeToString from "react-node-to-string";
 import { Table, ToastContainer } from "@/index";
 import { tableData } from "@/utils";
 import { Meta, StoryObj } from "@storybook/react";
