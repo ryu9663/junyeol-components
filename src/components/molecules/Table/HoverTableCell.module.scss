@@ -12,12 +12,12 @@
   left: 8px;
   z-index: 10;
   display: flex;
-
+  gap: 10px;
   width: fit-content;
   padding: 0px 7px;
   border: 1px solid $BLUISH-GRAY-200;
   border-radius: 4px;
-
+  padding: 10px;
   background-color: $WHITE;
 
   white-space: pre;
@@ -25,4 +25,10 @@
   transition: background-color 0.3s, border 0.3s;
 
   @include fade-in(0.2s);
+}
+
+.copy_btn {
+  display: flex;
+  flex-direction: column;
+  align-self: end;
 }

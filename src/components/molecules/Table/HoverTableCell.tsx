@@ -3,63 +3,72 @@ import styles from "./HoverTableCell.module.scss";
 import { useToast } from "@/index";
 import nodeToString from "react-node-to-string";
 import { Copy } from "react-feather";
+import { CopyMessageType } from "@/components/molecules/Table/TableCell";
 
 export interface HoverTableCellProps extends PropsWithChildren {
-  maxWidth: number;
-  copiable: boolean;
+  maxWidth?: number;
+  copyMessage?: CopyMessageType;
 }
+
 export const HoverTableCell = ({
   children,
   maxWidth,
-  copiable,
+  copyMessage,
 }: HoverTableCellProps) => {
   const toast = useToast();
   const [isHover, setIsHover] = useState(false);
   const [isLongText, setIsLongText] = useState(false);
   const beforeHoverDivRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
-    if (beforeHoverDivRef.current) {
+    if (maxWidth && beforeHoverDivRef.current) {
       const contentCell = beforeHoverDivRef.current;
       const isElipsissed = contentCell.scrollWidth > contentCell.clientWidth;
       if (isElipsissed) {
         setIsLongText(true);
       }
     }
-  }, []);
+  }, [maxWidth]);
 
-  const copy = async (text: string) => {
+  const handleCopy = async (
+    text: string,
+    toastMessage?: { success: string; fail?: string }
+  ) => {
     await navigator.clipboard
       .writeText(text)
       .then(() => {
         toast({
           type: "success",
-          children: "내용을 복사했어요.",
+          children: toastMessage?.success || "복사했습니다.",
           holdTime: 3000,
         });
       })
       .catch(() =>
         toast({
           type: "fail",
-          children: "복사를 실패했어요.",
+          children: toastMessage?.fail || "복사에 실패했습니다.",
           holdTime: 3000,
         })
       );
   };
+
   return (
     <>
-      {isLongText && isHover ? (
+      {isHover ? (
         <div
-          onMouseLeave={() => isLongText && setIsHover(false)}
+          onMouseLeave={() => {
+            if (maxWidth) isLongText && setIsHover(false);
+            else setIsHover(false);
+          }}
           className={styles["table-cell-hover"]}
         >
-          {children}
-          {copiable && (
+          <pre>{children}</pre>
+          {copyMessage && (
             <button
+              className={styles.copy_btn}
               data-testid="copybtn-testid"
-              onClick={() => copy(nodeToString(children))}
+              onClick={() => handleCopy(nodeToString(children), copyMessage)}
             >
-              <Copy />
+              <Copy width={20} height={20} />
             </button>
           )}
         </div>
@@ -67,7 +76,10 @@ export const HoverTableCell = ({
         <div
           ref={beforeHoverDivRef}
           style={{ width: maxWidth }}
-          onMouseEnter={() => isLongText && setIsHover(true)}
+          onMouseEnter={() => {
+            if (maxWidth) isLongText && setIsHover(true);
+            else setIsHover(true);
+          }}
           className={`${styles["table-cell-ellipsis"]}`}
         >
           {children}
