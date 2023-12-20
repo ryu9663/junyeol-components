@@ -56,8 +56,12 @@ export const HoverTableCell = ({
       {isHover ? (
         <div
           onMouseLeave={() => {
-            if (maxWidth) isLongText && setIsHover(false);
-            else setIsHover(false);
+            if (copyMessage) {
+              setIsHover(false);
+            }
+            if (maxWidth) {
+              isLongText && setIsHover(false);
+            }
           }}
           className={styles["table-cell-hover"]}
         >
@@ -77,8 +81,12 @@ export const HoverTableCell = ({
           ref={beforeHoverDivRef}
           style={{ width: maxWidth }}
           onMouseEnter={() => {
-            if (maxWidth) isLongText && setIsHover(true);
-            else setIsHover(true);
+            if (copyMessage) {
+              setIsHover(true);
+            }
+            if (maxWidth) {
+              isLongText && setIsHover(true);
+            }
           }}
           className={`${styles["table-cell-ellipsis"]}`}
         >

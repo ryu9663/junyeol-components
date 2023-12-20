@@ -82,7 +82,7 @@ export const Default: Story = {
                                 e + String(rowIndex + 1)
                               }를 복사하였습니다.`,
                             }
-                          : COLUMN_INDEX.LONG_TEXT_COPYABLE
+                          : COLUMN_INDEX.LONG_TEXT_COPYABLE === columnIndex
                           ? {
                               success:
                                 "긴 텍스트는 토스트에 안보여줌. 글고 복사 성공",

@@ -27,7 +27,11 @@ export const TableCell = ({
   const classes = `${className} ${maxWidth ? "max-w-" + maxWidth : ""} ${
     hoveredColumn === columnIndex ? styles.hovered : ""
   }`;
-
+  console.log(
+    COLUMN_INDEX.CAPYABLE,
+    columnIndex,
+    COLUMN_INDEX.CAPYABLE === columnIndex
+  );
   return (
     <td className={`${cleanClassName(classes)}`}>
       {maxWidth || copyMessage ? (
@@ -44,4 +48,9 @@ export const TableCell = ({
       )}
     </td>
   );
+};
+const COLUMN_INDEX = {
+  CAPYABLE: 2,
+  LONG_TEXT: 6,
+  LONG_TEXT_COPYABLE: 7,
 };
