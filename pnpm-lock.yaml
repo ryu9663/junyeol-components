@@ -17,6 +17,9 @@ dependencies:
   react-feather:
     specifier: ^2.0.10
     version: 2.0.10(react@18.2.0)
+  react-node-to-string:
+    specifier: ^0.1.2
+    version: 0.1.2(react@18.2.0)
   zustand:
     specifier: ^4.4.3
     version: 4.4.7(@types/react@18.2.45)(react@18.2.0)
@@ -8729,6 +8732,14 @@ packages:
   /react-is@18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
     dev: true
+
+  /react-node-to-string@0.1.2(react@18.2.0):
+    resolution: {integrity: sha512-4zKDY7u7Zq3s6xhcJ+wFbOBmVj4S5IxmqkOmBpWInHuoOxVcIcNk5UdGuw0GDaPqyiKxMFeyCHSrZIaKouXeeA==}
+    peerDependencies:
+      react: ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /react-refresh@0.14.0:
     resolution: {integrity: sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ==}
