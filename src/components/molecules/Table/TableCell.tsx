@@ -5,17 +5,22 @@ import { HoverTableCell } from "@/components/molecules/Table/HoverTableCell";
 import { useTableStore } from "@/components/molecules/Table/index.store";
 import styles from "./TableCell.module.scss";
 
+export interface CopyMessageType {
+  success: string;
+  fail?: string;
+}
+
 export interface TableCellProps extends PropsWithChildren {
   className?: string;
   maxWidth?: CSSProperties["maxWidth"];
-  copiable?: boolean;
+  copyMessage?: CopyMessageType;
   columnIndex: number;
 }
 export const TableCell = ({
   children,
   className,
   maxWidth,
-  copiable = false,
+  copyMessage,
   columnIndex,
 }: TableCellProps) => {
   const hoveredColumn = useTableStore((state) => state.hoveredColumn);
@@ -25,9 +30,9 @@ export const TableCell = ({
 
   return (
     <td className={`${cleanClassName(classes)}`}>
-      {maxWidth || copiable ? (
+      {maxWidth || copyMessage ? (
         <HoverTableCell
-          copiable={copiable}
+          copyMessage={copyMessage}
           maxWidth={
             maxWidth && (isString(maxWidth) ? parseInt(maxWidth, 10) : maxWidth)
           }
@@ -35,9 +40,7 @@ export const TableCell = ({
           {children}
         </HoverTableCell>
       ) : (
-        <div>
-          <pre>{children}</pre>
-        </div>
+        <div>{children}</div>
       )}
     </td>
   );

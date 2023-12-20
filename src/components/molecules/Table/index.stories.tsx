@@ -1,3 +1,4 @@
+import nodeToString from "react-node-to-string";
 import { Table, ToastContainer } from "@/index";
 import { tableData } from "@/utils";
 import { Meta, StoryObj } from "@storybook/react";
@@ -74,10 +75,18 @@ export const Default: Story = {
                           ? "150px"
                           : undefined
                       }
-                      copiable={[
-                        COLUMN_INDEX.CAPYABLE,
-                        COLUMN_INDEX.LONG_TEXT_COPYABLE,
-                      ].includes(columnIndex)}
+                      copyMessage={
+                        COLUMN_INDEX.CAPYABLE === columnIndex
+                          ? {
+                              success: `${e}를 복사하였습니다.`,
+                            }
+                          : COLUMN_INDEX.LONG_TEXT_COPYABLE
+                          ? {
+                              success:
+                                "긴 텍스트는 토스트에 안보여줌. 글고 복사 성공",
+                            }
+                          : undefined
+                      }
                     >
                       {e + String(rowIndex + 1)}
                     </Table.Cell>

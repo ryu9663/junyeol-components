@@ -3,21 +3,22 @@ import styles from "./HoverTableCell.module.scss";
 import { useToast } from "@/index";
 import nodeToString from "react-node-to-string";
 import { Copy } from "react-feather";
+import { CopyMessageType } from "@/components/molecules/Table/TableCell";
 
 export interface HoverTableCellProps extends PropsWithChildren {
   maxWidth?: number;
-  copiable: boolean;
+  copyMessage?: CopyMessageType;
 }
+
 export const HoverTableCell = ({
   children,
   maxWidth,
-  copiable,
+  copyMessage,
 }: HoverTableCellProps) => {
   const toast = useToast();
   const [isHover, setIsHover] = useState(false);
   const [isLongText, setIsLongText] = useState(false);
   const beforeHoverDivRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     if (maxWidth && beforeHoverDivRef.current) {
       const contentCell = beforeHoverDivRef.current;
@@ -28,7 +29,7 @@ export const HoverTableCell = ({
     }
   }, [maxWidth]);
 
-  const copy = async (
+  const handleCopy = async (
     text: string,
     toastMessage?: { success: string; fail?: string }
   ) => {
@@ -61,16 +62,11 @@ export const HoverTableCell = ({
           className={styles["table-cell-hover"]}
         >
           <pre>{children}</pre>
-          {copiable && (
+          {copyMessage && (
             <button
               className={styles.copy_btn}
               data-testid="copybtn-testid"
-              onClick={() =>
-                copy(nodeToString(children), {
-                  success: `${nodeToString(children)}
-복사를 성공했습니다.`,
-                })
-              }
+              onClick={() => handleCopy(nodeToString(children), copyMessage)}
             >
               <Copy width={20} height={20} />
             </button>
