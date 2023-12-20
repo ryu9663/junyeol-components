@@ -6,6 +6,7 @@ const meta: Meta<typeof Table> = {
   title: "molecules/Table",
   component: Table,
   decorators: [(Story) => <Story />],
+  tags: ["autodocs"],
 };
 
 export default meta;
@@ -77,7 +78,9 @@ export const Default: Story = {
                       copyMessage={
                         COLUMN_INDEX.CAPYABLE === columnIndex
                           ? {
-                              success: `${e}를 복사하였습니다.`,
+                              success: `${
+                                e + String(rowIndex + 1)
+                              }를 복사하였습니다.`,
                             }
                           : COLUMN_INDEX.LONG_TEXT_COPYABLE
                           ? {
