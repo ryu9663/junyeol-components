@@ -1,17 +1,9 @@
 @use "src/styles/libs" as *;
 .options {
-  position: absolute;
   width: 100%;
-  top: 50px;
   background-color: white;
-  &.upward {
-    top: unset;
-    bottom: 50px;
-  }
-
   list-style: none;
   box-shadow: 0 4px 10px $BLUISH-GRAY-300, 0 4px 16px $BLUISH-GRAY-100;
-
   padding: 5px;
   border-radius: 5px;
 

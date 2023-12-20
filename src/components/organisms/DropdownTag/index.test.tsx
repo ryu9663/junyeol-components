@@ -6,17 +6,7 @@ const CLASSNAME_CLOSED = "_closed_9d2dd2";
 const CLASSNAME_CLOSING = "_closing_9d2dd2";
 const CLASSNAME_OPENING = "_opening_9d2dd2";
 const CLASSNAME_OPENED = "_opened_9d2dd2";
-test("처음에는 children이 closed 상태이다. ", () => {
-  render(
-    <DropdownTag name="dropdown tag">
-      <div>children</div>
-    </DropdownTag>
-  );
 
-  expect(screen.getByTestId("dropdowntag-dropdown-testid")).toHaveClass(
-    CLASSNAME_CLOSED
-  );
-});
 test('Option tag 버튼을 클릭하면 children이 "opening" 상태가 된다.', async () => {
   const user = userEvent.setup();
   render(

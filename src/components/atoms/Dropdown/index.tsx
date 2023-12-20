@@ -23,7 +23,7 @@ export const Dropdown = ({ isOpen, children, className }: DropdownProps) => {
   }, [isOpen]);
 
   return (
-    <>
+    <div className={styles.dropdown_wrapper}>
       {dropdownState !== "closed" && (
         <div
           className={cleanClassName(
@@ -33,6 +33,6 @@ export const Dropdown = ({ isOpen, children, className }: DropdownProps) => {
           {children}
         </div>
       )}
-    </>
+    </div>
   );
 };

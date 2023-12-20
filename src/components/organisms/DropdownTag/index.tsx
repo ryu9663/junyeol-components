@@ -1,5 +1,5 @@
-import { Button, cleanClassName } from "@/index";
-import { PropsWithChildren, useEffect, useState } from "react";
+import { Button, Dropdown, cleanClassName } from "@/index";
+import { PropsWithChildren, useState } from "react";
 import styles from "./index.module.scss";
 import { X } from "react-feather";
 import { FontSizeType, FontWeightType } from "@/utils/constants";
@@ -18,55 +18,38 @@ export const DropdownTag = ({
   fontSize = "normal",
   fontWeight = 700,
 }: DropdownTagProps) => {
-  const [dropdownState, setDropdownState] = useState("closed");
-
-  useEffect(() => {
-    switch (dropdownState) {
-      case "opening":
-        setTimeout(() => setDropdownState("opened"), 500);
-        break;
-
-      case "closing": {
-        const closeTimer = setTimeout(() => setDropdownState("closed"), 300);
-        return () => clearTimeout(closeTimer);
-      }
-      default:
-    }
-  }, [dropdownState]);
-
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <>
+    <div style={{ width: "fit-content" }}>
       <Button
         fontSize={fontSize}
         fontWeight={fontWeight}
         size="small"
         className={`${styles.drodown_tag}  `}
-        onClick={() =>
-          //! TODO : dropdown을 만들어야하는구나. animaition 달린,
-          setDropdownState(dropdownState === "closed" ? "opening" : "closing")
-        }
+        onClick={() => setIsOpen(!isOpen)}
       >
         {name}
       </Button>
       {
         <>
-          <div
+          <Dropdown
+            isOpen={isOpen}
             data-testid="dropdowntag-dropdown-testid"
             className={cleanClassName(
-              `${styles.dropdown} ${styles[dropdownState]} ${className}`
+              `${styles.dropdown_wrapper} ${className}`
             )}
           >
             <Button
               data-testid="dropdown-close-btn-testid"
               className={styles.dropdown_close_btn}
-              onClick={() => setDropdownState("closing")}
+              onClick={() => setIsOpen(false)}
             >
               <X width={15} height={15} />
             </Button>
             {children}
-          </div>
+          </Dropdown>
         </>
       }
-    </>
+    </div>
   );
 };

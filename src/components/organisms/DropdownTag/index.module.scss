@@ -8,7 +8,7 @@
   font-weight: 400;
 }
 
-.dropdown {
+.dropdown_wrapper {
   margin-top: 10px;
   border-radius: 10px;
   box-shadow: 0 4px 10px $BLUISH-GRAY-300, 0 4px 16px $BLUISH-GRAY-100;
@@ -17,6 +17,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 100%;
 }
 .dropdown_close_btn {
   width: fit-content;
@@ -26,6 +27,9 @@
   align-self: flex-end;
 }
 
+.dropdown {
+  width: 100%;
+}
 .closing {
   @include fade-out(0.5s);
 }

@@ -1,4 +1,4 @@
-import { Button, cleanClassName, useMountedEffect } from "@/index";
+import { Button, Dropdown, cleanClassName, useMountedEffect } from "@/index";
 import { MouseEventHandler, useState } from "react";
 import styles from "./index.module.scss";
 import { FontSizeType, FontWeightType } from "@/utils/constants";
@@ -44,10 +44,10 @@ export const Options = <ValidOption extends ValidOptionValue>({
 
   return (
     <>
-      {optionState !== "closed" && (
+      <Dropdown isOpen={isOpen} className={cleanClassName(className)}>
         <ul
           className={cleanClassName(
-            `${className} ${upward && styles.upward} ${styles.options} ${
+            `${upward && styles.upward} ${styles.options} ${
               styles[optionState]
             }`
           )}
@@ -71,7 +71,7 @@ export const Options = <ValidOption extends ValidOptionValue>({
             </li>
           ))}
         </ul>
-      )}
+      </Dropdown>
     </>
   );
 };

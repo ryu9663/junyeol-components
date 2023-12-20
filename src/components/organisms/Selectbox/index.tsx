@@ -7,7 +7,7 @@ import {
   Options,
   OptionsProps,
   ValidOptionValue,
-} from "@/components/atoms/Options";
+} from "@/components/molecules/Options";
 
 export type SelectboxSizeType = "small" | "normal" | "large";
 export interface SelectboxProps<_ValidOptionValue = ValidOptionValue>
@@ -67,17 +67,17 @@ export const Selectbox = <_ValidOption extends ValidOptionValue>({
           <ChevronDown className={styles["arrow"]} width={20} height={20} />
         )}
       </Button>
-
-      <Options
-        isOpen={isOpen}
-        className={cleanClassName(className)}
-        fontSize={fontSize}
-        fontWeight={fontWeight}
-        onMouseDown={(e) => e.preventDefault()}
-        options={options}
-        handleClickOption={handleChange}
-        upward={upward}
-      />
+      <div className={styles[upward ? "upward" : "downward"]}>
+        <Options
+          isOpen={isOpen}
+          className={cleanClassName(`${className} ${styles.selectbox_options}`)}
+          fontSize={fontSize}
+          fontWeight={fontWeight}
+          onMouseDown={(e) => e.preventDefault()}
+          options={options}
+          handleClickOption={handleChange}
+        />
+      </div>
     </div>
   );
 };

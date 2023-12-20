@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { Selectbox } from "@/components/molecules/Selectbox";
+import { Selectbox } from "@/components/organisms/Selectbox";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 const meta: Meta<typeof Selectbox> = {
-  title: "molecules/Selectbox",
+  title: "organisms/Selectbox",
   component: Selectbox,
   argTypes: {
     size: {
