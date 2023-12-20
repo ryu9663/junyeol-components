@@ -20,7 +20,7 @@ export const DropdownTag = ({
 }: DropdownTagProps) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div style={{ width: "fit-content" }}>
+    <div className={styles.dropdown_tag_wrapper}>
       <Button
         fontSize={fontSize}
         fontWeight={fontWeight}

@@ -14,7 +14,6 @@ export interface OptionsProps<OptionValue = ValidOptionValue> {
   onMouseDown?: MouseEventHandler<HTMLUListElement>;
   options: OptionType<OptionValue>[];
   handleClickOption: (value: OptionValue) => void;
-  upward?: boolean;
   fontSize?: FontSizeType;
   fontWeight?: FontWeightType;
   isOpen: boolean;
@@ -26,7 +25,6 @@ export const Options = <ValidOption extends ValidOptionValue>({
   onMouseDown = (e) => e.preventDefault(),
   options,
   handleClickOption,
-  upward = false,
   fontSize = "normal",
   fontWeight = 700,
 }: OptionsProps<ValidOption>) => {
@@ -46,11 +44,7 @@ export const Options = <ValidOption extends ValidOptionValue>({
     <>
       <Dropdown isOpen={isOpen} className={cleanClassName(className)}>
         <ul
-          className={cleanClassName(
-            `${upward && styles.upward} ${styles.options} ${
-              styles[optionState]
-            }`
-          )}
+          className={cleanClassName(`${styles.options} ${styles[optionState]}`)}
           onMouseDown={onMouseDown}
         >
           {options.map(({ name, value }, i) => (

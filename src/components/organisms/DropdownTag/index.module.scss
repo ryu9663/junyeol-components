@@ -1,5 +1,9 @@
 @use "src/styles/libs" as *;
 
+.dropdown_tag_wrapper {
+  width: fit-content;
+}
+
 .dropdown_tag {
   width: fit-content;
   @include font-size;
@@ -25,8 +29,4 @@
   padding: 0;
   box-shadow: none;
   align-self: flex-end;
-}
-
-.dropdown {
-  width: 100%;
 }
