@@ -9,12 +9,12 @@ export interface DropdownProps extends PropsWithChildren {
 }
 export const Dropdown = ({ isOpen, children, className }: DropdownProps) => {
   const [dropdownState, setDropdownState] = useState<
-    "opening" | "closed" | "closing"
-  >(isOpen ? "opening" : "closed");
+    "open" | "closed" | "closing"
+  >(isOpen ? "open" : "closed");
 
   useMountedEffect(() => {
     if (isOpen) {
-      setDropdownState("opening");
+      setDropdownState("open");
     } else {
       setDropdownState("closing");
       const delayClose = setTimeout(() => setDropdownState("closed"), 500);
@@ -26,6 +26,7 @@ export const Dropdown = ({ isOpen, children, className }: DropdownProps) => {
     <div className={styles.dropdown_wrapper}>
       {dropdownState !== "closed" && (
         <div
+          data-testid="dropdown-testid"
           className={cleanClassName(
             `${styles.dropdown} ${className} ${styles[dropdownState]}`
           )}

@@ -34,7 +34,6 @@ export const DropdownTag = ({
         <>
           <Dropdown
             isOpen={isOpen}
-            data-testid="dropdowntag-dropdown-testid"
             className={cleanClassName(
               `${styles.dropdown_wrapper} ${className}`
             )}

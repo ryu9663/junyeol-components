@@ -17,6 +17,6 @@
 .closed {
   display: none;
 }
-.opening {
+.open {
   @include fade-in(0.5s);
 }

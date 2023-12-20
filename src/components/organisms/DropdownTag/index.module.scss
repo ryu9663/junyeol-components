@@ -30,12 +30,3 @@
 .dropdown {
   width: 100%;
 }
-.closing {
-  @include fade-out(0.5s);
-}
-.closed {
-  display: none;
-}
-.opening {
-  @include fade-in(0.5s);
-}
