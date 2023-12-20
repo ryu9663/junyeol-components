@@ -5,11 +5,13 @@ import { HoverTableCell } from "@/components/molecules/Table/HoverTableCell";
 export interface TableCellProps extends PropsWithChildren {
   className?: string;
   maxWidth?: CSSProperties["maxWidth"];
+  copiable?: boolean;
 }
 export const TableCell = ({
   children,
   className,
   maxWidth,
+  copiable = false,
 }: TableCellProps) => {
   const classes = `${className} ${maxWidth ? "max-w-" + maxWidth : ""} `;
 
@@ -17,6 +19,7 @@ export const TableCell = ({
     <td className={`${cleanClassName(classes)} `}>
       {maxWidth ? (
         <HoverTableCell
+          copiable={copiable}
           maxWidth={isString(maxWidth) ? parseInt(maxWidth, 10) : maxWidth}
         >
           {children}

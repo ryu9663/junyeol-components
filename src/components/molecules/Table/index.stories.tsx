@@ -1,4 +1,4 @@
-import { Table } from "@/index";
+import { Table, ToastContainer } from "@/index";
 import { tableData } from "@/utils";
 import { Meta, StoryObj } from "@storybook/react";
 
@@ -22,29 +22,45 @@ const COLUMN_INDEX = {
 export const Default: Story = {
   render: () => {
     return (
-      <Table>
-        <Table.Header>
-          {tableData.titles.map((title, i) => (
-            <Table.Title
-              maxWidth={
-                [
-                  COLUMN_INDEX.LONG_TEXT,
-                  COLUMN_INDEX.LONG_TEXT_COPYABLE,
-                ].includes(i)
-                  ? "150px"
-                  : undefined
-              }
-              key={i}
-            >
-              {title}
-            </Table.Title>
-          ))}
-        </Table.Header>
-        <Table.Body>
-          {tableData.bodies.map((body, i) => (
-            <Table.Row key={i}>
-              {Object.values(body).map((e, columnIndex) => {
-                if (typeof e === "boolean")
+      <>
+        <Table>
+          <Table.Header>
+            {tableData.titles.map((title, i) => (
+              <Table.Title
+                maxWidth={
+                  [
+                    COLUMN_INDEX.LONG_TEXT,
+                    COLUMN_INDEX.LONG_TEXT_COPYABLE,
+                  ].includes(i)
+                    ? "150px"
+                    : undefined
+                }
+                key={i}
+              >
+                {title}
+              </Table.Title>
+            ))}
+          </Table.Header>
+          <Table.Body>
+            {tableData.bodies.map((body, i) => (
+              <Table.Row key={i}>
+                {Object.values(body).map((e, columnIndex) => {
+                  if (typeof e === "boolean")
+                    return (
+                      <Table.Cell
+                        key={columnIndex}
+                        maxWidth={
+                          [
+                            COLUMN_INDEX.LONG_TEXT,
+                            COLUMN_INDEX.LONG_TEXT_COPYABLE,
+                          ].includes(columnIndex)
+                            ? "150px"
+                            : undefined
+                        }
+                      >
+                        {e ? "O" : "X"}
+                      </Table.Cell>
+                    );
                   return (
                     <Table.Cell
                       key={columnIndex}
@@ -56,30 +72,22 @@ export const Default: Story = {
                           ? "150px"
                           : undefined
                       }
+                      copiable={
+                        !![COLUMN_INDEX.LONG_TEXT_COPYABLE].includes(
+                          columnIndex
+                        )
+                      }
                     >
-                      {e ? "O" : "X"}
+                      {e + String(i + 1)}
                     </Table.Cell>
                   );
-                return (
-                  <Table.Cell
-                    key={columnIndex}
-                    maxWidth={
-                      [
-                        COLUMN_INDEX.LONG_TEXT,
-                        COLUMN_INDEX.LONG_TEXT_COPYABLE,
-                      ].includes(columnIndex)
-                        ? "150px"
-                        : undefined
-                    }
-                  >
-                    {e + String(i + 1)}
-                  </Table.Cell>
-                );
-              })}
-            </Table.Row>
-          ))}
-        </Table.Body>
-      </Table>
+                })}
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table>
+        <ToastContainer />
+      </>
     );
   },
 };
