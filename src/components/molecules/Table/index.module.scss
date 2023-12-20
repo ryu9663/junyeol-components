@@ -1,12 +1,29 @@
 @use "src/styles/libs" as *;
 
-table,
 tr,
 th,
 td {
-  border: 1px gray solid;
+  border-top: 1px $BLUE-100 solid;
+  border-bottom: 1px $BLUE-100 solid;
+
   padding: 10px;
   height: 50px;
+}
+
+thead > tr {
+  border-top: none;
+}
+thead > tr > th {
+  border-top: none;
+  &:hover {
+    background-color: $BLUE-100;
+  }
+}
+
+tbody > tr {
+  &:hover {
+    background-color: $BLUE-50;
+  }
 }
 
 td {

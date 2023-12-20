@@ -14,7 +14,7 @@ type Story = StoryObj<typeof Table>;
 // const ROW_COUNT = 20;
 
 const COLUMN_INDEX = {
-  CAPYABLE: 4,
+  CAPYABLE: 2,
   LONG_TEXT: 6,
   LONG_TEXT_COPYABLE: 7,
 };
@@ -25,30 +25,31 @@ export const Default: Story = {
       <>
         <Table>
           <Table.Header>
-            {tableData.titles.map((title, i) => (
+            {tableData.titles.map((title, columnIndex) => (
               <Table.Title
                 maxWidth={
                   [
                     COLUMN_INDEX.LONG_TEXT,
                     COLUMN_INDEX.LONG_TEXT_COPYABLE,
-                  ].includes(i)
+                  ].includes(columnIndex)
                     ? "150px"
                     : undefined
                 }
-                key={i}
+                key={`header-${columnIndex}`}
               >
                 {title}
               </Table.Title>
             ))}
           </Table.Header>
           <Table.Body>
-            {tableData.bodies.map((body, i) => (
-              <Table.Row key={i}>
+            {tableData.bodies.map((body, rowIndex) => (
+              <Table.Row key={rowIndex}>
                 {Object.values(body).map((e, columnIndex) => {
                   if (typeof e === "boolean")
                     return (
                       <Table.Cell
-                        key={columnIndex}
+                        columnIndex={columnIndex}
+                        key={`body-${rowIndex + 1}-${columnIndex}`}
                         maxWidth={
                           [
                             COLUMN_INDEX.LONG_TEXT,
@@ -63,7 +64,8 @@ export const Default: Story = {
                     );
                   return (
                     <Table.Cell
-                      key={columnIndex}
+                      columnIndex={columnIndex}
+                      key={`body-${rowIndex + 1}-${columnIndex}`}
                       maxWidth={
                         [
                           COLUMN_INDEX.LONG_TEXT,
@@ -72,13 +74,12 @@ export const Default: Story = {
                           ? "150px"
                           : undefined
                       }
-                      copiable={
-                        !![COLUMN_INDEX.LONG_TEXT_COPYABLE].includes(
-                          columnIndex
-                        )
-                      }
+                      copiable={[
+                        COLUMN_INDEX.CAPYABLE,
+                        COLUMN_INDEX.LONG_TEXT_COPYABLE,
+                      ].includes(columnIndex)}
                     >
-                      {e + String(i + 1)}
+                      {e + String(rowIndex + 1)}
                     </Table.Cell>
                   );
                 })}
