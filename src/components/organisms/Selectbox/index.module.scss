@@ -7,6 +7,22 @@
   flex-direction: column;
 }
 
+.selectbox_options {
+  width: 100%;
+}
+
+.downward {
+  position: absolute;
+  top: 40px;
+  width: 100%;
+}
+.upward {
+  width: 100%;
+  position: absolute;
+  top: unset;
+  bottom: 40px;
+}
+
 .selectbox_button {
   display: flex;
   justify-content: space-between;

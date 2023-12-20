@@ -1,4 +1,4 @@
-import { Button, cleanClassName, useMountedEffect } from "@/index";
+import { Button, Dropdown, cleanClassName, useMountedEffect } from "@/index";
 import { MouseEventHandler, useState } from "react";
 import styles from "./index.module.scss";
 import { FontSizeType, FontWeightType } from "@/utils/constants";
@@ -14,7 +14,6 @@ export interface OptionsProps<OptionValue = ValidOptionValue> {
   onMouseDown?: MouseEventHandler<HTMLUListElement>;
   options: OptionType<OptionValue>[];
   handleClickOption: (value: OptionValue) => void;
-  upward?: boolean;
   fontSize?: FontSizeType;
   fontWeight?: FontWeightType;
   isOpen: boolean;
@@ -26,7 +25,6 @@ export const Options = <ValidOption extends ValidOptionValue>({
   onMouseDown = (e) => e.preventDefault(),
   options,
   handleClickOption,
-  upward = false,
   fontSize = "normal",
   fontWeight = 700,
 }: OptionsProps<ValidOption>) => {
@@ -44,13 +42,9 @@ export const Options = <ValidOption extends ValidOptionValue>({
 
   return (
     <>
-      {optionState !== "closed" && (
+      <Dropdown isOpen={isOpen} className={cleanClassName(className)}>
         <ul
-          className={cleanClassName(
-            `${className} ${upward && styles.upward} ${styles.options} ${
-              styles[optionState]
-            }`
-          )}
+          className={cleanClassName(`${styles.options} ${styles[optionState]}`)}
           onMouseDown={onMouseDown}
         >
           {options.map(({ name, value }, i) => (
@@ -71,7 +65,7 @@ export const Options = <ValidOption extends ValidOptionValue>({
             </li>
           ))}
         </ul>
-      )}
+      </Dropdown>
     </>
   );
 };

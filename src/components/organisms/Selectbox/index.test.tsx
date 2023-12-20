@@ -1,10 +1,10 @@
-import { Selectbox } from "@/components/molecules/Selectbox";
+import { Selectbox } from "@/components/organisms/Selectbox";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { expect, test, vi } from "vitest";
 
-const CLASSNAME_OPENING = "_opening_344714";
-const CLASSNAME_CLOSING = "_closing_344714";
+const CLASSNAME_OPENING = "_opening_732254";
+const CLASSNAME_CLOSING = "_closing_732254";
 
 test("처음에는 닫혀있다.", () => {
   render(

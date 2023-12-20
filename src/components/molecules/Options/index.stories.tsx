@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { Options } from "@/components/atoms/Options";
+import { Options } from "@/components/molecules/Options";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 
 const meta: Meta<typeof Options> = {
-  title: "atoms/Options",
+  title: "molecules/Options",
   component: Options,
   decorators: [(Story) => <Story />],
   tags: ["autodocs"],
