@@ -9,3 +9,4 @@ export * from "./Modal";
 export * from "./Table";
 export * from "./Input";
 export * from "./Options";
+export * from "./Checkbox";

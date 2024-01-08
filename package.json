@@ -18,7 +18,7 @@
   "author": "junyeol <ryu9663@naver.com>",
   "homepage": "https://junyeol-components.vercel.app/",
   "scripts": {
-    "dev": "storybook dev -p 6006",
+    "dev": "storybook dev -p 7007",
     "clean:build": "rm -rf dist",
     "build:lib": "tsc && vite build",
     "build:storybook": "storybook build -o dist && touch ./dist/.nojekyll",
