@@ -16,6 +16,7 @@ export interface ButtonProps extends HtmlButtonProps {
   onClick?: MouseEventHandler<HTMLButtonElement>;
   fontSize?: FontSizeType;
   fontWeight?: FontWeightType;
+  isLoading?: boolean;
 }
 
 export const Button = ({
@@ -25,21 +26,24 @@ export const Button = ({
   className,
   fontSize = "normal",
   fontWeight = 700,
+  isLoading = false,
   ...props
 }: ButtonProps) => {
   return (
     <>
       <button
+        disabled={isLoading}
         className={cleanClassName(
           `${styles["button"]}
         ${border || styles["button--no_border"]}  ${styles[`button--${size}`]} 
           ${styles[`font-size-${fontSize}`]}
           ${styles[`font-weight-${fontWeight}`]}
-          ${className}`
+          ${styles[isLoading ? "loading" : ""]}
+          ${className}`,
         )}
         {...props}
       >
-        {children}
+        {isLoading ? <div className={styles.loading_spinner} /> : children}
       </button>
     </>
   );
