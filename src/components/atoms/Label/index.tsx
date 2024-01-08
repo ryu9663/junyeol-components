@@ -1,5 +1,6 @@
 import { DetailedHTMLProps, LabelHTMLAttributes, memo } from "react";
 import styles from "./index.module.scss";
+import { cleanClassName } from "@/utils";
 
 export type HTMLLabelProps = DetailedHTMLProps<
   LabelHTMLAttributes<HTMLLabelElement>,
@@ -7,18 +8,29 @@ export type HTMLLabelProps = DetailedHTMLProps<
 >;
 export interface LabelProps extends HTMLLabelProps {
   isError?: boolean;
+  isDisabled?: boolean;
 }
 
 export const Label = memo(
-  ({ htmlFor, children, className, isError = false }: LabelProps) => {
+  ({
+    htmlFor,
+    children,
+    className,
+    isError = false,
+    isDisabled = false,
+  }: LabelProps) => {
     return (
       <label
         htmlFor={htmlFor}
-        className={`${className} ${styles.label} ${isError && styles.error}`}
+        className={cleanClassName(
+          `${styles.label}  ${isError && styles.error} ${
+            isDisabled && styles.disabled
+          } ${className}`,
+        )}
       >
         {children}
       </label>
     );
   },
-  (prev, next) => prev.isError === next.isError
+  (prev, next) => prev.isError === next.isError,
 );
