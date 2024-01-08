@@ -14,13 +14,6 @@ const meta = {
   tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
-    size: {
-      control: {
-        type: "string",
-        default: "normal",
-        description: "small, normal, large",
-      },
-    },
     color: {
       control: {
         type: "string",

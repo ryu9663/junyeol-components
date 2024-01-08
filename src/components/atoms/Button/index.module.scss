@@ -25,13 +25,35 @@
   &--small {
     font-size: $SMALL;
     padding: 10px 16px;
+    height: 35px;
+    width: 80px;
   }
   &--normal {
     font-size: $NORMAL;
     padding: 11px 20px;
+    min-height: 35px;
+    min-width: 110px;
   }
   &--large {
     font-size: $LARGE;
     padding: 12px 24px;
+    min-width: 200px;
+    min-height: 50px;
+  }
+
+  &.loading {
+    cursor: not-allowed;
+    background-color: $BLUISH-GRAY-50;
+    .loading_spinner {
+      width: 18px;
+      height: 18px;
+      border: 2px solid #fff;
+      border-bottom-color: $BLUISH-GRAY-300;
+      border-radius: 50%;
+      display: inline-block;
+      box-sizing: border-box;
+
+      @include spinner-rotation;
+    }
   }
 }
