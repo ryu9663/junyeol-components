@@ -2,20 +2,20 @@
 
 .modal {
   position: fixed;
-  left: 50%;
   top: 50%;
+  left: 50%;
+  width: fit-content;
+  padding: 10px;
+  background-color: white;
+  border: 1px $GRAY-500 solid;
+  border-radius: 10px;
   transform: translate(-50%, -50%);
   @include priority-focus-layer;
-  border-radius: 10px;
-  border: 1px $GRAY-500 solid;
-  padding: 10px;
-  width: fit-content;
-  background-color: white;
 
   &_header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     padding: 10px;
 
     &.smal {
@@ -34,7 +34,7 @@
       font-size: $LARGE2X;
     }
     &_btn {
-      padding: 0px;
+      padding: 0;
       box-shadow: none;
       &:hover {
         background-color: $BLUISH-GRAY-10;
@@ -46,8 +46,8 @@
   }
 
   &_body {
-    overflow: auto;
     padding: 10px;
+    overflow: auto;
     &.small {
       width: 300px;
       height: 100px;
@@ -67,10 +67,9 @@
 
   &_footer {
     display: flex;
-    justify-content: center;
-    align-items: center;
-
     gap: 30px;
+    align-items: center;
+    justify-content: center;
     padding: 10px;
     margin-top: 10px;
 

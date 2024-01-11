@@ -8,25 +8,26 @@
   width: fit-content;
   @include font-size;
   @include font-weight;
+
   font-size: $SMALL;
   font-weight: 400;
 }
 
 .dropdown_wrapper {
-  margin-top: 10px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px $BLUISH-GRAY-300, 0 4px 16px $BLUISH-GRAY-100;
-  padding: 10px 20px;
-  width: fit-content;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: fit-content;
   width: 100%;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px $BLUISH-GRAY-300, 0 4px 16px $BLUISH-GRAY-100;
 }
 .dropdown_close_btn {
+  align-self: flex-end;
   width: fit-content;
   height: fit-content;
   padding: 0;
   box-shadow: none;
-  align-self: flex-end;
 }

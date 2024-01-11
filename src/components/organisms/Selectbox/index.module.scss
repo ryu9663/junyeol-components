@@ -2,9 +2,9 @@
 
 .selectbox_wrapper {
   position: relative;
-  width: fit-content;
   display: flex;
   flex-direction: column;
+  width: fit-content;
 }
 
 .selectbox_options {
@@ -17,27 +17,29 @@
   width: 100%;
 }
 .upward {
-  width: 100%;
   position: absolute;
   top: unset;
   bottom: 40px;
+  width: 100%;
 }
 
 .selectbox_button {
   display: flex;
-  justify-content: space-between;
-  padding: 5px;
   align-items: center;
-  background-color: white;
+  justify-content: space-between;
+  height: 30px;
+  padding: 5px;
   color: $BLUISH-GRAY-800;
+  background-color: white;
+  border-radius: 5px;
   box-shadow: 0 4px 10px $BLUISH-GRAY-300, 0 4px 16px $BLUISH-GRAY-100;
 
   @include font-size;
   @include font-weight;
 
   &_name {
-    text-align: center;
     width: 100%;
+    text-align: center;
   }
   &.small {
     width: 150px;
@@ -51,8 +53,6 @@
     width: 300px;
     height: 40px;
   }
-  height: 30px;
-  border-radius: 5px;
   &:hover {
     background-color: $BLUISH-GRAY-10;
   }

@@ -1,24 +1,18 @@
 @use "src/styles/libs" as *;
 
 .sidebar {
-  width: 230px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 230px;
 
   a {
+    font-size: $LARGE;
+    font-weight: 600;
+    color: $BLACK;
     text-decoration: none;
-
     &:hover {
       text-decoration: underline;
     }
-  }
-}
-
-.link_to_posts {
-  a {
-    color: $BLACK;
-    font-weight: 600;
-    font-size: $LARGE;
   }
 }

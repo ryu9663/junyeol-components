@@ -2,8 +2,8 @@
 
 .table-cell-ellipsis {
   overflow: hidden;
-  white-space: nowrap;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .table-cell-hover {
@@ -14,14 +14,12 @@
   display: flex;
   gap: 10px;
   width: fit-content;
-  padding: 0px 7px;
+  padding: 0 7px;
+  padding: 10px;
+  white-space: pre;
+  background-color: $WHITE;
   border: 1px solid $BLUISH-GRAY-200;
   border-radius: 4px;
-  padding: 10px;
-  background-color: $WHITE;
-
-  white-space: pre;
-
   transition: background-color 0.3s, border 0.3s;
 
   @include fade-in(0.2s);

@@ -3,12 +3,12 @@
   min-height: 10px;
 }
 .dropdown {
-  margin: 10px 0;
   width: fit-content;
-  background-color: white;
+  margin: 10px 0;
   list-style: none;
-  box-shadow: 0 4px 10px $BLUISH-GRAY-300, 0 4px 16px $BLUISH-GRAY-100;
+  background-color: white;
   border-radius: 5px;
+  box-shadow: 0 4px 10px $BLUISH-GRAY-300, 0 4px 16px $BLUISH-GRAY-100;
 }
 
 .closing {

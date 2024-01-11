@@ -1,27 +1,26 @@
 @use "src/styles/libs" as *;
 
 .sub_category_wrapper {
-  border-left: 1px gray solid;
-  padding-left: 10px;
   position: relative;
+  padding-left: 10px;
+  border-left: 1px gray solid;
   li {
     margin-bottom: 10px;
+    list-style-type: none;
     a {
       color: #000;
-
       text-decoration: none;
       &:hover {
-        cursor: pointer;
         text-decoration: underline;
+        cursor: pointer;
       }
     }
-    list-style-type: none;
   }
 }
 
 .new {
-  color: red;
-  font-weight: bold;
-  font-size: $SMALL2X;
   margin-left: 5px;
+  font-size: $SMALL2X;
+  font-weight: bold;
+  color: red;
 }

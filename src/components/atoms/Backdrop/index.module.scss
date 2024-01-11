@@ -2,25 +2,24 @@
 
 .backdrop {
   position: fixed;
+  position: fixed;
+  top: 0;
   top: 0;
   left: 0;
+  left: 0;
   width: 100vw;
+  width: 100vw;
+  height: 100vh;
   height: 100vh;
 
   @include priority-background-layer;
   @include flex-column-centerize;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
 }
 
 @layer default {
   .backdrop {
     position: relative;
     display: inline-block;
-
     width: fit-content;
     height: fit-content;
   }
