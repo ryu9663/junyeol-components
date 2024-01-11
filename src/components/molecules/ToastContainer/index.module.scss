@@ -1,13 +1,10 @@
 @use "src/styles/libs" as *;
 .toast_wrapper {
   position: fixed;
-
   left: 50%;
-  transform: translateX(-50%);
-
-  width: fit-content;
-
   z-index: 9999;
+  width: fit-content;
+  transform: translateX(-50%);
 
   &.from-bottom {
     bottom: 20px;

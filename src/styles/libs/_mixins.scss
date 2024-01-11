@@ -73,29 +73,29 @@
 @mixin flex-row-centerize {
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 @mixin flex-column-centerize {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 @mixin one-line-ellipse {
   display: block;
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 @mixin multi-line-ellipse($line) {
-  overflow: hidden;
-  white-space: normal;
-  text-overflow: ellipsis;
   display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
   -webkit-line-clamp: $line;
   -webkit-box-orient: vertical;
 }

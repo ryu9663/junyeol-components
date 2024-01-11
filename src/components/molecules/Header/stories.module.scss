@@ -1,9 +1,9 @@
 @use "src/styles/libs" as *;
 .button {
-  box-shadow: none;
-  border: 1px $BLUISH-GRAY-50 solid;
-  font-weight: 400;
   font-size: $NORMAL;
+  font-weight: 400;
+  border: 1px $BLUISH-GRAY-50 solid;
+  box-shadow: none;
   &:hover {
     background-color: $BLUISH-GRAY-50;
   }

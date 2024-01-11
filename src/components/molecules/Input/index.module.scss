@@ -2,12 +2,12 @@
 
 .input {
   display: block;
-  border: 1px $BLUISH-GRAY-400 solid;
-  border-radius: 10px;
   width: 200px;
   height: 40px;
   padding: 10px;
   margin-bottom: 10px;
+  border: 1px $BLUISH-GRAY-400 solid;
+  border-radius: 10px;
 
   &::placeholder {
     color: $BLUISH-GRAY-400;

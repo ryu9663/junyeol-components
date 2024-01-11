@@ -2,9 +2,9 @@
 .category {
   &_name {
     a {
-      text-decoration: none;
       font-size: $MEDIUM;
       color: $BLACK;
+      text-decoration: none;
       &:hover {
         text-decoration: underline;
       }
