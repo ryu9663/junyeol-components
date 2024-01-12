@@ -1,4 +1,4 @@
-import { Button, Dropdown, cleanClassName } from "@/index";
+import { Button, ButtonSize, Dropdown, cleanClassName } from "@/index";
 import { PropsWithChildren, useState } from "react";
 import styles from "./index.module.scss";
 import { X } from "react-feather";
@@ -8,6 +8,7 @@ export interface DropdownTagProps extends PropsWithChildren {
   className?: string;
   fontSize?: FontSizeType;
   fontWeight?: FontWeightType;
+  size?: ButtonSize;
 }
 
 export type DropdownState = "closed" | "opened" | "opening" | "closing";
@@ -17,6 +18,7 @@ export const DropdownTag = ({
   className,
   fontSize = "normal",
   fontWeight = 700,
+  size = "normal",
 }: DropdownTagProps) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -24,7 +26,7 @@ export const DropdownTag = ({
       <Button
         fontSize={fontSize}
         fontWeight={fontWeight}
-        size="small"
+        size={size}
         className={`${styles.drodown_tag}  `}
         onClick={() => setIsOpen(!isOpen)}
       >
@@ -35,7 +37,7 @@ export const DropdownTag = ({
           <Dropdown
             isOpen={isOpen}
             className={cleanClassName(
-              `${styles.dropdown_wrapper} ${className}`
+              `${styles.dropdown_wrapper} ${className}`,
             )}
           >
             <Button
