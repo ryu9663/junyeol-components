@@ -1,5 +1,6 @@
 @use "src/styles/libs" as *;
 .button {
+  width: fit-content;
   font-size: $NORMAL;
   font-weight: 400;
   border: 1px $BLUISH-GRAY-50 solid;
