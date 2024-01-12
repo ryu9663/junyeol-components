@@ -1,8 +1,6 @@
 /* eslint-disable storybook/prefer-pascal-case */
 import type { Meta, StoryObj } from "@storybook/react";
 import { Dropdown } from ".";
-import { useState as createState } from "react";
-import { Button } from "@/index";
 
 const meta: Meta<typeof Dropdown> = {
   title: "atoms/Dropdown",
@@ -16,14 +14,12 @@ type Story = StoryObj<typeof Dropdown>;
 
 export const Default: Story = {
   render: () => {
-    const [isOpen, setIsOpen] = createState(false);
     return (
-      <>
-        <Button onClick={() => setIsOpen(!isOpen)}>Dropdown</Button>
-        <Dropdown isOpen={isOpen}>
-          <div style={{ width: "200px", height: "300px" }}>Dropdown</div>
-        </Dropdown>
-      </>
+      <Dropdown isOpen>
+        <div style={{ width: "200px", height: "300px", padding: "30px" }}>
+          children이 들어온다.
+        </div>
+      </Dropdown>
     );
   },
 };
