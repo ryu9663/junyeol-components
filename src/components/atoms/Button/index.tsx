@@ -30,21 +30,19 @@ export const Button = ({
   ...props
 }: ButtonProps) => {
   return (
-    <>
-      <button
-        disabled={isLoading}
-        className={cleanClassName(
-          `${styles["button"]}
+    <button
+      disabled={isLoading}
+      className={cleanClassName(
+        `${styles["button"]}
         ${border || styles["button--no_border"]}  ${styles[`button--${size}`]} 
           ${styles[`font-size-${fontSize}`]}
           ${styles[`font-weight-${fontWeight}`]}
           ${styles[isLoading ? "loading" : ""]}
           ${className}`,
-        )}
-        {...props}
-      >
-        {isLoading ? <div className={styles.loading_spinner} /> : children}
-      </button>
-    </>
+      )}
+      {...props}
+    >
+      {isLoading ? <div className={styles.loading_spinner} /> : children}
+    </button>
   );
 };
