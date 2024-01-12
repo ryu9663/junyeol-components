@@ -33,7 +33,9 @@ export const Default: Story = {
         ].map((button, i) => {
           return (
             <a key={i} href={button.link} target="_blank">
-              <Button className={styles.button}>{button.children}</Button>
+              <Button border={false} size="normal" className={styles.button}>
+                {button.children}
+              </Button>
             </a>
           );
         })}

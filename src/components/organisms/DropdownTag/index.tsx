@@ -44,6 +44,7 @@ export const DropdownTag = ({
               data-testid="dropdown-close-btn-testid"
               className={styles.dropdown_close_btn}
               onClick={() => setIsOpen(false)}
+              size="small"
             >
               <X width={15} height={15} />
             </Button>
