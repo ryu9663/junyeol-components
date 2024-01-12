@@ -1,5 +1,13 @@
 @use "src/styles/libs" as *;
 
+.link_to_posts {
+  & > a {
+    font-size: $LARGE;
+    font-weight: 600;
+    color: $BLACK;
+  }
+}
+
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -7,9 +15,6 @@
   width: 230px;
 
   a {
-    font-size: $LARGE;
-    font-weight: 600;
-    color: $BLACK;
     text-decoration: none;
     &:hover {
       text-decoration: underline;
