@@ -14,13 +14,14 @@ const meta = {
   tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
-    color: {
+    isLoading: {
       control: {
-        type: "string",
-        default: "primary",
-        description: "primary, secondary",
+        type: "boolean",
+        default: false,
+        description: "loading",
       },
     },
+
     children: {
       control: {
         type: "string",
@@ -65,5 +66,14 @@ export const Small: Story = {
     size: "small",
     border: true,
     children: "Button",
+  },
+};
+
+export const Loading: Story = {
+  args: {
+    size: "normal",
+    border: true,
+    children: "Button",
+    isLoading: true,
   },
 };
