@@ -4,6 +4,7 @@ import styles from "./index.module.scss";
 import { FontSizeType, FontWeightType } from "@/utils/constants";
 
 export type ValidOptionValue = string | number;
+
 export interface OptionType<OptionValue = ValidOptionValue> {
   name: string;
   value: OptionValue;
@@ -54,7 +55,7 @@ export const Options = <ValidOption extends ValidOptionValue>({
                 className={cleanClassName(
                   `${styles.options_list} ${styles[`font-size-${fontSize}`]} ${
                     styles[`font-weight-${fontWeight}`]
-                  }`
+                  }`,
                 )}
                 onClick={() => {
                   handleClickOption(value as ValidOption);

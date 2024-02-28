@@ -25,6 +25,9 @@ export interface LabelOptionType {
   className?: string;
 }
 
+/*** validation : validation={(value) =>
+            String(value).length > 5 ? "5글자 이하로 입력해주세요" : ""
+          } */
 export interface InputProps extends HTMLInputProps {
   type: InputType;
   validation?: (value: HTMLInputProps["value"]) => string;
@@ -82,5 +85,5 @@ export const Input = forwardRef(
         }
       </div>
     );
-  }
+  },
 );
