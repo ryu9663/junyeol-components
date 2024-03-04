@@ -1,29 +1,17 @@
 @use "src/styles/libs" as *;
-
-.selectbox_wrapper {
+.searchbox_wrapper {
   position: relative;
   display: flex;
   flex-direction: column;
   width: fit-content;
 }
 
-.selectbox_options {
+.searchbox_options {
+  position: absolute;
   width: 100%;
 }
 
-.downward {
-  position: absolute;
-  top: 40px;
-  width: 100%;
-}
-.upward {
-  position: absolute;
-  top: unset;
-  bottom: 40px;
-  width: 100%;
-}
-
-.selectbox_button {
+.searchbox_input {
   display: flex;
   align-items: center;
   justify-content: space-between;

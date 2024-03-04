@@ -78,11 +78,11 @@ export const Input = forwardRef(
           }}
           type={type}
         />
-        {
+        {validationMessage && (
           <span className={styles["validation-error"]}>
             {validationMessage}
           </span>
-        }
+        )}
       </div>
     );
   },

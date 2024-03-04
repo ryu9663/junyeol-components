@@ -17,7 +17,6 @@ export interface SearchboxProps<_ValidOptionValue = ValidOptionValue>
     Pick<OptionsProps, "fontSize" | "fontWeight"> {
   placeholder?: string;
   options: OptionType<_ValidOptionValue>[];
-  size?: SearchboxSizeType;
   upward?: boolean;
   onClickOption?: OptionsProps<_ValidOptionValue>["handleClickOption"];
   className?: string;
@@ -36,7 +35,7 @@ export const Searchbox = <_ValidOption extends ValidOptionValue>({
   const [isOpen, setIsOpen] = useState(false);
   const [filteredOptions, setFilteredOptions] = useState<
     OptionType<_ValidOption>[] | []
-  >([]);
+  >(options);
 
   const handleInputChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     const _value = e.target.value;
@@ -48,20 +47,29 @@ export const Searchbox = <_ValidOption extends ValidOptionValue>({
   };
 
   return (
-    <div>
+    <div className={styles.searchbox_wrapper}>
       <Input
+        className={cleanClassName(
+          ` ${styles.selectbox_input} ${styles[`font-size-${fontSize}`]} ${
+            styles[`font-weight-${fontWeight}`]
+          }`,
+        )}
         type="search"
         value={value}
         onChange={(e) => {
           !isOpen && setIsOpen(true);
           handleInputChange(e);
         }}
+        onFocus={() => {
+          !isOpen && setIsOpen(true);
+        }}
         onBlur={() => setIsOpen(false)}
         placeholder={placeholder}
       />
+
       <Options
         isOpen={isOpen}
-        className={cleanClassName(`${className} ${styles.selectbox_options}`)}
+        className={cleanClassName(`${className} ${styles.searchbox_options}`)}
         fontSize={fontSize}
         fontWeight={fontWeight}
         onMouseDown={(e) => e.preventDefault()}

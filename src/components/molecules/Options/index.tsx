@@ -42,31 +42,29 @@ export const Options = <ValidOption extends ValidOptionValue>({
   }, [isOpen]);
 
   return (
-    <>
-      <Dropdown isOpen={isOpen} className={cleanClassName(className)}>
-        <ul
-          className={cleanClassName(`${styles.options} ${styles[optionState]}`)}
-          onMouseDown={onMouseDown}
-        >
-          {options.map(({ name, value }, i) => (
-            <li key={i}>
-              <Button
-                value={value}
-                className={cleanClassName(
-                  `${styles.options_list} ${styles[`font-size-${fontSize}`]} ${
-                    styles[`font-weight-${fontWeight}`]
-                  }`,
-                )}
-                onClick={() => {
-                  handleClickOption(value as ValidOption);
-                }}
-              >
-                {name}
-              </Button>
-            </li>
-          ))}
-        </ul>
-      </Dropdown>
-    </>
+    <Dropdown isOpen={isOpen} className={cleanClassName(className)}>
+      <ul
+        className={cleanClassName(`${styles.options} ${styles[optionState]}`)}
+        onMouseDown={onMouseDown}
+      >
+        {options.map(({ name, value }, i) => (
+          <li key={i}>
+            <Button
+              value={value}
+              className={cleanClassName(
+                `${styles.options_list} ${styles[`font-size-${fontSize}`]} ${
+                  styles[`font-weight-${fontWeight}`]
+                }`,
+              )}
+              onClick={() => {
+                handleClickOption(value as ValidOption);
+              }}
+            >
+              {name}
+            </Button>
+          </li>
+        ))}
+      </ul>
+    </Dropdown>
   );
 };

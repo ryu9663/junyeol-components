@@ -31,7 +31,6 @@ export const Default: Story = {
       <>
         <Searchbox
           placeholder={args.placeholder || "관광지 검색 수"}
-          size={args.size || "normal"}
           onChange={handleSearch}
           onClickOption={handleClickOption}
           value={value}
