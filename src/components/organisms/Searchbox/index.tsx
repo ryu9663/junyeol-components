@@ -45,7 +45,7 @@ export const Searchbox = <_ValidOption extends ValidOptionValue>({
     setFilteredOptions(_filteredOptions);
     onChange?.(e);
   };
-
+  console.log("Searchbox");
   return (
     <div className={styles.searchbox_wrapper}>
       <Input
