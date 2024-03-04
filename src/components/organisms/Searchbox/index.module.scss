@@ -1,0 +1,51 @@
+@use "src/styles/libs" as *;
+.searchbox_wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
+.searchbox_options {
+  position: absolute;
+  width: 100%;
+}
+
+.searchbox_input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 30px;
+  padding: 5px;
+  color: $BLUISH-GRAY-800;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px $BLUISH-GRAY-300, 0 4px 16px $BLUISH-GRAY-100;
+
+  @include font-size;
+  @include font-weight;
+
+  &_name {
+    width: 100%;
+    text-align: center;
+  }
+  &.small {
+    width: 150px;
+    height: 40px;
+  }
+  &.normal {
+    width: 200px;
+    height: 40px;
+  }
+  &.large {
+    width: 300px;
+    height: 40px;
+  }
+  &:hover {
+    background-color: $BLUISH-GRAY-10;
+  }
+  &:focus {
+    background-color: $BLUISH-GRAY-100;
+    outline: none;
+  }
+}

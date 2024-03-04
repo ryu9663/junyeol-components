@@ -10,6 +10,7 @@ import {
 } from "@/components/molecules/Options";
 
 export type SelectboxSizeType = "small" | "normal" | "large";
+
 export interface SelectboxProps<_ValidOptionValue = ValidOptionValue>
   extends Pick<OptionsProps, "fontSize" | "fontWeight"> {
   name: string;
@@ -19,6 +20,7 @@ export interface SelectboxProps<_ValidOptionValue = ValidOptionValue>
   upward?: boolean;
   className?: string;
 }
+
 export const Selectbox = <_ValidOption extends ValidOptionValue>({
   name,
   options,
@@ -41,7 +43,7 @@ export const Selectbox = <_ValidOption extends ValidOptionValue>({
     const _selectedOption = options.find((option) => option.value === _value);
     if (!_selectedOption) {
       throw Error(
-        "컴포넌트 에러입니다. _selectedOption이 falsy 일 수 없습니다."
+        "컴포넌트 에러입니다. _selectedOption이 falsy 일 수 없습니다.",
       );
     }
     setSelectedOption(_selectedOption);
@@ -53,7 +55,7 @@ export const Selectbox = <_ValidOption extends ValidOptionValue>({
         className={cleanClassName(
           ` ${styles.selectbox_button} ${styles[size]} ${
             styles[`font-size-${fontSize}`]
-          } ${styles[`font-weight-${fontWeight}`]}`
+          } ${styles[`font-weight-${fontWeight}`]}`,
         )}
         onClick={() => setIsOpen(!isOpen)}
         onBlur={() => setIsOpen(false)}
