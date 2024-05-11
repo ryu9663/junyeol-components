@@ -73,7 +73,7 @@ export const Default: Story = {
               ),
               title: "바바바",
               description: "하이하이",
-              onClick: () => console.log("hi"),
+              onClick: () => console.log("hi2"),
             },
             {
               Thumbnail: (
