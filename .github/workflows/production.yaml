@@ -38,15 +38,15 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 18
-      # Install pnpm globally
-      - name: Install PNPM
-        run: npm install -g pnpm
-      # Install pnpm
-      - name: Install Dependencies
-        run: pnpm install
-      # Run build:lib
-      - name: Build Library
-        run: pnpm run build:lib
+      # # Install pnpm globally
+      # - name: Install PNPM
+      #   run: npm install -g pnpm
+      # # Install pnpm
+      # - name: Install Dependencies
+      #   run: pnpm install
+      # # Run build:lib
+      # - name: Build Library
+      #   run: pnpm run build:lib
 
       - name: Set new patch version
         if: "!contains(github.event.head_commit.message, '+m')"
