@@ -48,9 +48,6 @@ jobs:
       - name: Build Library
         run: pnpm run build:lib
 
-      - name: Stash changes
-        run: git stash push -m "Temporarily stash changes for version bump"
-
       - name: Set new patch version
         if: "!contains(github.event.head_commit.message, '+m')"
         run: "npm version patch -m 'ver: %s'"
@@ -62,9 +59,6 @@ jobs:
       - name: Set new major version
         if: "contains(github.event.head_commit.message, '+major')"
         run: "npm version major -m 'ver: %s'"
-
-      - name: Unstash changes
-        run: git stash pop
 
       - name: push branch
         run: git push
