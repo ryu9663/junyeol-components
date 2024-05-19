@@ -83,15 +83,15 @@ jobs:
         with:
           node-version: "18.x"
           registry-url: "https://npm.pkg.github.com"
-      # # Install pnpm globally
-      # - name: Install PNPM
-      #   run: npm install -g pnpm
-      # # Install Dependencies
-      # - name: Install Dependencies
-      #   run: pnpm install
-      # # Run build:lib
-      # - name: Build Library
-      #   run: pnpm run build:lib
+      # Install pnpm globally
+      - name: Install PNPM
+        run: npm install -g pnpm
+      # Install Dependencies
+      - name: Install Dependencies
+        run: pnpm install
+      # Run build:lib
+      - name: Build Library
+        run: pnpm run build:lib
       - name: Pull branch
         run: git pull
       # Then, Publish to NPM
@@ -122,7 +122,7 @@ jobs:
                 "fields": [
                     {
                         "title": "NPM publish ${{ steps.junyeol-components.outcome }}",
-                        "value": "preview url: https://www.npmjs.com/package/junyeol-components",
+                        "value": "npm url: https://www.npmjs.com/package/junyeol-components",
                         "short": true
                         }
                     ]
