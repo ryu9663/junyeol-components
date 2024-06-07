@@ -12,7 +12,7 @@ export const TableTitle = ({ children, maxWidth }: TableTitleProps) => {
       onMouseEnter={(e) => setHoveredColumn(e.currentTarget.cellIndex)}
       onMouseLeave={() => setHoveredColumn(undefined)}
     >
-      <div style={{ width: maxWidth }} className={styles["table-title"]}>
+      <div style={{ maxWidth }} className={styles["table-title"]}>
         {children}
       </div>
     </th>

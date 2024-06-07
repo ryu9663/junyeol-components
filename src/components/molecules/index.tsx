@@ -7,6 +7,6 @@ export * from "./Footer";
 export * from "./Category";
 export * from "./Modal";
 export * from "./Table";
-export * from "./Input";
+export * from "../atoms/Input";
 export * from "./Options";
 export * from "./Checkbox";
