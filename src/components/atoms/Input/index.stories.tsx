@@ -50,7 +50,6 @@ export const Default: Story = {
 
 export const WithLabel: Story = {
   render: (args) => {
-    console.log(args);
     const [text, setText] = createState("");
     return (
       <div style={{ display: "flex", gap: "100px" }}>
