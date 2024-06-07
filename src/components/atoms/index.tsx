@@ -6,3 +6,4 @@ export * from "./SubCategoryList";
 export * from "./Label";
 export * from "./Backdrop";
 export * from "./Dropdown";
+export * from "./Input";

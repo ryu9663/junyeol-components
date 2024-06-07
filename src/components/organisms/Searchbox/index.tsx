@@ -1,6 +1,4 @@
 import {
-  Input,
-  InputProps,
   OptionType,
   Options,
   OptionsProps,
@@ -9,6 +7,7 @@ import {
 import { ChangeEventHandler, useState } from "react";
 import styles from "./index.module.scss";
 import { cleanClassName } from "@/utils";
+import { Input, InputProps } from "@/components/atoms";
 
 export type SearchboxSizeType = "small" | "normal" | "large";
 

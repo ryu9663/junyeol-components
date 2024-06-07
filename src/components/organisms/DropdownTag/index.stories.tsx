@@ -28,7 +28,7 @@ export const Example: Story = {
         name="관광지 검색 옵션 변경"
         fontSize="small"
         fontWeight={400}
-        size="normal"
+        size="large"
       >
         <Selectbox
           fontSize="normal"

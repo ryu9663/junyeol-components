@@ -2,7 +2,7 @@ import { Input, InputProps } from "@/index";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { useState } from "react";
 
-const CLASSNAME_VALIDATION_ERROR = "_validation-error_bae745";
+const CLASSNAME_VALIDATION_ERROR = "_validation-error_633424";
 const CLASSNAME_LABEL_ERROR = "_error_b65e0d";
 
 const TestComponent = ({
@@ -32,7 +32,7 @@ test("input에 validation을 만족하지 못하면 타이핑이 되지 않는�
       validation={(value) =>
         String(value).length > 5 ? "5글자 이하로 입력해주세요" : ""
       }
-    />
+    />,
   );
   const input = screen.getByRole("textbox");
   fireEvent.change(input, { target: { value: "hello" } });
@@ -48,7 +48,7 @@ test("input wrap에 validation을 props로 할당했을때, input의 입력값�
       validation={(value) =>
         String(value).length > 5 ? "5글자 이하로 입력해주세요" : ""
       }
-    />
+    />,
   );
   // input tag에 'hello~ 입력하면, validation을 만족하지 못하면서 hello까지만 타이핑된다.
   const input = screen.getByRole("textbox");
@@ -73,7 +73,7 @@ test("아무것도 입력하지 않았을때는 validation-error text가 나타�
       validation={(value) =>
         String(value).length > 5 ? "5글자 이하로 입력해주세요" : ""
       }
-    />
+    />,
   );
   const span = screen.queryByText("5글자 이하로 입력해주세요");
   expect(span).not.toBeInTheDocument();
@@ -86,7 +86,7 @@ test("validation을 만족하면 validation-error text가 나타나지 않는다
       validation={(value) =>
         String(value).length > 5 ? "5글자 이하로 입력해주세요" : ""
       }
-    />
+    />,
   );
   const input = screen.getByRole("textbox");
   fireEvent.change(input, { target: { value: "hello" } });
@@ -101,7 +101,7 @@ test("type이 tel에서도 validation이 작동한다.", () => {
       validation={(value) =>
         String(value).length > 5 ? "5글자 이하로 입력해주세요" : ""
       }
-    />
+    />,
   );
   const input = screen.getByRole("textbox");
   fireEvent.change(input, { target: { value: "hello~" } });
@@ -116,7 +116,7 @@ test("type이 search에서도 validation이 작동한다.", () => {
       validation={(value) =>
         String(value).length > 5 ? "5글자 이하로 입력해주세요" : ""
       }
-    />
+    />,
   );
   const input = screen.getByRole("searchbox");
   fireEvent.change(input, { target: { value: "hello~" } });
@@ -134,7 +134,7 @@ test("type이 password일때 validation이 작동한다.", () => {
         }
         placeholder="password"
       />
-    </>
+    </>,
   );
   const input = screen.getByPlaceholderText("password");
   fireEvent.change(input, { target: { value: "hello~" } });
@@ -149,7 +149,7 @@ test("type이 email 일때도 validation이 작동한다.", () => {
       validation={(value) =>
         String(value).length > 5 ? "5글자 이하로 입력해주세요" : ""
       }
-    />
+    />,
   );
 
   const input = screen.getByRole("textbox");
@@ -166,7 +166,7 @@ test("label 유무 test", () => {
         String(value).length > 5 ? "5글자 이하로 입력해주세요" : ""
       }
       label={{ htmlFor: "test", name: "test" }}
-    />
+    />,
   );
   const label = screen.getByText("test");
   expect(label).toBeInTheDocument();
@@ -180,7 +180,7 @@ test("input이 validation을 만족하지 못하면 label의 text에 error class
         String(value).length > 5 ? "5글자 이하로 입력해주세요" : ""
       }
       label={{ htmlFor: "test", name: "test" }}
-    />
+    />,
   );
   const input = screen.getByRole("textbox");
   fireEvent.change(input, { target: { value: "hello~" } });
