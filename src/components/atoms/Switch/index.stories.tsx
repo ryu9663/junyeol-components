@@ -23,14 +23,11 @@ export const Default: Story = {
   render: (args) => {
     const [isChecked, setIsChecked] = useState(false);
     return (
-      <>
-        checked: {isChecked.toString()}
-        <Switch
-          {...args}
-          value={isChecked}
-          onChange={() => setIsChecked(!isChecked)}
-        />
-      </>
+      <Switch
+        {...args}
+        value={isChecked}
+        onChange={() => setIsChecked(!isChecked)}
+      />
     );
   },
 };
