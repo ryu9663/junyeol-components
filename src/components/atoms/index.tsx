@@ -8,3 +8,4 @@ export * from "./Backdrop";
 export * from "./Dropdown";
 export * from "./Input";
 export * from "./Switch";
+export * from "./Calendar";
