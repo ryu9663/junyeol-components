@@ -29,7 +29,7 @@ export interface LabelOptionType {
             String(value).length > 5 ? "5글자 이하로 입력해주세요" : ""
           } */
 export interface InputProps extends HTMLInputProps {
-  type: InputType;
+  type?: InputType;
   validation?: (value: HTMLInputProps["value"]) => string;
   label?: LabelOptionType;
 }
