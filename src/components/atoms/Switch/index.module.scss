@@ -7,9 +7,9 @@
   width: 32px;
   height: 20px;
   background-color: $BLUISH-GRAY-300;
+  border: none;
   border-radius: 100px;
   transition: background-color 0.3s ease-in-out;
-
   &.off {
     background-color: $BLUISH-GRAY-300;
     border: 1px solid $BLUISH-GRAY-300;
@@ -22,18 +22,18 @@
 
 .circle {
   position: absolute;
+  left: 0;
   width: 16px;
   height: 16px;
   background-color: white;
   border-radius: 50%;
   transition: transform 0.3s ease-in-out;
-  transform: translate(-50%, -50%);
   &.on {
-    transform: translateX(13px);
+    transform: translateX(15px);
   }
 
   &.off {
-    transform: translateX(1px);
+    transform: translateX(0);
   }
 }
 

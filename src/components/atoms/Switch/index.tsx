@@ -14,6 +14,7 @@ export const Switch = ({ id, value, onChange }: SwitchProps) => {
   const [isChecked, setIsChecked] = useState(value);
 
   const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+    console.log("ㅗㅑㄷ");
     setIsChecked(e.target.checked);
     onChange?.(e);
   };
