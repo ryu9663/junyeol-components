@@ -1,4 +1,10 @@
-import { Calendar, DateValue, Dropdown, Input } from "@/components/atoms";
+import {
+  Calendar,
+  DateValue,
+  Dropdown,
+  Input,
+  InputProps,
+} from "@/components/atoms";
 import React, {
   ChangeEventHandler,
   KeyboardEventHandler,
@@ -12,20 +18,32 @@ import { PickerFooter } from "@/components/molecules/PickerFooter";
 import { usePrevious } from "@/utils/hooks/usePrevious";
 
 export interface DatePickerProps extends CalendarProps {
-  value?: DateValue;
-  onChange?: React.Dispatch<React.SetStateAction<DateValue>>;
+  value?: DateValue | null;
+  onChange?: React.Dispatch<React.SetStateAction<DateValue | null>>;
+  inputProps?: React.ForwardRefExoticComponent<
+    Omit<InputProps, "ref"> & React.RefAttributes<unknown>
+  >;
+  placeholder?: InputProps["placeholder"];
 }
 
-export const DatePicker = ({ value, onChange, ...props }: DatePickerProps) => {
+export const DatePicker = ({
+  value,
+  placeholder,
+  onChange,
+  inputProps,
+  ...props
+}: DatePickerProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [localValue, setLocalValue] = useState<DateValue>(new Date());
-  const [date, setDate] = useState("");
+  const [localValue, setLocalValue] = useState<DateValue | null>(value || null);
+  const [inputValue, setInputValue] = useState(
+    localValue ? convertDateToString(localValue) : "",
+  );
 
   const handleChangeInput: ChangeEventHandler<HTMLInputElement> = (e) => {
     // 한글 입력불가, 숫자를 입력하면 자동으로 Calendar값에 맞게 설정
     const { value } = e.target;
     const onlyNumbers = value.replace(/[^\d]/g, "");
-    setDate(onlyNumbers);
+    setInputValue(onlyNumbers);
 
     if (onlyNumbers.length === 8) {
       const year = parseInt(onlyNumbers.substring(0, 4), 10);
@@ -35,7 +53,7 @@ export const DatePicker = ({ value, onChange, ...props }: DatePickerProps) => {
       const dateObj = new Date(year, month, day);
       if (!isNaN(dateObj.getTime())) {
         setLocalValue(dateObj);
-        onChange?.(dateObj);
+        setInputValue(convertDateToString(dateObj));
       }
     }
   };
@@ -45,6 +63,7 @@ export const DatePicker = ({ value, onChange, ...props }: DatePickerProps) => {
   const handleKeyDown: KeyboardEventHandler<HTMLInputElement> = (e) => {
     if (!isOpen) setIsOpen(true);
     if (e.key === "Enter") {
+      handleOk();
       setIsOpen(false);
     }
   };
@@ -55,18 +74,24 @@ export const DatePicker = ({ value, onChange, ...props }: DatePickerProps) => {
   };
 
   const handleCancel = () => {
+    const _previousLocalValue = previousLocalValue || null;
     new Promise(() => {
       setTimeout(() => {
-        previousLocalValue && setLocalValue(previousLocalValue);
+        setLocalValue(_previousLocalValue);
       }, 500);
     });
+    setInputValue(convertDateToString(_previousLocalValue));
 
     setIsOpen(false);
   };
 
   useEffect(() => {
     if (value) {
-      setDate(convertDateToString(value));
+      setLocalValue(value);
+      setInputValue(convertDateToString(value));
+    } else {
+      setLocalValue(null);
+      setInputValue("");
     }
   }, [value]);
 
@@ -75,9 +100,11 @@ export const DatePicker = ({ value, onChange, ...props }: DatePickerProps) => {
       <Input
         onClick={() => setIsOpen(true)}
         onBlur={() => setIsOpen(false)}
-        value={date}
+        value={inputValue}
         onChange={handleChangeInput}
         onKeyDown={handleKeyDown}
+        placeholder={placeholder}
+        {...inputProps}
       />
 
       <Dropdown
