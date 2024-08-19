@@ -12,8 +12,9 @@
 
   @include font-size;
   @include font-weight;
+
   &:hover {
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: $BLUISH-GRAY-50;
   }
 
   &--no_border {
