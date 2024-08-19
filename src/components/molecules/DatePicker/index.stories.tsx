@@ -35,6 +35,11 @@ export const Default: Story = {
         <br />
         <br />
         <br />
+        <br />
+        <br />
+        <br />
+
+        <br />
         {value?.toLocaleString()}
       </div>
     );

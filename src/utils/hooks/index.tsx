@@ -2,3 +2,4 @@
 
 export * from "./useToast";
 export * from "./useMountedEffect";
+export * from "./usePrevious";

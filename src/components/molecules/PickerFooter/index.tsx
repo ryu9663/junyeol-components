@@ -7,11 +7,11 @@ interface PickerFooterProps {
 export const PickerFooter = ({ onOk, onCancel }: PickerFooterProps) => {
   return (
     <div className={styles.picker_footer_wrapper}>
-      <Button size="small" onClick={onCancel}>
-        취소
-      </Button>
       <Button size="small" onClick={onOk}>
         확인
+      </Button>
+      <Button size="small" onClick={onCancel}>
+        취소
       </Button>
     </div>
   );
