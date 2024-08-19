@@ -70,6 +70,8 @@ export const DatePicker = ({
 
   const handleOk = () => {
     onChange?.(localValue);
+    setLocalValue(localValue);
+    setInputValue(convertDateToString(localValue));
     setIsOpen(false);
   };
 
