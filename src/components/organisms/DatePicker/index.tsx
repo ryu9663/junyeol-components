@@ -13,16 +13,14 @@ import React, {
 } from "react";
 import { CalendarProps } from "react-calendar";
 import styles from "./index.module.scss";
-import { convertDateToString } from "@/components/molecules/DatePicker/convert";
 import { PickerFooter } from "@/components/molecules/PickerFooter";
 import { usePrevious } from "@/utils/hooks/usePrevious";
+import { convertDateToString } from "@/components/organisms/DatePicker/convert";
 
 export interface DatePickerProps extends CalendarProps {
   value?: DateValue | null;
   onChange?: React.Dispatch<React.SetStateAction<DateValue | null>>;
-  inputProps?: React.ForwardRefExoticComponent<
-    Omit<InputProps, "ref"> & React.RefAttributes<unknown>
-  >;
+  inputProps?: InputProps;
   placeholder?: InputProps["placeholder"];
 }
 

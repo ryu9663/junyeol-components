@@ -1,0 +1,13 @@
+.range_date_picker_wrapper {
+  width: fit-content;
+  position: relative;
+}
+
+.input_wrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.range_date_picker_dropdown {
+  position: absolute;
+}
