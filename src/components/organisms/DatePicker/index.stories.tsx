@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable storybook/prefer-pascal-case */
 import { Button, DateValue } from "@/components/atoms";
-import { DatePicker } from "@/components/molecules/DatePicker";
+import { DatePicker } from "@/components/organisms/DatePicker";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 

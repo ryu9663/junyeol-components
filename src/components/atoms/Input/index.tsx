@@ -28,23 +28,28 @@ export interface LabelOptionType {
 /*** validation : validation={(value) =>
             String(value).length > 5 ? "5글자 이하로 입력해주세요" : ""
           } */
-export interface InputProps extends HTMLInputProps {
+export interface InputPropsWithoutRef extends HTMLInputProps {
   type?: InputType;
   validation?: (value: HTMLInputProps["value"]) => string;
   label?: LabelOptionType;
 }
 
-export const Input = forwardRef(
-  ({
-    type,
-    validation,
-    value,
-    onChange,
-    className,
-    label,
+export type InputProps = Omit<InputPropsWithoutRef, "ref"> &
+  React.RefAttributes<HTMLInputElement>;
+
+export const Input = forwardRef<HTMLInputElement, InputPropsWithoutRef>(
+  (
+    {
+      type,
+      validation,
+      value,
+      onChange,
+      className,
+      label,
+      ...args
+    }: InputPropsWithoutRef,
     ref,
-    ...args
-  }: InputProps) => {
+  ) => {
     const [validationMessage, setValidationMessage] = useState("");
 
     return (

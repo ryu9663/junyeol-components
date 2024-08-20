@@ -10,8 +10,8 @@ export type DateValuePiece = Date | null;
 export type DateValue = DateValuePiece | [DateValuePiece, DateValuePiece];
 
 export interface CalendarProps extends ReactCalendarProps {
-  value?: DateValue;
-  onChange?: React.Dispatch<React.SetStateAction<DateValue>>;
+  value?: ReactCalendarProps["value"];
+  onChange?: ReactCalendarProps["onChange"];
 }
 
 export const Calendar = ({ value, onChange, ...props }: CalendarProps) => {
