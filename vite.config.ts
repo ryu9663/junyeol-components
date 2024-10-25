@@ -1,6 +1,6 @@
 import { defineConfig } from "vitest/config";
 
-import dts from "vite-plugin-dts";
+import dts from "vite-plugin-dts"; // dts 파일 생성
 import * as path from "path";
 import tsconfigPaths from "vite-tsconfig-paths";
 
@@ -13,7 +13,7 @@ export default defineConfig({
       fileName: "index",
     },
     rollupOptions: {
-      external: ["react"],
+      external: ["react"], // react까지 번들링하진 않겠다. 외부에서 사용하는 react를 사용하겠다. -> peerDependencies에 정의해줘야함.
       output: {
         globals: {
           react: "React",
@@ -29,7 +29,7 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  plugins: [dts(), tsconfigPaths()],
+  plugins: [dts({ insertTypesEntry: true }), tsconfigPaths()],
   test: {
     globals: true,
     environment: "jsdom",

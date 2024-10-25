@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { Button } from "@/components/atoms";
 import {
   RangeDatePicker,
   RangeDatePickerValueType,
@@ -40,10 +39,19 @@ export const Default: Story = {
             종료일: {value[1]?.toLocaleString() || "선택된 날짜가 없습니다."}
           </div>
           <br />
-          <Button onClick={() => setValue([new Date(), new Date()])}>
+          <button
+            style={{ border: "1px gray solid", padding: "3px" }}
+            onClick={() => setValue([new Date(), new Date()])}
+          >
             오늘로 변경
-          </Button>
-          <Button onClick={() => setValue([null, null])}>초기화</Button>
+          </button>
+          &nbsp; &nbsp;
+          <button
+            style={{ border: "1px gray solid", padding: "3px" }}
+            onClick={() => setValue([null, null])}
+          >
+            초기화
+          </button>
         </div>
       </>
     );
