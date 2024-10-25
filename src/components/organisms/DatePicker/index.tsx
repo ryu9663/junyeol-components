@@ -116,7 +116,7 @@ export const DatePicker = ({
           onKeyDown={handleKeyDown}
           placeholder={placeholder}
           {...inputProps}
-        />{" "}
+        />
         <img
           src={hasValue ? CalendarActiveIcon : CalendarIcon}
           alt="calendar icon"
@@ -125,7 +125,7 @@ export const DatePicker = ({
       </div>
 
       <Dropdown
-        isOpen={true}
+        isOpen={isOpen}
         onMouseDown={(e) => e.preventDefault()}
         className={styles.datepicker_dropdown}
       >
