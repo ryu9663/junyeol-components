@@ -1,6 +1,52 @@
+@use "src/styles/libs" as *;
+
 .datepicker_wrapper {
   position: relative;
   width: fit-content;
+  height: fit-content;
+
+  .input_wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px $BLUISH-GRAY-200 solid;
+    border-radius: 3px;
+    position: relative;
+    &.has-value {
+      border-color: $BLUISH-GRAY-300;
+    }
+
+    .calendar_icon {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+    }
+  }
+  .input {
+    @include font-size;
+    @include font-weight;
+
+    padding: 5px 10px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: none;
+    color: $BLUISH-GRAY-600;
+
+    &.open {
+      color: $BLUISH-GRAY-700;
+      background-color: $BLUISH-GRAY-10;
+    }
+
+    &::placeholder {
+      color: $BLUISH-GRAY-400;
+    }
+    &:focus {
+      outline: none;
+      &::placeholder {
+        color: $BLUISH-GRAY-600;
+      }
+    }
+  }
 }
 
 .datepicker_dropdown {

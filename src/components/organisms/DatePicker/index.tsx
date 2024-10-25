@@ -1,10 +1,4 @@
-import {
-  Calendar,
-  DateValue,
-  Dropdown,
-  Input,
-  InputProps,
-} from "@/components/atoms";
+import { Calendar, DateValue, Dropdown, InputProps } from "@/components/atoms";
 import React, {
   ChangeEventHandler,
   KeyboardEventHandler,
@@ -16,6 +10,9 @@ import styles from "./index.module.scss";
 import { PickerFooter } from "@/components/molecules/PickerFooter";
 import { usePrevious } from "@/utils/hooks/usePrevious";
 import { convertDateToString } from "@/components/organisms/DatePicker/convert";
+import { cleanClassName } from "@/utils";
+import CalendarIcon from "@/assets/calendar.svg";
+import CalendarActiveIcon from "@/assets/calendar_active.svg";
 
 export interface DatePickerProps extends CalendarProps {
   value?: DateValue | null;
@@ -95,17 +92,37 @@ export const DatePicker = ({
     }
   }, [value]);
 
+  const hasValue = inputValue !== "";
+
   return (
     <div className={styles.datepicker_wrapper}>
-      <Input
-        onClick={() => setIsOpen(true)}
-        onBlur={() => setIsOpen(false)}
-        value={inputValue}
-        onChange={handleChangeInput}
-        onKeyDown={handleKeyDown}
-        placeholder={placeholder}
-        {...inputProps}
-      />
+      <div
+        className={cleanClassName(
+          `${styles.input_wrapper} ${isOpen && styles.open}
+           ${hasValue && styles["has-value"]}`,
+        )}
+      >
+        <input
+          className={cleanClassName(
+            `${styles.input} ${styles["font-size-small"]} ${
+              styles["font-weight-400"]
+            } ${isOpen && styles.open}
+        `,
+          )}
+          onClick={() => setIsOpen(true)}
+          onBlur={() => setIsOpen(false)}
+          value={inputValue}
+          onChange={handleChangeInput}
+          onKeyDown={handleKeyDown}
+          placeholder={placeholder}
+          {...inputProps}
+        />{" "}
+        <img
+          src={hasValue ? CalendarActiveIcon : CalendarIcon}
+          alt="calendar icon"
+          className={styles.calendar_icon}
+        />
+      </div>
 
       <Dropdown
         isOpen={isOpen}
