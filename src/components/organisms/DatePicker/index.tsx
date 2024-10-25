@@ -125,7 +125,7 @@ export const DatePicker = ({
       </div>
 
       <Dropdown
-        isOpen={isOpen}
+        isOpen={true}
         onMouseDown={(e) => e.preventDefault()}
         className={styles.datepicker_dropdown}
       >

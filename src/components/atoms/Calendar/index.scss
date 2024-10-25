@@ -1,56 +1,82 @@
 @use "src/styles/libs" as *;
 
+.react-calendar__month-view__days__day {
+  &:hover {
+    background-color: $BLUISH-GRAY-800;
+  }
+}
 .react-calendar {
   width: 350px;
   max-width: 100%;
   padding: 5px;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.125em;
-  background: #ffff;
-  border: 1px solid #eee;
+  background: $BLUISH-GRAY-10;
+  border: 1px solid $GRAY-300;
   border-bottom: none;
-  border-radius: 10px 10px 0 0;
-  &__tile {
-    border-radius: 10px;
-    &:hover {
-      background: $PURPLE-300;
-    }
-    &--now {
-      // 현재 날짜
-      background: $BLUE-200;
-      &:enabled:hover {
-        background: $BLUE-300;
-      }
-    }
-    &--active {
-      // 선택된 날짜
-      background: $BLUE-600;
+}
+
+.react-calendar__tile {
+  border-radius: 10px;
+  padding: 5px;
+
+  &--now {
+    background: $BLUISH-GRAY-200;
+    &:enabled:hover {
+      background: $BLUISH-GRAY-300;
     }
   }
-  &__title {
-    &--now {
-      color: #fafafa;
-      background: $PURPLE-300;
-      &:enabled:hover,
-      &:enabled:focus {
-        color: #fafafa;
-        background: $PURPLE-300;
-      }
-    }
-
-    &--active {
-      color: white;
-      background: $BLUE-600;
-      &:enabled:hover,
-      &:enabled:focus {
-        background: $BLUE-600;
-      }
+  &--active {
+    background: $BLUE-200;
+    &:enabled:hover {
+      background: $BLUE-300;
     }
   }
 }
 
+.react-calendar__navigation {
+  display: flex;
+
+  border-bottom: 1px solid $GRAY-100;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  height: 55px;
+}
 .react-calendar__navigation button:enabled:hover,
 .react-calendar__navigation button:enabled:focus {
   background: transparent;
   text-decoration: underline;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  text-decoration: none;
+  color: $GRAY-500;
+  font-size: 10px;
+  font-weight: 200;
+
+  abbr {
+    text-decoration: none;
+  }
+  &--weekend {
+    color: $PEACH-500;
+  }
+}
+
+// .react-calendar__tile
+//   .react-calendar__month-view__days__day
+
+.react-calendar__month-view__days__day {
+  color: $GRAY-700;
+  font-size: 14px;
+  font-weight: 200;
+
+  &--weekend {
+    color: $PEACH-500;
+  }
+  &--neighboringMonth {
+    color: $GRAY-400;
+    &.react-calendar__month-view__days__day--weekend {
+      color: $PEACH-400;
+    }
+  }
 }
