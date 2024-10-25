@@ -1,13 +1,81 @@
+@use "src/styles/libs" as *;
+
 .range_date_picker_wrapper {
   width: fit-content;
   position: relative;
+  height: fit-content;
 }
 
 .input_wrapper {
   display: flex;
-  gap: 10px;
+  align-items: center;
+  border: 1px $BLUISH-GRAY-200 solid;
+  border-radius: 3px;
+
+  &.has-value {
+    border-color: $BLUISH-GRAY-300;
+  }
+}
+
+.input {
+  @include font-size;
+  @include font-weight;
+
+  &::placeholder {
+    color: $BLUISH-GRAY-400;
+  }
+  &:focus {
+    outline: none;
+    &::placeholder {
+      color: $BLUISH-GRAY-600;
+    }
+  }
+  &.open {
+    color: $BLUISH-GRAY-700;
+    background-color: $BLUISH-GRAY-10;
+    border-color: $GRAY-300;
+  }
+
+  padding: 5px 10px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: none;
+  color: $BLUISH-GRAY-600;
+
+  &.input_left {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
+  &.input_right {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
 }
 
 .range_date_picker_dropdown {
   position: absolute;
+}
+
+.input_left_wrapper {
+  position: relative;
+
+  .arrow_right {
+    position: absolute;
+    color: $BLUISH-GRAY-600;
+    top: 50%;
+    right: 3px;
+    transform: translateY(-50%);
+  }
+}
+
+.input_right_wrapper {
+  position: relative;
+
+  .calendar_icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+  }
 }

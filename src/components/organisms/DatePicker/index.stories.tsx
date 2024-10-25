@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable storybook/prefer-pascal-case */
-import { Button, DateValue } from "@/components/atoms";
+import { DateValue } from "@/components/atoms";
 import { DatePicker } from "@/components/organisms/DatePicker";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
@@ -27,10 +27,6 @@ export const Default: Story = {
           onChange={setValue}
         />
         <br />
-        <Button onClick={() => setValue(new Date())}>날짜 오늘로 변경</Button>
-        <br />
-        <br />
-        <Button onClick={() => setValue(null)}>날짜 초기화</Button>
         <br />
         <br />
         <br />
@@ -44,6 +40,20 @@ export const Default: Story = {
         <br />
         <br />
         {value?.toLocaleString() || "선택된 날짜가 없습니다."}
+        <br />
+        <button
+          style={{ border: "1px gray solid", padding: "3px" }}
+          onClick={() => setValue(new Date())}
+        >
+          날짜 오늘로 변경
+        </button>
+        &nbsp; &nbsp;
+        <button
+          style={{ border: "1px gray solid", padding: "3px" }}
+          onClick={() => setValue(null)}
+        >
+          날짜 초기화
+        </button>
       </div>
     );
   },

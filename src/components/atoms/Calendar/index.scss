@@ -10,7 +10,23 @@
   border: 1px solid #eee;
   border-bottom: none;
   border-radius: 10px 10px 0 0;
-
+  &__tile {
+    border-radius: 10px;
+    &:hover {
+      background: $PURPLE-300;
+    }
+    &--now {
+      // 현재 날짜
+      background: $BLUE-200;
+      &:enabled:hover {
+        background: $BLUE-300;
+      }
+    }
+    &--active {
+      // 선택된 날짜
+      background: $BLUE-600;
+    }
+  }
   &__title {
     &--now {
       color: #fafafa;
@@ -24,11 +40,17 @@
 
     &--active {
       color: white;
-      background: $BLUE-400;
+      background: $BLUE-600;
       &:enabled:hover,
       &:enabled:focus {
-        background: $BLUE-400;
+        background: $BLUE-600;
       }
     }
   }
+}
+
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+  background: transparent;
+  text-decoration: underline;
 }
