@@ -45,6 +45,14 @@ export const Default: Story = {
   },
 };
 
+export const Disabled: Story = {
+  args: {
+    size: "normal",
+    children: "Button",
+    disabled: true,
+  },
+};
+
 export const NoBorder: Story = {
   args: {
     size: "normal",

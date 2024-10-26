@@ -25,15 +25,17 @@ export const Button = ({
   children,
   className,
   fontSize = "normal",
-  fontWeight = 700,
+  fontWeight = 400,
   isLoading = false,
+  disabled,
   ...props
 }: ButtonProps) => {
   return (
     <button
-      disabled={isLoading}
+      disabled={isLoading || disabled}
       className={cleanClassName(
         `${styles["button"]}
+        ${disabled ? styles["button--disabled"] : ""}
         ${border || styles["button--no_border"]}  ${styles[`button--${size}`]} 
           ${styles[`font-size-${fontSize}`]}
           ${styles[`font-weight-${fontWeight}`]}
