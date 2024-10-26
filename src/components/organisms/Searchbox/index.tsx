@@ -12,7 +12,7 @@ import { Input, InputProps } from "@/components/atoms";
 export type SearchboxSizeType = "small" | "normal" | "large";
 
 export interface SearchboxProps<_ValidOptionValue = ValidOptionValue>
-  extends Omit<InputProps, "size" | "type" | "validation">,
+  extends Omit<InputProps, "size" | "type">,
     Pick<OptionsProps, "fontSize" | "fontWeight"> {
   placeholder?: string;
   options: OptionType<_ValidOptionValue>[];
@@ -25,11 +25,12 @@ export const Searchbox = <_ValidOption extends ValidOptionValue>({
   placeholder,
   options,
   onChange,
-  fontSize = "normal",
-  fontWeight = 700,
+  fontSize = "small",
+  fontWeight = 400,
   value,
   onClickOption,
   className,
+  ...props
 }: SearchboxProps<_ValidOption>) => {
   const [isOpen, setIsOpen] = useState(false);
   const [filteredOptions, setFilteredOptions] = useState<
@@ -59,11 +60,12 @@ export const Searchbox = <_ValidOption extends ValidOptionValue>({
           !isOpen && setIsOpen(true);
           handleInputChange(e);
         }}
-        onFocus={() => {
-          !isOpen && setIsOpen(true);
+        onClick={() => {
+          setIsOpen(true);
         }}
         onBlur={() => setIsOpen(false)}
         placeholder={placeholder}
+        {...props}
       />
 
       <Options

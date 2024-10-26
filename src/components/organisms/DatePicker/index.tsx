@@ -1,4 +1,10 @@
-import { Calendar, DateValue, Dropdown, InputProps } from "@/components/atoms";
+import {
+  Calendar,
+  DateValue,
+  Dropdown,
+  Input,
+  InputProps,
+} from "@/components/atoms";
 import React, {
   ChangeEventHandler,
   KeyboardEventHandler,
@@ -102,7 +108,7 @@ export const DatePicker = ({
            ${hasValue && styles["has-value"]}`,
         )}
       >
-        <input
+        <Input
           className={cleanClassName(
             `${styles.input} ${styles["font-size-small"]} ${
               styles["font-weight-400"]

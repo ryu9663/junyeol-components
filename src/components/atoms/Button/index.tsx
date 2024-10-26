@@ -21,10 +21,10 @@ export interface ButtonProps extends HtmlButtonProps {
 
 export const Button = ({
   border = true,
-  size = "normal",
+  size = "small",
   children,
   className,
-  fontSize = "normal",
+  fontSize = "small",
   fontWeight = 400,
   isLoading = false,
   disabled,

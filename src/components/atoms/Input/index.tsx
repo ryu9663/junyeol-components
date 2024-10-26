@@ -6,6 +6,7 @@ import {
 } from "react";
 import styles from "./index.module.scss";
 import { Label } from "@/components/atoms/Label";
+import { FontSizeType, FontWeightType } from "@/utils/constants";
 
 export type InputType =
   | "email"
@@ -32,6 +33,8 @@ export interface InputPropsWithoutRef extends HTMLInputProps {
   type?: InputType;
   validation?: (value: HTMLInputProps["value"]) => string;
   label?: LabelOptionType;
+  fontSize?: FontSizeType;
+  fontWeight?: FontWeightType;
 }
 
 export type InputProps = Omit<InputPropsWithoutRef, "ref"> &
@@ -46,6 +49,8 @@ export const Input = forwardRef<HTMLInputElement, InputPropsWithoutRef>(
       onChange,
       className,
       label,
+      fontSize = "small",
+      fontWeight = 400,
       ...args
     }: InputPropsWithoutRef,
     ref,
@@ -67,9 +72,11 @@ export const Input = forwardRef<HTMLInputElement, InputPropsWithoutRef>(
           {...args}
           ref={ref}
           id={label && label.htmlFor}
-          className={`${className} ${styles.input} ${
+          className={`${styles.input} ${
             validationMessage && styles["error-border"]
-          }`}
+          } ${styles[`font-size-${fontSize}`]}
+          ${styles[`font-weight-${fontWeight}`]}
+          ${className} `}
           value={value}
           onChange={(e) => {
             let isError: boolean | undefined;

@@ -1,23 +1,33 @@
 @use "src/styles/libs" as *;
 
 .input {
+  @include font-size;
+  @include font-weight;
   display: block;
   width: 200px;
-  height: 40px;
-  padding: 10px;
-  margin-bottom: 10px;
+  height: 30px;
+  padding: 5px 10px;
   border: 1px $BLUISH-GRAY-400 solid;
-  border-radius: 10px;
+  border-radius: 3px;
+  color: $BLUISH-GRAY-600;
 
   &::placeholder {
     color: $BLUISH-GRAY-400;
   }
+
   &:hover {
     cursor: pointer;
-    border: 2px solid $BLUE-400;
+    border: 1px solid $BLUE-400;
   }
+
   &:focus {
-    outline-color: $BLUE-500;
+    outline: $BLUE-400;
+    color: $BLUISH-GRAY-700;
+    background-color: $BLUISH-GRAY-10;
+    border-color: $BLUE-400;
+    &::placeholder {
+      color: $BLUISH-GRAY-600;
+    }
   }
 
   &.error-border {
@@ -25,6 +35,7 @@
     outline-color: $PEACH-600;
   }
 }
+
 .validation-error {
   margin-left: 2px;
   color: $PEACH-600;

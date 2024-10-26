@@ -25,10 +25,10 @@ export const Selectbox = <_ValidOption extends ValidOptionValue>({
   name,
   options,
   onChange,
-  size = "normal",
+  size = "small",
   upward = false,
-  fontSize = "normal",
-  fontWeight = 700,
+  fontSize = "small",
+  fontWeight = 400,
   className,
 }: SelectboxProps<_ValidOption>) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -55,7 +55,8 @@ export const Selectbox = <_ValidOption extends ValidOptionValue>({
         className={cleanClassName(
           ` ${styles.selectbox_button} ${styles[size]} ${
             styles[`font-size-${fontSize}`]
-          } ${styles[`font-weight-${fontWeight}`]}`,
+          } ${styles[`font-weight-${fontWeight}`]}
+           ${isOpen && styles["open"]}`,
         )}
         onClick={() => setIsOpen(!isOpen)}
         onBlur={() => setIsOpen(false)}

@@ -13,13 +13,13 @@
 
 .downward {
   position: absolute;
-  top: 40px;
+  top: 25px;
   width: 100%;
 }
 .upward {
   position: absolute;
   top: unset;
-  bottom: 40px;
+  bottom: 25px;
   width: 100%;
 }
 
@@ -27,12 +27,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 30px;
-  padding: 5px;
-  color: $BLUISH-GRAY-800;
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: 0 4px 10px $BLUISH-GRAY-300, 0 4px 16px $BLUISH-GRAY-100;
 
   @include font-size;
   @include font-weight;
@@ -42,15 +36,15 @@
     text-align: center;
   }
   &.small {
-    width: 150px;
-    height: 40px;
+    width: 120px;
+    height: 30px;
   }
   &.normal {
-    width: 200px;
-    height: 40px;
+    width: 160px;
+    height: 35px;
   }
   &.large {
-    width: 300px;
+    width: 200px;
     height: 40px;
   }
   &:hover {
@@ -59,5 +53,8 @@
   &:focus {
     background-color: $BLUISH-GRAY-100;
     outline: none;
+  }
+  &.open {
+    border: 1px solid $BLUE-400;
   }
 }

@@ -18,7 +18,7 @@ export const Default: Story = {
     const [selectedText, setSelectedText] = useState("");
     return (
       <>
-        <div style={{ width: "300px", height: "300px", position: "relative" }}>
+        <div style={{ width: "300px", height: "600px", position: "relative" }}>
           <Options
             isOpen
             onMouseDown={(e) => e.preventDefault()}

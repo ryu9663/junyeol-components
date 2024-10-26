@@ -26,8 +26,8 @@ export const Options = <ValidOption extends ValidOptionValue>({
   onMouseDown = (e) => e.preventDefault(),
   options,
   handleClickOption,
-  fontSize = "normal",
-  fontWeight = 700,
+  fontSize = "small",
+  fontWeight = 400,
 }: OptionsProps<ValidOption>) => {
   const [optionState, setOptionState] = useState(isOpen ? "opening" : "closed");
 
