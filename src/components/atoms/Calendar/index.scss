@@ -22,9 +22,9 @@
     }
   }
   &--active {
-    background: $BLUE-200;
+    background: $BLUE-400;
     &:enabled:focus {
-      background: $BLUE-400;
+      background: $BLUE-200;
     }
     &:enabled:hover {
       background: $BLUE-300;
