@@ -8,7 +8,7 @@
   color: $GRAY-600;
   background-color: $BLUISH-GRAY-100;
   border: 0;
-  border-radius: 5px;
+  border-radius: 3px;
 
   @include font-size;
   @include font-weight;
@@ -16,6 +16,11 @@
   &:hover {
     color: $GRAY-700;
     background-color: $BLUISH-GRAY-50;
+    border: 1px solid $BLUE-400;
+  }
+
+  &:focus {
+    border-color: $BLUE-400;
   }
 
   &--disabled {

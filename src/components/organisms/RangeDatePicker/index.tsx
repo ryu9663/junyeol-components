@@ -3,6 +3,7 @@ import {
   CalendarProps,
   DateValue,
   Dropdown,
+  Input,
   InputProps,
 } from "@/components/atoms";
 import styles from "./index.module.scss";
@@ -77,12 +78,13 @@ export const RangeDatePicker = ({
     <div className={styles.range_date_picker_wrapper}>
       <div
         className={cleanClassName(
-          `${styles.input_wrapper} ${isOpen && styles.open}
-           ${hasValue && styles["has-value"]}`,
+          `${styles.input_wrapper} ${isOpen && styles.open} ${
+            hasValue && styles["has-value"]
+          }`,
         )}
       >
         <div className={styles.input_left_wrapper}>
-          <input
+          <Input
             className={cleanClassName(
               `
               ${styles.input}
@@ -104,7 +106,7 @@ export const RangeDatePicker = ({
           />
         </div>
         <div className={styles.input_right_wrapper}>
-          <input
+          <Input
             className={cleanClassName(
               `${styles.input}
               ${styles.input_right} ${styles["font-size-small"]} ${

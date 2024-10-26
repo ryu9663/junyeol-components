@@ -18,6 +18,18 @@ const meta: Meta<typeof Input> = {
         type: "text",
       },
     },
+    fontSize: {
+      control: {
+        options: ["small", "medium", "large"],
+        type: "select",
+      },
+    },
+    fontWeight: {
+      control: {
+        options: [400, 500, 700],
+        type: "select",
+      },
+    },
   },
   decorators: [(Story) => <Story />],
   tags: ["autodocs"],
@@ -41,6 +53,7 @@ export const Default: Story = {
           validation={(value) =>
             String(value).length > 5 ? "5글자 이하로 입력해주세요" : ""
           }
+          {...args}
         />
         <div>validation: 5글자 이상 입력 못함</div>
       </div>
