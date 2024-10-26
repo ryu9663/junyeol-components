@@ -5,26 +5,26 @@
   font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1;
   color: #333;
+  color: $GRAY-600;
   background-color: $BLUISH-GRAY-100;
   border: 0;
   border-radius: 5px;
-  color: $GRAY-600;
 
   @include font-size;
   @include font-weight;
 
   &:hover {
-    background-color: $BLUISH-GRAY-50;
     color: $GRAY-700;
+    background-color: $BLUISH-GRAY-50;
   }
 
   &--disabled {
+    color: $GRAY-300;
     cursor: not-allowed;
     background-color: $BLUISH-GRAY-50;
-    color: $GRAY-300;
     &:hover {
-      background-color: $BLUISH-GRAY-50;
       color: $GRAY-300;
+      background-color: $BLUISH-GRAY-50;
     }
   }
 
@@ -46,7 +46,6 @@
   &--large {
     height: 50px;
     padding: 6px 20px;
-
     font-size: $LARGE;
   }
 
