@@ -70,7 +70,10 @@ export const Selectbox = <_ValidOption extends ValidOptionValue>({
           <ChevronDown className={styles["arrow"]} width={20} height={20} />
         )}
       </Button>
-      <div className={styles[upward ? "upward" : "downward"]}>
+      <div
+        className={`${styles.dropdown} ${styles[size]}
+        ${styles[upward ? "upward" : "downward"]}`}
+      >
         <Options
           isOpen={isOpen}
           className={cleanClassName(`${className} ${styles.selectbox_options}`)}

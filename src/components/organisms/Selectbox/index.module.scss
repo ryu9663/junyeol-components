@@ -11,23 +11,43 @@
   width: 100%;
 }
 
-.downward {
+.dropdown {
   position: absolute;
-  top: 25px;
   width: 100%;
-}
-.upward {
-  position: absolute;
-  top: unset;
-  bottom: 25px;
-  width: 100%;
+
+  &.small.downward {
+    top: 25px;
+  }
+
+  &.small.upward {
+    top: unset;
+    bottom: 25px;
+  }
+
+  &.normal.downward {
+    top: 30px;
+  }
+
+  &.normal.upward {
+    top: unset;
+    bottom: 30px;
+  }
+
+  &.large.downward {
+    top: 40px;
+  }
+
+  &.large.upward {
+    top: unset;
+    bottom: 40px;
+  }
 }
 
 .selectbox_button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1px;
+
   border: 1px $BLUISH-GRAY-400 solid;
 
   @include font-size;
