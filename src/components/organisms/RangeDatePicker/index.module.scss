@@ -25,13 +25,13 @@
     color: $BLUISH-GRAY-400;
   }
   &:hover {
-    outline: none;
-    border: none;
     background-color: none;
+    border: none;
+    outline: none;
   }
   &:focus {
-    outline: none;
     background-color: unset;
+    outline: none;
 
     &::placeholder {
       color: $BLUISH-GRAY-600;
