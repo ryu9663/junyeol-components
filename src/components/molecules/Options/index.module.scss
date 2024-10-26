@@ -8,8 +8,8 @@
   padding: 3px;
   list-style: none;
   background-color: $BLUISH-GRAY-50;
-  border-radius: 3px;
   border: 1px $BLUE-400 solid;
+  border-radius: 3px;
 
   &_list {
     @include font-size;
@@ -17,9 +17,8 @@
 
     width: 100%;
     height: 30px;
-    border-radius: 3px;
-
     background-color: $BLUISH-GRAY-50;
+    border-radius: 3px;
 
     &:hover {
       background-color: $BLUE-100;

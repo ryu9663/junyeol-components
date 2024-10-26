@@ -3,13 +3,14 @@
 .input {
   @include font-size;
   @include font-weight;
+
   display: block;
   width: 200px;
   height: 30px;
   padding: 5px 10px;
+  color: $BLUISH-GRAY-600;
   border: 1px $BLUISH-GRAY-400 solid;
   border-radius: 3px;
-  color: $BLUISH-GRAY-600;
 
   &::placeholder {
     color: $BLUISH-GRAY-400;
@@ -21,10 +22,10 @@
   }
 
   &:focus {
-    outline: $BLUE-400;
     color: $BLUISH-GRAY-700;
     background-color: $BLUISH-GRAY-10;
     border-color: $BLUE-400;
+    outline: $BLUE-400;
     &::placeholder {
       color: $BLUISH-GRAY-600;
     }
