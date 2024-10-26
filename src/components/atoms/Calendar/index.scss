@@ -23,6 +23,9 @@
   }
   &--active {
     background: $BLUE-200;
+    &:enabled:focus {
+      background: $BLUE-400;
+    }
     &:enabled:hover {
       background: $BLUE-300;
     }
@@ -36,6 +39,7 @@
   margin-bottom: 5px;
   border-bottom: 1px solid $GRAY-100;
 }
+
 .react-calendar__navigation button:enabled:hover,
 .react-calendar__navigation button:enabled:focus {
   text-decoration: underline;
