@@ -46,11 +46,16 @@ export const Toast = ({
       }
 
       case "closing": {
-        const closeTimer = setTimeout(
-          () => setToastState("closed"),
-          CLOSE_TOAST_ANIMATION_DURATION
-        );
-        return () => clearTimeout(closeTimer);
+        if (!isSpaceHolding) {
+          const closeTimer = setTimeout(
+            () => setToastState("closed"),
+            CLOSE_TOAST_ANIMATION_DURATION,
+          );
+          return () => clearTimeout(closeTimer);
+        } else {
+          setToastState("opened");
+          return;
+        }
       }
       default:
     }
@@ -75,7 +80,7 @@ export const Toast = ({
       className={cleanClassName(
         `${styles["toast-wrap"]} ${
           hasSpace && styles["has-space"]
-        } ${className}`
+        } ${className}`,
       )}
     >
       <div
@@ -98,7 +103,7 @@ export const Toast = ({
               closing: styles.closing,
               closed: styles.invisible,
             }[toastState]
-          }`
+          }`,
         )}
       >
         <img

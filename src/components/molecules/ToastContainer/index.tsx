@@ -12,7 +12,7 @@ export interface ToastOptionType extends ToastProps {}
 
 export const ToastContainer = ({
   children,
-  holdTime = 2000,
+  holdTime = 3000,
 }: PropsWithChildren<{ holdTime?: number }>) => {
   const [toastInfos, setToastInfos] = useState<ToastOptionType[]>([]);
   const toastOption = useToastStore((state) => state.toastOption);
@@ -31,10 +31,12 @@ export const ToastContainer = ({
   }, [isSpaceHolding, holdTime, toastInfos]);
 
   useMountedEffect(() => {
-    setToastInfos((prevToastPropss) => [
-      ...prevToastPropss,
-      { ...toastOption, deleted: false },
-    ]);
+    if (toastOption.children) {
+      setToastInfos((prevToastPropss) => [
+        ...prevToastPropss,
+        { ...toastOption, deleted: false },
+      ]);
+    }
   }, [toastOption]);
 
   return (
@@ -50,7 +52,7 @@ export const ToastContainer = ({
       {children}
       <div>
         {toastInfos.map((toastInfo, i) => (
-          <Toast {...toastInfo} key={i} />
+          <Toast {...toastInfo} isSpaceHolding={isSpaceHolding} key={i} />
         ))}
       </div>
     </div>
