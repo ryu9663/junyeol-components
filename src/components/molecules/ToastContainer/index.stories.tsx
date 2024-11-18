@@ -39,7 +39,7 @@ const meta: Meta<typeof Toast> = {
   args: {
     children: "토스트",
     type: "success",
-    isSpaceHolding: true,
+    isSpaceHolding: false,
     floatDirection: "from-top",
     holdTime: 3000,
     className: "",
