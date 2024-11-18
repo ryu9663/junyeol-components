@@ -1,14 +1,34 @@
-import { Toast, ToastProps } from "@/components/atoms/Toast";
+import {
+  CLOSE_TOAST_ANIMATION_DURATION,
+  Toast,
+  ToastProps,
+} from "@/components/atoms/Toast";
 import { useToastStore } from "@/components/molecules/ToastContainer/index.store";
-import { PropsWithChildren, useState } from "react";
+import { PropsWithChildren, useEffect, useState } from "react";
 import styles from "./index.module.scss";
 import { useMountedEffect } from "@/utils/hooks/useMountedEffect";
 
 export interface ToastOptionType extends ToastProps {}
 
-export const ToastContainer = ({ children }: PropsWithChildren) => {
+export const ToastContainer = ({
+  children,
+  holdTime = 2000,
+}: PropsWithChildren<{ holdTime?: number }>) => {
   const [toastInfos, setToastInfos] = useState<ToastOptionType[]>([]);
   const toastOption = useToastStore((state) => state.toastOption);
+
+  const [isSpaceHolding, setIsSpaceHolding] = useState(false);
+
+  useEffect(() => {
+    if (!isSpaceHolding && toastInfos.length > 0) {
+      const removeTimer = setTimeout(
+        () => setToastInfos([]),
+        holdTime + CLOSE_TOAST_ANIMATION_DURATION,
+      );
+
+      return () => clearTimeout(removeTimer);
+    }
+  }, [isSpaceHolding, holdTime, toastInfos]);
 
   useMountedEffect(() => {
     setToastInfos((prevToastPropss) => [
@@ -19,6 +39,10 @@ export const ToastContainer = ({ children }: PropsWithChildren) => {
 
   return (
     <div
+      onMouseEnter={() => setIsSpaceHolding(true)}
+      onMouseLeave={() => {
+        setIsSpaceHolding(false);
+      }}
       className={`${styles.toast_wrapper} ${
         styles[toastOption.floatDirection || "from-top"]
       } ${styles["priority-1"]}`}
