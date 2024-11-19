@@ -27,8 +27,17 @@
     box-shadow: 0 0 24px rgba(0, 0, 0, 0.2);
   }
 
-  &.invisible {
+  &.opening {
     visibility: hidden;
+  }
+
+  &.closed {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  &.holding {
+    visibility: visible;
   }
 
   &.float-direction-from-top {

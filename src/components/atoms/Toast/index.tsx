@@ -41,33 +41,34 @@ export const Toast = ({
         break;
 
       case "opened": {
-        const holdTimer = setTimeout(() => setToastState("closing"), holdTime);
+        const holdTimer = setTimeout(
+          () => setToastState(isSpaceHolding ? "holding" : "closing"),
+          isSpaceHolding ? 500 : holdTime,
+        );
         return () => clearTimeout(holdTimer);
       }
 
       case "closing": {
-        if (!isSpaceHolding) {
-          const closeTimer = setTimeout(
-            () => setToastState("closed"),
-            CLOSE_TOAST_ANIMATION_DURATION,
-          );
-          return () => clearTimeout(closeTimer);
-        } else {
-          setToastState("opened");
-          return;
-        }
+        const closeTimer = setTimeout(
+          () => setToastState("closed"),
+          CLOSE_TOAST_ANIMATION_DURATION,
+        );
+        return () => clearTimeout(closeTimer);
       }
       default:
     }
-  }, [toastState, holdTime]);
+  }, [toastState, isSpaceHolding, holdTime]);
 
   useEffect(() => {
+    if (toastState === "holding" && !isSpaceHolding) {
+      setToastState("closed");
+      return;
+    }
     if (toastState === "closed" && !isSpaceHolding) {
-      setToastState("deleted");
+      const removeTimer = setTimeout(() => setToastState("deleted"), 500);
+      return () => clearTimeout(removeTimer);
     }
   }, [isSpaceHolding, toastState]);
-
-  const isToastHoldable = ["opened", "holding", "closing"].includes(toastState);
 
   const hasSpace =
     ["opened", "holding"].includes(toastState) ||
@@ -84,24 +85,14 @@ export const Toast = ({
       )}
     >
       <div
-        onMouseEnter={() => {
-          if (isToastHoldable) {
-            setToastState("holding");
-          }
-        }}
-        onMouseLeave={() => {
-          if (isToastHoldable) {
-            setToastState("opened");
-          }
-        }}
         className={cleanClassName(
           `${styles.toast} ${styles[`float-direction-${floatDirection}`]} ${
             {
-              opening: styles.invisible,
+              opening: styles.opening,
               opened: styles.opened,
-              holding: styles.opened,
+              holding: styles.holding,
               closing: styles.closing,
-              closed: styles.invisible,
+              closed: styles.closed,
             }[toastState]
           }`,
         )}
