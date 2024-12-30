@@ -2,6 +2,7 @@
 
 .dropdown_tag_wrapper {
   width: fit-content;
+  position: relative;
 }
 
 .dropdown_tag {
@@ -14,20 +15,24 @@
 }
 
 .dropdown_wrapper {
+  position: absolute;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  min-width: 100%;
   width: fit-content;
-  width: 100%;
-  padding: 10px 20px;
+  color: $GRAY-600;
+  padding: 10px;
   margin-top: 10px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px $BLUISH-GRAY-300, 0 4px 16px $BLUISH-GRAY-100;
+  border-radius: 3px;
+  background-color: $BLUISH-GRAY-100;
 }
+
 .dropdown_close_btn {
   align-self: flex-end;
   width: fit-content;
   height: fit-content;
   padding: 0;
   box-shadow: none;
+  background-color: $BLUISH-GRAY-100;
 }

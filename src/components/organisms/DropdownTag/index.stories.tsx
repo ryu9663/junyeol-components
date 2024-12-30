@@ -1,5 +1,7 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { DropdownTag, Input, Selectbox } from "@/index";
 import { Meta, StoryObj } from "@storybook/react";
+import { useState } from "react";
 
 const meta: Meta<typeof DropdownTag> = {
   title: "organisms/DropdownTag",
@@ -14,15 +16,19 @@ type Story = StoryObj<typeof DropdownTag>;
 export const Default: Story = {
   render: () => {
     return (
-      <DropdownTag name="DropdownTag" fontSize="small" fontWeight={400}>
-        <div>dropdown</div>
-      </DropdownTag>
+      <div style={{ height: "500px" }}>
+        <DropdownTag name="DropdownTag" fontSize="small" fontWeight={400}>
+          <div>dropdown</div>
+        </DropdownTag>
+        <div>드롭다운 열어도 레이아웃 변화가 생기면 안 됨</div>
+      </div>
     );
   },
 };
 
 export const Example: Story = {
   render: () => {
+    const [text, setText] = useState("30");
     return (
       <DropdownTag
         name="관광지 검색 옵션 변경"
@@ -47,9 +53,10 @@ export const Example: Story = {
 
         <Input
           type="text"
-          value={30}
+          value={text}
           onChange={(e) => {
             console.log(e.target.value);
+            setText(e.target.value);
           }}
           validation={(value) => {
             return isNaN(Number(value)) ? "숫자만 입력해주세요" : "";
