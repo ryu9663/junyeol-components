@@ -12,10 +12,10 @@ export const PickerFooter = ({ onOk, onCancel }: PickerFooterProps) => {
         `${styles.picker_footer_wrapper} ${styles["font-size-small"]}`,
       )}
     >
-      <Button fontSize="small" size="small" onClick={onOk}>
+      <Button type="button" fontSize="small" size="small" onClick={onOk}>
         확인
       </Button>
-      <Button fontSize="small" size="small" onClick={onCancel}>
+      <Button type="button" fontSize="small" size="small" onClick={onCancel}>
         취소
       </Button>
     </div>
