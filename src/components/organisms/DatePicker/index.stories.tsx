@@ -39,6 +39,7 @@ export const Default: Story = {
         <br />
         <br />
         <br />
+        <hr />
         {value?.toLocaleString() || "선택된 날짜가 없습니다."}
         <br />
         <button
