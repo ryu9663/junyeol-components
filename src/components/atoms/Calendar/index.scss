@@ -22,6 +22,7 @@
   }
   &--active {
     background: $BLUE-300;
+    color: $GRAY-700;
     &:enabled:focus {
       background: $BLUE-200;
     }
@@ -56,6 +57,9 @@
   }
   &--weekend {
     color: $PEACH-500;
+    &.react-calendar__tile--active {
+      color: $PEACH-600;
+    }
   }
 }
 
@@ -75,4 +79,18 @@
       color: $PEACH-400;
     }
   }
+}
+
+.react-calendar__tile:disabled {
+  color: $GRAY-200;
+  background: $BLUISH-GRAY-10;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.react-calendar__navigation button:disabled {
+  color: $GRAY-200;
+  background: $BLUISH-GRAY-10;
+  cursor: not-allowed;
+  pointer-events: none;
 }
