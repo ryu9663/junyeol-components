@@ -8,12 +8,11 @@
   line-height: 1.125em;
   background: $BLUISH-GRAY-10;
   border: 1px solid $GRAY-300;
-  border-bottom: none;
 }
 
 .react-calendar__tile {
   padding: 5px;
-  border-radius: 10px;
+  border-radius: 5px;
 
   &--now {
     background: $BLUISH-GRAY-200;
@@ -22,7 +21,7 @@
     }
   }
   &--active {
-    background: $BLUE-400;
+    background: $BLUE-300;
     &:enabled:focus {
       background: $BLUE-200;
     }

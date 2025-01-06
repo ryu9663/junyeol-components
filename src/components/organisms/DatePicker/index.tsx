@@ -13,8 +13,8 @@ import React, {
 } from "react";
 import { CalendarProps } from "react-calendar";
 import styles from "./index.module.scss";
-import { PickerFooter } from "@/components/molecules/PickerFooter";
-import { usePrevious } from "@/utils/hooks/usePrevious";
+
+// import { usePrevious } from "@/utils/hooks/usePrevious";
 import { convertDateToString } from "@/components/organisms/DatePicker/convert";
 import { cleanClassName } from "@/utils";
 import CalendarIcon from "@/assets/calendar.svg";
@@ -59,8 +59,6 @@ export const DatePicker = ({
     }
   };
 
-  const previousLocalValue = usePrevious<DateValue>(localValue);
-
   const handleKeyDown: KeyboardEventHandler<HTMLInputElement> = (e) => {
     if (!isOpen) setIsOpen(true);
     if (e.key === "Enter") {
@@ -76,16 +74,10 @@ export const DatePicker = ({
     setIsOpen(false);
   };
 
-  const handleCancel = () => {
-    const _previousLocalValue = previousLocalValue || null;
-    new Promise(() => {
-      setTimeout(() => {
-        setLocalValue(_previousLocalValue);
-      }, 500);
-    });
-    setInputValue(convertDateToString(_previousLocalValue));
-
+  const handleCalendarOff = () => {
     setIsOpen(false);
+    setInputValue(convertDateToString(localValue));
+    onChange?.(localValue);
   };
 
   useEffect(() => {
@@ -116,7 +108,7 @@ export const DatePicker = ({
         `,
           )}
           onClick={() => setIsOpen(true)}
-          onBlur={() => setIsOpen(false)}
+          onBlur={handleCalendarOff}
           value={inputValue}
           onChange={handleChangeInput}
           onKeyDown={handleKeyDown}
@@ -136,7 +128,6 @@ export const DatePicker = ({
         className={styles.datepicker_dropdown}
       >
         <Calendar value={localValue} onChange={setLocalValue} {...props} />
-        <PickerFooter onOk={handleOk} onCancel={handleCancel} />
       </Dropdown>
     </div>
   );
