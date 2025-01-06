@@ -8,8 +8,6 @@ import {
 } from "@/components/atoms";
 import styles from "./index.module.scss";
 import { useEffect, useState } from "react";
-import { PickerFooter } from "@/components/molecules/PickerFooter";
-import { usePrevious } from "@/utils/hooks";
 import { convertDateToString } from "@/components/organisms/DatePicker/convert";
 import CalendarIcon from "@/assets/calendar.svg";
 import CalendarActiveIcon from "@/assets/calendar_active.svg";
@@ -40,22 +38,11 @@ export const RangeDatePicker = ({
     value || [null, null],
   );
 
-  const previousLocalValue = usePrevious<RangeDatePickerValueType>(localValue);
-
-  const handleOk = () => {
-    onChange?.(localValue);
+  const handleCalendarOff = () => {
     setSelectedInput(null);
-  };
 
-  const handleCancel = () => {
-    const _previousLocalValue = previousLocalValue || [null, null];
-
-    new Promise<void>(() => {
-      setTimeout(() => {
-        setLocalValue(_previousLocalValue);
-      }, 500);
-    });
-    setLocalValue(_previousLocalValue);
+    setLocalValue([localValue[0], localValue[1]]);
+    onChange?.([localValue[0], localValue[1]]);
     setSelectedInput(null);
   };
 
@@ -73,7 +60,9 @@ export const RangeDatePicker = ({
   const hasValue =
     convertDateToString(localValue[1]) !== "" ||
     convertDateToString(localValue[0]) !== "";
+
   const isOpen = selectedInput !== null;
+
   return (
     <div className={styles.range_date_picker_wrapper}>
       <div
@@ -95,7 +84,7 @@ export const RangeDatePicker = ({
               `,
             )}
             onClick={() => setSelectedInput("start")}
-            onBlur={() => setSelectedInput(null)}
+            onBlur={handleCalendarOff}
             value={localValue ? convertDateToString(localValue[0]) : ""}
             {...leftInputProps}
           />
@@ -115,7 +104,7 @@ export const RangeDatePicker = ({
               `,
             )}
             onClick={() => setSelectedInput("end")}
-            onBlur={() => setSelectedInput(null)}
+            onBlur={handleCalendarOff}
             value={localValue ? convertDateToString(localValue[1]) : ""}
             {...rightInputProps}
           />
@@ -136,15 +125,14 @@ export const RangeDatePicker = ({
             <Calendar
               value={localValue[selectedInput === "start" ? 0 : 1]}
               onChange={handleCalendarChange}
-              // minDate={
-              //   selectedInput === "end" ? (localValue[0] as Date) : undefined
-              // }
-              // maxDate={
-              //   selectedInput === "start" ? (localValue[1] as Date) : undefined
-              // }
+              minDate={
+                selectedInput === "end" ? (localValue[0] as Date) : undefined
+              }
+              maxDate={
+                selectedInput === "start" ? (localValue[1] as Date) : undefined
+              }
               {...calendarProps}
             />
-            <PickerFooter onOk={handleOk} onCancel={handleCancel} />
           </>
         )}
       </Dropdown>
