@@ -17,6 +17,7 @@ export interface ButtonProps extends HtmlButtonProps {
   fontSize?: FontSizeType;
   fontWeight?: FontWeightType;
   isLoading?: boolean;
+  isSelected?: boolean;
 }
 
 export const Button = ({
@@ -28,6 +29,7 @@ export const Button = ({
   fontWeight = 400,
   isLoading = false,
   disabled,
+  isSelected,
   ...props
 }: ButtonProps) => {
   return (
@@ -40,6 +42,7 @@ export const Button = ({
           ${styles[`font-size-${fontSize}`]}
           ${styles[`font-weight-${fontWeight}`]}
           ${styles[isLoading ? "loading" : ""]}
+          ${styles[isSelected ? "selected" : ""]}
           ${className}`,
       )}
       {...props}

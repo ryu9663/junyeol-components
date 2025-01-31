@@ -68,4 +68,9 @@
       @include spinner-rotation;
     }
   }
+
+  &.selected {
+    color: $GRAY-50;
+    background-color: $BLUE-300;
+  }
 }
