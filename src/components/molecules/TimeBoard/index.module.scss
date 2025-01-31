@@ -1,0 +1,28 @@
+@use "src/styles/libs" as *;
+
+.time-board {
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+  width: 240px;
+  height: 245px;
+  padding: 3px;
+  list-style: none;
+  background-color: $BLUISH-GRAY-100;
+  border: 1px $BLUE-400 solid;
+  border-radius: 3px;
+
+  &_buttons {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    gap: 3px;
+    padding-right: 10px;
+  }
+
+  &_button {
+    width: 90px;
+  }
+}

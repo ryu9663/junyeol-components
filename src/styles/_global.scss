@@ -13,6 +13,15 @@ body {
   color: libs.$BLUISH-GRAY-800;
 }
 
+ul {
+  list-style: none;
+}
+button {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 html {
   font-size: 16px;
 }
