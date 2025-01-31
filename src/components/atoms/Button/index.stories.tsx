@@ -85,3 +85,12 @@ export const Loading: Story = {
     isLoading: true,
   },
 };
+
+export const Selected: Story = {
+  args: {
+    size: "normal",
+    border: true,
+    children: "Button",
+    isSelected: true,
+  },
+};
