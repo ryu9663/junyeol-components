@@ -9,3 +9,4 @@ export * from "./Dropdown";
 export * from "./Input";
 export * from "./Switch";
 export * from "./Calendar";
+export * from "./NewTable";
