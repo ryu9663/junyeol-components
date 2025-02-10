@@ -1,4 +1,10 @@
-import { PropsWithChildren, useEffect, useRef, useState } from "react";
+import {
+  CSSProperties,
+  PropsWithChildren,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import styles from "./HoverTableCell.module.scss";
 import { useToast } from "@/index";
 import nodeToString from "react-node-to-string";
@@ -6,7 +12,7 @@ import { Copy } from "react-feather";
 import { CopyMessageType } from "@/components/molecules/Table/TableCell";
 
 export interface HoverTableCellProps extends PropsWithChildren {
-  maxWidth?: number;
+  maxWidth?: CSSProperties["maxWidth"];
   copyMessage?: CopyMessageType;
 }
 
@@ -31,7 +37,7 @@ export const HoverTableCell = ({
 
   const handleCopy = async (
     text: string,
-    toastMessage?: { success: string; fail?: string }
+    toastMessage?: { success: string; fail?: string },
   ) => {
     await navigator.clipboard
       .writeText(text)
@@ -47,7 +53,7 @@ export const HoverTableCell = ({
           type: "fail",
           children: toastMessage?.fail || "복사에 실패했습니다.",
           holdTime: 3000,
-        })
+        }),
       );
   };
 
