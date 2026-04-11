@@ -8,5 +8,6 @@ export * from "./Backdrop";
 export * from "./Dropdown";
 export * from "./Input";
 export * from "./Switch";
+export * from "./SegmentedControl";
 export * from "./Calendar";
 export * from "./NewTable";

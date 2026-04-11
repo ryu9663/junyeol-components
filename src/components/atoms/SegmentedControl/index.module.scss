@@ -1,0 +1,56 @@
+@use "src/styles/libs" as *;
+
+.toggle {
+  display: inline-flex;
+  gap: 2px;
+  align-items: center;
+  padding: 3px;
+  background-color: $BLUISH-GRAY-50;
+  border-radius: 8px;
+}
+
+.toggle__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  color: $BLUISH-GRAY-500;
+  white-space: nowrap;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  border-radius: 6px;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+
+  .toggle--small & {
+    padding: 4px 10px;
+    font-size: $SMALL2X;
+  }
+
+  .toggle--medium & {
+    padding: 6px 14px;
+    font-size: $SMALL;
+  }
+
+  .toggle--large & {
+    padding: 8px 18px;
+    font-size: $NORMAL;
+  }
+
+  &:hover:not(&--disabled):not(&--selected) {
+    color: $BLUISH-GRAY-700;
+    background-color: $BLUISH-GRAY-100;
+  }
+
+  &--selected {
+    color: $BLUISH-GRAY-800;
+    cursor: default;
+    background-color: $WHITE;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  &--disabled {
+    color: $BLUISH-GRAY-300;
+    cursor: not-allowed;
+  }
+}
