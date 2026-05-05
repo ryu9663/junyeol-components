@@ -10,3 +10,4 @@ export * from "./Table";
 export * from "./Options";
 export * from "./Checkbox";
 export * from "./TimeBoard";
+export * from "./ToastContainer/toast";
